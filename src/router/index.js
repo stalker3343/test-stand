@@ -1,4 +1,3 @@
-import { createRouter } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
 export const routes = [
@@ -16,9 +15,3 @@ export const routes = [
     component: () => import('../views/AboutView.vue')
   }
 ]
-
-const router = createRouter({
-  routes
-})
-
-export default router

@@ -8,7 +8,7 @@ export const createApp = ViteSSG(
   // the root component
   App,
   // vue-router options
-  { routes }
+  { routes, base: process.env.NODE_ENV === 'production' ? '/test-stand' : '/' }
 
   // function to have custom setups
   // ({ app, router, routes, isClient, initialState }) => {

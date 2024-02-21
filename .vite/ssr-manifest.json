@@ -33,12 +33,12 @@
   "src/main.js": [],
   "src/router/index.js": [],
   "src/views/AboutView.vue": [
-    "/assets/AboutView-bqZYmroS.js",
-    "/assets/AboutView-C6Dx7pxG.css"
+    "/test-stand/assets/AboutView-YGZxEC7R.js",
+    "/test-stand/assets/AboutView-C6Dx7pxG.css"
   ],
   "src/views/AboutView.vue?vue&type=style&index=0&lang.css": [
-    "/assets/AboutView-bqZYmroS.js",
-    "/assets/AboutView-C6Dx7pxG.css"
+    "/test-stand/assets/AboutView-YGZxEC7R.js",
+    "/test-stand/assets/AboutView-C6Dx7pxG.css"
   ],
   "src/views/HomeView.vue": []
 }

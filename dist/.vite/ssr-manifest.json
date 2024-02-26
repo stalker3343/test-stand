@@ -1,44 +1,306 @@
 {
-  "\u0000plugin-vue:export-helper": [],
-  "\u0000vite/modulepreload-polyfill.js": [],
-  "\u0000vite/preload-helper.js": [],
-  "index.html": [],
-  "node_modules/.pnpm/@unhead+dom@1.8.10/node_modules/@unhead/dom/dist/index.mjs": [],
-  "node_modules/.pnpm/@unhead+shared@1.8.10/node_modules/@unhead/shared/dist/index.mjs": [],
-  "node_modules/.pnpm/@unhead+vue@1.8.10_vue@3.4.19/node_modules/@unhead/vue/dist/shared/vue.cf295fb1.mjs": [],
-  "node_modules/.pnpm/@vue+reactivity@3.4.19/node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js": [],
-  "node_modules/.pnpm/@vue+runtime-core@3.4.19/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js": [],
-  "node_modules/.pnpm/@vue+runtime-dom@3.4.19/node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js": [],
-  "node_modules/.pnpm/@vue+shared@3.4.19/node_modules/@vue/shared/dist/shared.esm-bundler.js": [],
-  "node_modules/.pnpm/hookable@5.5.3/node_modules/hookable/dist/index.mjs": [],
-  "node_modules/.pnpm/unhead@1.8.10/node_modules/unhead/dist/index.mjs": [],
-  "node_modules/.pnpm/vite-ssg@0.23.6_vite@5.1.3_vue-router@4.2.5_vue@3.4.19/node_modules/vite-ssg/dist/index.mjs": [],
-  "node_modules/.pnpm/vite-ssg@0.23.6_vite@5.1.3_vue-router@4.2.5_vue@3.4.19/node_modules/vite-ssg/dist/shared/vite-ssg.5912142e.mjs": [],
-  "node_modules/.pnpm/vite-ssg@0.23.6_vite@5.1.3_vue-router@4.2.5_vue@3.4.19/node_modules/vite-ssg/dist/shared/vite-ssg.a009fbf1.mjs": [],
-  "node_modules/.pnpm/vue-router@4.2.5_vue@3.4.19/node_modules/vue-router/dist/vue-router.mjs": [],
-  "src/App.vue": [],
-  "src/App.vue?vue&type=style&index=0&scoped=fc484609&lang.css": [],
-  "src/assets/logo.svg": [],
-  "src/assets/main.css": [],
-  "src/components/HelloWorld.vue": [],
-  "src/components/HelloWorld.vue?vue&type=style&index=0&scoped=531db362&lang.css": [],
-  "src/components/TheWelcome.vue": [],
-  "src/components/WelcomeItem.vue": [],
-  "src/components/WelcomeItem.vue?vue&type=style&index=0&scoped=40a5c0e5&lang.css": [],
-  "src/components/icons/IconCommunity.vue": [],
-  "src/components/icons/IconDocumentation.vue": [],
-  "src/components/icons/IconEcosystem.vue": [],
-  "src/components/icons/IconSupport.vue": [],
-  "src/components/icons/IconTooling.vue": [],
-  "src/main.js": [],
-  "src/router/index.js": [],
-  "src/views/AboutView.vue": [
-    "/test-stand/assets/AboutView-BAa8WJkd.js",
-    "/test-stand/assets/AboutView-C6Dx7pxG.css"
+  "\u0000plugin-vue:export-helper": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
   ],
-  "src/views/AboutView.vue?vue&type=style&index=0&lang.css": [
-    "/test-stand/assets/AboutView-BAa8WJkd.js",
-    "/test-stand/assets/AboutView-C6Dx7pxG.css"
+  "\u0000vite/modulepreload-polyfill.js": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
   ],
-  "src/views/HomeView.vue": []
+  "\u0000vite:asset:public/Video_Works_HD.mp4": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "index.html": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "node_modules/.pnpm/@unhead+dom@1.8.10/node_modules/@unhead/dom/dist/index.mjs": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "node_modules/.pnpm/@unhead+shared@1.8.10/node_modules/@unhead/shared/dist/index.mjs": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "node_modules/.pnpm/@unhead+vue@1.8.10_vue@3.4.19/node_modules/@unhead/vue/dist/shared/vue.cf295fb1.mjs": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "node_modules/.pnpm/@vue+reactivity@3.4.19/node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "node_modules/.pnpm/@vue+runtime-core@3.4.19/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "node_modules/.pnpm/@vue+runtime-dom@3.4.19/node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "node_modules/.pnpm/@vue+shared@3.4.19/node_modules/@vue/shared/dist/shared.esm-bundler.js": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "node_modules/.pnpm/hookable@5.5.3/node_modules/hookable/dist/index.mjs": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "node_modules/.pnpm/unhead@1.8.10/node_modules/unhead/dist/index.mjs": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "node_modules/.pnpm/vite-ssg@0.23.6_vite@5.1.3_vue-router@4.2.5_vue@3.4.19/node_modules/vite-ssg/dist/index.mjs": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "node_modules/.pnpm/vite-ssg@0.23.6_vite@5.1.3_vue-router@4.2.5_vue@3.4.19/node_modules/vite-ssg/dist/shared/vite-ssg.5912142e.mjs": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "node_modules/.pnpm/vite-ssg@0.23.6_vite@5.1.3_vue-router@4.2.5_vue@3.4.19/node_modules/vite-ssg/dist/shared/vite-ssg.a009fbf1.mjs": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "node_modules/.pnpm/vue-router@4.2.5_vue@3.4.19/node_modules/vue-router/dist/vue-router.mjs": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/App.vue": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/App.vue?vue&type=script&setup=true&lang.ts": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/App.vue?vue&type=style&index=0&scoped=55c65cc6&lang.css": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/assets/images/logo.svg": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/assets/main.scss": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/assets/sprite.svg": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/App/AppHeader.vue": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/App/AppHeader.vue?vue&type=style&index=0&scoped=fba33f9b&lang.scss": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/BlogSection.vue": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/BlogSection.vue?vue&type=script&setup=true&lang.ts": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/BlogSection.vue?vue&type=style&index=0&scoped=09be2e5b&lang.scss": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/HeaderSection.vue": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/HeaderSection.vue?vue&type=style&index=0&scoped=d74cd8e8&lang.scss": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/OtherIndustries.vue": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/OtherIndustries.vue?vue&type=script&setup=true&lang.ts": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/OtherIndustries.vue?vue&type=style&index=0&scoped=9e1bdc59&lang.scss": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/OurClients.vue": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/OurClients.vue?vue&type=script&setup=true&lang.ts": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/OurClients.vue?vue&type=style&index=0&scoped=4b023a88&lang.scss": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/OurServices.vue": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/OurServices.vue?vue&type=script&setup=true&lang.ts": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/OurServices.vue?vue&type=style&index=0&scoped=479ce3a2&lang.scss": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/ValuesSection.vue": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/ValuesSection.vue?vue&type=script&setup=true&lang.ts": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/ValuesSection.vue?vue&type=style&index=0&scoped=428c4b9f&lang.scss": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/WeWork.vue": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/WeWork.vue?vue&type=script&setup=true&lang.ts": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/WeWork.vue?vue&type=style&index=0&scoped=f0b9a375&lang.scss": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/cases/BaseCase.vue": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/cases/BaseCase.vue?vue&type=script&setup=true&lang.ts": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/cases/BaseCase.vue?vue&type=style&index=0&scoped=49721c03&lang.scss": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/cases/CaseDescription.vue": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/cases/CaseDescription.vue?vue&type=script&setup=true&lang.ts": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/cases/CaseDescription.vue?vue&type=style&index=0&scoped=7adb9f9e&lang.scss": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/cases/CaseFeedback.vue": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/cases/CaseFeedback.vue?vue&type=script&setup=true&lang.ts": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/cases/CaseFeedback.vue?vue&type=style&index=0&scoped=3853a80a&lang.scss": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/cases/CasesSection.vue": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/cases/CasesSection.vue?vue&type=script&setup=true&lang.ts": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/cases/CasesSection.vue?vue&type=style&index=0&scoped=41134e77&lang.scss": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/cases/LookCase.vue": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/cases/LookCase.vue?vue&type=script&setup=true&lang.ts": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/cases/LookCase.vue?vue&type=style&index=0&scoped=34508c94&lang.scss": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/cases/TylerCase.vue": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/cases/TylerCase.vue?vue&type=script&setup=true&lang.ts": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/cases/TylerCase.vue?vue&type=style&index=0&scoped=72d994ce&lang.scss": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/cases/WitmallCase.vue": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/cases/WitmallCase.vue?vue&type=script&setup=true&lang.ts": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/cases/WitmallCase.vue?vue&type=style&index=0&scoped=862eb3fa&lang.scss": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/cases/WordCase.vue": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/cases/WordCase.vue?vue&type=script&setup=true&lang.ts": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/components/sections/cases/WordCase.vue?vue&type=style&index=0&scoped=db41cf04&lang.scss": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/main.ts": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/router/index.js": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/ui/BaseIcon.vue": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/ui/BaseIcon.vue?vue&type=style&index=0&lang.scss": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/views/HomeView.vue": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/views/HomeView.vue?vue&type=script&lang.ts": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ],
+  "src/views/HomeView.vue?vue&type=style&index=0&scoped=912550b8&lang.css": [
+    "/test-stand/assets/logo-D9JSh26l.svg",
+    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
+  ]
 }

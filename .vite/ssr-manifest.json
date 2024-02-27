@@ -111,7 +111,7 @@
     "/test-stand/assets/logo-D9JSh26l.svg",
     "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
   ],
-  "src/App.vue?vue&type=style&index=0&scoped=55c65cc6&lang.css": [
+  "src/App.vue?vue&type=style&index=0&scoped=6f843a15&lang.css": [
     "/test-stand/assets/logo-D9JSh26l.svg",
     "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
   ],
@@ -207,7 +207,7 @@
     "/test-stand/assets/logo-D9JSh26l.svg",
     "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
   ],
-  "src/components/sections/OurServices.vue?vue&type=style&index=0&scoped=df670bcd&lang.scss": [
+  "src/components/sections/OurServices.vue?vue&type=style&index=0&scoped=3c2190c0&lang.scss": [
     "/test-stand/assets/logo-D9JSh26l.svg",
     "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
   ],
@@ -231,7 +231,7 @@
     "/test-stand/assets/logo-D9JSh26l.svg",
     "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
   ],
-  "src/components/sections/WeDo.vue?vue&type=style&index=0&scoped=55d6e4ef&lang.scss": [
+  "src/components/sections/WeDo.vue?vue&type=style&index=0&scoped=8716d4d4&lang.scss": [
     "/test-stand/assets/logo-D9JSh26l.svg",
     "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
   ],
@@ -243,7 +243,7 @@
     "/test-stand/assets/logo-D9JSh26l.svg",
     "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
   ],
-  "src/components/sections/WeWork.vue?vue&type=style&index=0&scoped=8889f220&lang.scss": [
+  "src/components/sections/WeWork.vue?vue&type=style&index=0&scoped=e5b83434&lang.scss": [
     "/test-stand/assets/logo-D9JSh26l.svg",
     "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
   ],
@@ -388,10 +388,6 @@
     "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
   ],
   "src/views/HomeView.vue?vue&type=script&lang.ts": [
-    "/test-stand/assets/logo-D9JSh26l.svg",
-    "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
-  ],
-  "src/views/HomeView.vue?vue&type=style&index=0&scoped=4d39c86c&lang.css": [
     "/test-stand/assets/logo-D9JSh26l.svg",
     "/test-stand/assets/NeoSansCyr-Medium-NsUumt-A.woff"
   ]

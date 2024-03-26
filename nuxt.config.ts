@@ -63,6 +63,7 @@ export default defineNuxtConfig({
         },
       ],
     },
+    baseURL: "/test-stand/",
   },
   css: ["@/assets/main.scss"],
   vite: {

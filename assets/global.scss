@@ -1,0 +1,55 @@
+$breakpoints: (
+  //1920
+  "xxl": 1920px,
+  // 1440
+  "xl": 1440px,
+  // 960
+  "lg": 1024px,
+  // 640
+  "md": 640px,
+  // 360
+  "sm": 340px
+);
+
+$xxl: map-get($breakpoints, "xxl");
+$xl: map-get($breakpoints, "xl");
+$lg: map-get($breakpoints, "lg"); // custom
+$md: map-get($breakpoints, "md"); // custom
+$sm: map-get($breakpoints, "sm"); // custom
+
+// $property, $ltr-value, $rtl-value
+@mixin anim-underline($bottom: 5px) {
+  // [dir="rtl"] & {
+  //   #{$property}: $rtl-value;
+  // }
+
+  display: inline-block;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.4);
+    bottom: $bottom;
+    width: 100%;
+    height: 3px;
+    left: 0px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: $bottom;
+    left: 0;
+    background-color: white;
+    transform-origin: bottom left;
+    transition: transform 0.25s ease-out;
+  }
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+}

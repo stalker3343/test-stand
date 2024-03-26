@@ -1,0 +1,93 @@
+/* color palette from <https://github.com/vuejs/theme> */
+:root {
+  --al-accent: #0097ec;
+  --al-white: #ffffff;
+  --al-white-90: rgba(221, 241, 255, 0.9);
+  --ai-black: #000000;
+}
+
+body {
+  color: var(--al-white);
+  background: #005fee;
+  // background: var(--ai-black);
+
+  font-family: "Onest", sans-serif;
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 27px;
+  letter-spacing: 0em;
+  text-align: left;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+  width: 100%;
+
+  @media (min-width: $md) {
+    padding-left: 40px;
+    padding-right: 40px;
+    max-width: 640px;
+  }
+
+  @media (min-width: $lg) {
+    max-width: calc(944px + 80px);
+  }
+  @media (min-width: $xl) {
+    padding-left: 120px;
+    padding-right: 120px;
+    max-width: calc(1200px + 240px);
+  }
+  @media (min-width: $xxl) {
+    max-width: calc(1680px + 240px);
+  }
+}
+
+.app-hover-underline-animation {
+  display: inline-block;
+  position: relative;
+}
+
+.app-hover-underline-animation::before {
+  content: "";
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.4);
+  bottom: 5px;
+  width: 100%;
+  height: 3px;
+  left: 0px;
+}
+
+.app-hover-underline-animation::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 5px;
+  left: 0;
+  background-color: white;
+  transform-origin: bottom left;
+  transition: transform 0.25s ease-out;
+}
+
+.app-hover-underline-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+.fix-scroll {
+  overflow: hidden;
+}
+
+:root {
+  /* fonts */
+  --body-desktop: "Onest", sans-serif;
+  --h1-desktop: "Open Sans", sans-serif;
+
+  /* Colors */
+  --color-white: #fff;
+}

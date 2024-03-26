@@ -74,9 +74,9 @@ export default defineNuxtConfig({
       },
     },
   },
-  nitro: {
-    output: {
-      publicDir: path.join(__dirname, "dist"),
-    },
-  },
+  // nitro: {
+  //   output: {
+  //     publicDir: path.join(__dirname, "dist"),
+  //   },
+  // },
 });

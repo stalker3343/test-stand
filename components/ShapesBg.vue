@@ -9,30 +9,30 @@ onMounted(() => {
   var tracker = document.getElementById('realFollowCursor');
   var targetX = 0, targetY = 0; // Целевые координаты, куда должен двигаться элемент
   var currentX = 0, currentY = 0; // Текущие координаты элемента
-  var speed = 0.05; // Скорость перемещения элемента (от 0 до 1)
+  window.speed = 0.05; // Скорость перемещения элемента (от 0 до 1)
 
 
   // Начальные и конечные размеры элемента
   var scale = 1; // Текущий масштаб
-  var scaleDirection = -0.009; // Направление изменения масштаба
+  window.scaleDirection = -0.009; // Направление изменения масштаба
 
 
   // Функция для обновления позиции элемента
   function updatePosition() {
     // Используем линейную интерполяцию для плавного движения элемента к цели
-    currentX += (targetX - currentX) * speed;
-    currentY += (targetY - currentY) * speed;
+    currentX += (targetX - currentX) * window.speed;
+    currentY += (targetY - currentY) * window.speed;
 
     // Обновляем позицию элемента с новыми координатами
     tracker.style.left = currentX + 'px';
     tracker.style.top = currentY + 'px';
 
     // Изменение размера элемента
-    scale += scaleDirection;
+    scale += window.scaleDirection;
     tracker.style.transform = `scale(${scale})`;
     // Проверяем, нужно ли изменить направление масштабирования
     if (scale <= 0.8 || scale >= 1.5) {
-      scaleDirection = -scaleDirection;
+      window.scaleDirection = -window.scaleDirection;
     }
 
 

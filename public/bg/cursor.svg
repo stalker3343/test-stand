@@ -9,7 +9,7 @@
       filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
       <feFlood flood-opacity="0" result="BackgroundImageFix" />
       <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-      <feGaussianBlur stdDeviation="91.32" result="effect1_foregroundBlur_1229_6999" />
+      <feGaussianBlur stdDeviation="100.32" result="effect1_foregroundBlur_1229_6999" />
     </filter>
   </defs>
 </svg>

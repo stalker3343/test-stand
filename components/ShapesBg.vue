@@ -145,7 +145,7 @@ onMounted(() => {
     > -->
     <img
       class="shapes-all"
-      src="/bg/shapes.svg"
+      src="/bg/shapes-noth.svg"
     >
 
     <!-- <img
@@ -187,8 +187,17 @@ onMounted(() => {
   position: absolute;
   top: 0px;
   left: 0px;
+  z-index: -1;
+}
+
+.cursor-div-vrapper {
+  position: fixed;
+  width: calc(556.15px * 2.2);
+  height: calc(395.86px* 2.2);
+  pointer-events: none;
   z-index: 1;
 }
+
 
 .shapes-all-noth {
   width: 100%;
@@ -278,12 +287,7 @@ onMounted(() => {
 
 
 
-.cursor-div-vrapper {
-  position: fixed;
-  width: calc(556.15px * 2.2);
-  height: calc(395.86px* 2.2);
-  pointer-events: none;
-}
+
 
 .corsor-elem {
   /* cursor */

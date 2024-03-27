@@ -11,6 +11,12 @@ onMounted(() => {
   var currentX = 0, currentY = 0; // Текущие координаты элемента
   var speed = 0.05; // Скорость перемещения элемента (от 0 до 1)
 
+
+  // Начальные и конечные размеры элемента
+  var scale = 1; // Текущий масштаб
+  var scaleDirection = -0.009; // Направление изменения масштаба
+
+
   // Функция для обновления позиции элемента
   function updatePosition() {
     // Используем линейную интерполяцию для плавного движения элемента к цели
@@ -21,6 +27,15 @@ onMounted(() => {
     tracker.style.left = currentX + 'px';
     tracker.style.top = currentY + 'px';
 
+    // Изменение размера элемента
+    scale += scaleDirection;
+    tracker.style.transform = `scale(${scale})`;
+    // Проверяем, нужно ли изменить направление масштабирования
+    if (scale <= 0.8 || scale >= 1.5) {
+      scaleDirection = -scaleDirection;
+    }
+
+
     // Планируем следующее обновление
     requestAnimationFrame(updatePosition);
   }
@@ -28,8 +43,8 @@ onMounted(() => {
   // Обработчик события движения мыши, который обновляет целевые координаты
   document.addEventListener('mousemove', function (e) {
     // Получаем размеры элемента
-    var trackerWidth = tracker.offsetWidth;
-    var trackerHeight = tracker.offsetHeight;
+    var trackerWidth = tracker.offsetWidth * scale;
+    var trackerHeight = tracker.offsetHeight * scale;
     // Вычисляем половину размеров для центрирования
     var halfWidth = trackerWidth / 2;
     var halfHeight = trackerHeight / 2;
@@ -196,6 +211,7 @@ onMounted(() => {
   height: calc(395.86px* 2.2);
   pointer-events: none;
   z-index: 2;
+  /* border: 24px solid white; */
 }
 
 

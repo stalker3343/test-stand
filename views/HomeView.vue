@@ -10,8 +10,6 @@
       :rows="rowsWeWork"
     ></WeWork>
 
-
-
     <OtherIndustries></OtherIndustries>
     <CasesSection></CasesSection>
     <BlogSection></BlogSection>

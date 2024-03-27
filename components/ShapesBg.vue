@@ -4,20 +4,58 @@
 >
 
 onMounted(() => {
-  document.addEventListener('mousemove', function (e) {
-    var tracker = document.getElementById('realFollowCursor');
 
-    if (!tracker) return
+
+  var tracker = document.getElementById('realFollowCursor');
+  var targetX = 0, targetY = 0; // Целевые координаты, куда должен двигаться элемент
+  var currentX = 0, currentY = 0; // Текущие координаты элемента
+  var speed = 0.05; // Скорость перемещения элемента (от 0 до 1)
+
+  // Функция для обновления позиции элемента
+  function updatePosition() {
+    // Используем линейную интерполяцию для плавного движения элемента к цели
+    currentX += (targetX - currentX) * speed;
+    currentY += (targetY - currentY) * speed;
+
+    // Обновляем позицию элемента с новыми координатами
+    tracker.style.left = currentX + 'px';
+    tracker.style.top = currentY + 'px';
+
+    // Планируем следующее обновление
+    requestAnimationFrame(updatePosition);
+  }
+
+  // Обработчик события движения мыши, который обновляет целевые координаты
+  document.addEventListener('mousemove', function (e) {
     // Получаем размеры элемента
     var trackerWidth = tracker.offsetWidth;
     var trackerHeight = tracker.offsetHeight;
     // Вычисляем половину размеров для центрирования
     var halfWidth = trackerWidth / 2;
     var halfHeight = trackerHeight / 2;
-    // Обновляем позицию элемента, используя вычисленные значения
-    tracker.style.left = (e.clientX - halfWidth) + 'px';
-    tracker.style.top = (e.clientY - halfHeight) + 'px';
+    // Обновляем целевые координаты
+    targetX = e.clientX - halfWidth;
+    targetY = e.clientY - halfHeight;
   });
+
+  // Запускаем цикл обновления позиции
+  updatePosition();
+
+
+  // document.addEventListener('mousemove', function (e) {
+  //   var tracker = document.getElementById('realFollowCursor');
+
+  //   if (!tracker) return
+  //   // Получаем размеры элемента
+  //   var trackerWidth = tracker.offsetWidth;
+  //   var trackerHeight = tracker.offsetHeight;
+  //   // Вычисляем половину размеров для центрирования
+  //   var halfWidth = trackerWidth / 2;
+  //   var halfHeight = trackerHeight / 2;
+  //   // Обновляем позицию элемента, используя вычисленные значения
+  //   tracker.style.left = (e.clientX - halfWidth) + 'px';
+  //   tracker.style.top = (e.clientY - halfHeight) + 'px';
+  // });
 
 
 
@@ -102,7 +140,7 @@ onMounted(() => {
       </svg> -->
     </div>
     <!-- <img
-      class="shapes-all"
+      class="shapes-all-noth"
       src="/bg/Northern.svg"
     > -->
     <img
@@ -149,6 +187,15 @@ onMounted(() => {
   position: absolute;
   top: 0px;
   left: 0px;
+  z-index: 1;
+}
+
+.shapes-all-noth {
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
 }
 
 .color-dodge-wrapper {

@@ -110,9 +110,9 @@
       </h1> -->
 
       <ul class="company-description">
-        <li> Web and mobile development company</li>
         <li>Reliable tech partner for more than 100 companies since 2011</li>
         <li>Cost-effective developers in Eastern and Central Europe</li>
+        <li> Web and mobile development company</li>
         <li> US jurisdiction</li>
       </ul>
       <div class="talk-badges-wrapper">
@@ -136,7 +136,8 @@
         <div
           v-scroll-to="'#footer-form'"
           class="contact-btn app-hover-underline-animation"
-        >Let's talk</div>
+        >
+          Let's talk</div>
 
       </div>
     </section>
@@ -432,9 +433,12 @@ const badges = ref([{
 
   }
 
-
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 
   li {
+    clip-path: polygon(-20px 0%, -20% 0, -20% 100%, -20px 100%);
     margin-bottom: 10px;
 
 

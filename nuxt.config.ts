@@ -18,6 +18,7 @@ export default defineNuxtConfig({
         },
       },
     ],
+    "@hypernym/nuxt-gsap",
   ],
   telemetry: false,
   app: {
@@ -63,7 +64,6 @@ export default defineNuxtConfig({
         },
       ],
     },
-    baseURL: "/test-stand/",
   },
   css: ["@/assets/main.scss"],
   vite: {
@@ -75,9 +75,9 @@ export default defineNuxtConfig({
       },
     },
   },
-  // nitro: {
-  //   output: {
-  //     publicDir: path.join(__dirname, "dist"),
-  //   },
-  // },
+  nitro: {
+    output: {
+      publicDir: path.join(__dirname, "dist"),
+    },
+  },
 });

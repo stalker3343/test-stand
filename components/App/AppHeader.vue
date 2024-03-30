@@ -20,7 +20,10 @@ const onToggleMenu = () => {
 
     <div class="container">
       <header class="header">
-        <a href="/">
+        <a
+          class="anim-logo"
+          href="/"
+        >
           <img
             src="/logo.svg"
             alt="Company Logo"
@@ -217,7 +220,7 @@ const onToggleMenu = () => {
   letter-spacing: 0.48px;
   border: none;
   cursor: pointer;
-  transition: all .3s ease-out;
+  // transition: all .3s ease-out;
 
 
 

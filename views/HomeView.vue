@@ -39,6 +39,8 @@ const OurClients = defineAsyncComponent(() =>
 )
 
 
+
+
 import HeaderSection from "../components/sections/HeaderSection.vue";
 import OurServices from "../components/sections/OurServices.vue";
 import WeWork from "../components/sections/WeWork.vue";
@@ -81,6 +83,54 @@ const rowsWeDo = ref([{
   title: 'Continuous development',
   text: 'We integrate automated tests into the development process, detecting and addressing potential issues at early stages. We also employ CI/CD to streamline the delivery of your web or mobile app.'
 }])
+
+
+onMounted(() => {
+  const { $gsap } = useNuxtApp()
+  $gsap.timeline()
+    .from(['.anim-logo', '.menu-list', '.call-to-action'], {
+      stagger: 0.1, y: -200, duration: 1, ease: "back.out(2.5)",
+    }).to('.company-description li', {
+      clipPath: 'polygon(-20px 0%, 100% 0, 100% 100%, -20px 100%)',
+      stagger: 0.5,
+      duration: 3
+    }, '<0.6')
+    .from(['.text-logo-one-row', '.company-description', '.contact-btn'], {
+      stagger: 1,
+      duration: 1,
+      opacity: 0,
+      y: 30,
+    }, '<0.3')
+    .from('.badges-list a', {
+      duration: 2,
+      opacity: 0,
+      stagger: {
+        from: "end",
+        amount: 0.3,
+        y: 11
+      }
+    }, '<3')
+    .from('.clients-header', {
+      duration: 1,
+      opacity: 0,
+      y: 5
+    }, '<1')
+    .from('.item', {
+      duration: 1.2,
+      opacity: 0,
+      stagger: {
+        from: "start",
+        amount: 0.7,
+        y: 5
+      }
+    })
+
+
+
+
+
+
+})
 
 
 </script>

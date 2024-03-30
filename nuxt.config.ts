@@ -21,9 +21,10 @@ export default defineNuxtConfig({
     "@hypernym/nuxt-gsap",
   ],
   telemetry: false,
-  baseURL: "/test-stand/",
 
   app: {
+    baseURL: "/test-stand/",
+
     head: {
       title: "Afterlogic",
       meta: [

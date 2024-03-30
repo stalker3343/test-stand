@@ -21,6 +21,8 @@ export default defineNuxtConfig({
     "@hypernym/nuxt-gsap",
   ],
   telemetry: false,
+  baseURL: "/test-stand/",
+
   app: {
     head: {
       title: "Afterlogic",
@@ -75,9 +77,9 @@ export default defineNuxtConfig({
       },
     },
   },
-  nitro: {
-    output: {
-      publicDir: path.join(__dirname, "dist"),
-    },
-  },
+  // nitro: {
+  //   output: {
+  //     publicDir: path.join(__dirname, "dist"),
+  //   },
+  // },
 });

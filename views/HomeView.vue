@@ -40,7 +40,6 @@ const OurClients = defineAsyncComponent(() =>
 
 
 
-
 import HeaderSection from "../components/sections/HeaderSection.vue";
 import OurServices from "../components/sections/OurServices.vue";
 import WeWork from "../components/sections/WeWork.vue";
@@ -84,9 +83,11 @@ const rowsWeDo = ref([{
   text: 'We integrate automated tests into the development process, detecting and addressing potential issues at early stages. We also employ CI/CD to streamline the delivery of your web or mobile app.'
 }])
 
-
+const appWrapper = ref<HTMLInputElement | null>(null)
 onMounted(() => {
   const { $gsap } = useNuxtApp()
+  const wrapper = document.querySelector('.app-wrapper')
+  wrapper?.classList.remove("app-wrapper-hidden");
   $gsap.timeline()
     .from(['.anim-logo', '.menu-list', '.call-to-action'], {
       stagger: 0.1, y: -200, duration: 1, ease: "back.out(2.5)",
@@ -96,7 +97,7 @@ onMounted(() => {
       duration: 3
     }, '<0.6')
     .from(['.text-logo-one-row', '.company-description', '.contact-btn'], {
-      stagger: 1,
+      stagger: 0.6,
       duration: 1,
       opacity: 0,
       y: 30,
@@ -109,12 +110,12 @@ onMounted(() => {
         amount: 0.3,
         y: 11
       }
-    }, '<3')
+    }, '<1.5')
     .from('.clients-header', {
       duration: 1,
       opacity: 0,
       y: 5
-    }, '<1')
+    }, '<0.5')
     .from('.item', {
       duration: 1.2,
       opacity: 0,
@@ -123,7 +124,7 @@ onMounted(() => {
         amount: 0.7,
         y: 5
       }
-    })
+    }, '<0.6')
 
 
 

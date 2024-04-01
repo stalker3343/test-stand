@@ -22,6 +22,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.app-wrapper-hidden {
+  visibility: hidden;
+}
+
 .container {
   padding-left: 20px;
   padding-right: 20px;

@@ -90,41 +90,53 @@ onMounted(() => {
   wrapper?.classList.remove("app-wrapper-hidden");
   $gsap.timeline()
     .from(['.anim-logo', '.menu-list', '.call-to-action'], {
-      stagger: 0.1, y: -200, duration: 1, ease: "back.out(2.5)",
+      stagger: 0.1, y: -200, duration: 1, ease: "back.out(1.25)",
     }).to('.company-description li', {
       clipPath: 'polygon(-20px 0%, 100% 0, 100% 100%, -20px 100%)',
-      stagger: 0.5,
-      duration: 3
+      stagger: 0.3,
+      duration: 1.3
     }, '<0.6')
-    .from(['.text-logo-one-row', '.company-description', '.contact-btn'], {
-      stagger: 0.6,
-      duration: 1,
+    .from(['.company-description', '.contact-btn'], {
+      stagger: 0.4,
+      duration: 0.4,
       opacity: 0,
       y: 30,
-    }, '<0.3')
+    }, '<0.1')
+    // .add(function () {
+    //   anime({
+    //     targets: '.text-logo-one-row ',
+    //     strokeDashoffset: [anime.setDashoffset, 0],
+    //     easing: 'easeInOutSine',
+    //     duration: 1500,
+    //     delay: function (el, i) { return i * 250 },
+    //     direction: 'alternate',
+    //     loop: true
+    //   });
+
+    // })
     .from('.badges-list a', {
-      duration: 2,
+      duration: 1,
       opacity: 0,
       stagger: {
         from: "end",
-        amount: 0.3,
+        amount: 0.15,
         y: 11
       }
-    }, '<1.5')
+    }, '<0.7')
     .from('.clients-header', {
-      duration: 1,
+      duration: 0.5,
       opacity: 0,
       y: 5
-    }, '<0.5')
+    }, '<0.25')
     .from('.item', {
-      duration: 1.2,
+      duration: 0.6,
       opacity: 0,
       stagger: {
         from: "start",
-        amount: 0.7,
+        amount: 0.35,
         y: 5
       }
-    }, '<0.6')
+    }, '<0.3')
 
 
 

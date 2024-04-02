@@ -44,14 +44,14 @@ onMounted(() => {
       toggleActions: 'play none none reverse'
     }
   })
-    .from('.service-header-0', animHeaderConfig, headerTextConfig)
-    .from('.service-text-0', animHeaderConfig, blockConfig)
-    .from('.service-header-1', animHeaderConfig, headerTextConfig)
-    .from('.service-text-1', animHeaderConfig, blockConfig)
-    .from('.service-header-2', animHeaderConfig, headerTextConfig)
-    .from('.service-text-2', animHeaderConfig, blockConfig)
-    .from('.service-header-3', animHeaderConfig, headerTextConfig)
-    .from('.service-text-3', animHeaderConfig)
+    .from('.service-header-0', animHeaderConfig,)
+    .from('.service-text-0', animHeaderConfig, headerTextConfig)
+    .from('.service-header-1', animHeaderConfig, blockConfig)
+    .from('.service-text-1', animHeaderConfig, headerTextConfig)
+    .from('.service-header-2', animHeaderConfig, blockConfig)
+    .from('.service-text-2', animHeaderConfig, headerTextConfig)
+    .from('.service-header-3', animHeaderConfig, blockConfig)
+    .from('.service-text-3', animHeaderConfig, headerTextConfig)
 
 
 

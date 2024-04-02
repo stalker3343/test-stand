@@ -7,7 +7,6 @@
 onMounted(() => {
 
   var followDiv = document.getElementById('followCursor');
-  console.log("🚀 ~ followDiv:", followDiv)
   if (!followDiv) return
   var isFollowing = false;
 

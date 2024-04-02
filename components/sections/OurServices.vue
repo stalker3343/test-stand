@@ -4,6 +4,8 @@
 >
 import { ref } from 'vue';
 
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import anime from "animejs";
 
 const services = ref([{
   header: 'Web Development',
@@ -18,6 +20,38 @@ const services = ref([{
   header: 'Rescuing Troubled Projects',
   text: "Deadline is approaching but the project is still on fire with tons of bugs keep popping up? We'll promptly assess the situation and draw up an action plan. Then we carry out onboarding of experienced developers and QA to resolve difficulties in the project and ensure the smooth release."
 }])
+
+onMounted(() => {
+  ScrollTrigger.create({
+    trigger: "#services",
+    start: "top top",
+    end: "bottom 50%+=100px",
+    onEnter: () => {
+      anime({
+        targets: '.text-logo-one-row ',
+        strokeDashoffset: [anime.setDashoffset, 0],
+        easing: 'easeInOutSine',
+        duration: 1500,
+        delay: function (el, i) { return i * 250 },
+        direction: 'alternate',
+        loop: true
+      });
+    },
+    onToggle: (self) => console.log("toggled, isActive:", self.isActive),
+    onUpdate: (self) => {
+      console.log(
+        "progress:",
+        self.progress.toFixed(3),
+        "direction:",
+        self.direction,
+        "velocity",
+        self.getVelocity()
+      );
+    },
+  });
+
+
+})
 </script>
 
 <template>

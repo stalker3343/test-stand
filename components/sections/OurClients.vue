@@ -124,8 +124,6 @@ onMounted(() => {
     return 'sm'
   }
   const seIconSize = () => {
-    console.log("🚀 ~ seIconSize ~ getIconSize():", getIconSize())
-
     imgSize.value = getIconSize()
   }
   listenToScreenWidthChanges(seIconSize, 300);

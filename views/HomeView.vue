@@ -51,6 +51,7 @@ import ValuesSection from "../components/sections/ValuesSection.vue";
 import AppFooter from "../components/App/AppFooter.vue";
 import TestDinamBg from "../components/TestDinamBg.vue";
 import ShapesBg from "../components/ShapesBg.vue";
+import anime from "animejs";
 
 import HowWeWork from "../components/sections/HowWeWork.vue";
 
@@ -90,53 +91,63 @@ onMounted(() => {
   wrapper?.classList.remove("app-wrapper-hidden");
   $gsap.timeline()
     .from(['.anim-logo', '.menu-list', '.call-to-action'], {
-      stagger: 0.1, y: -200, duration: 1, ease: "back.out(1.25)",
-    }).to('.company-description li', {
+      stagger: 0.1,
+      y: -200,
+      duration: 0.5,
+      ease: "back.out(1.25)",
+    })
+    .from('.text-logo-one-row', {
+      opacity: 0,
+      y: 30,
+    }, '<0.2')
+
+    .add(function () {
+      anime({
+        targets: '.text-logo-one-row path',
+        strokeDashoffset: [anime.setDashoffset, 0],
+        easing: 'easeInOutSine',
+        duration: 1000,
+        delay: function (el, i) { return i * 30 },
+        // direction: 'alternate',
+        // loop: true
+      });
+
+    }, '<')
+
+    .to('.company-description li', {
       clipPath: 'polygon(-20px 0%, 100% 0, 100% 100%, -20px 100%)',
-      stagger: 0.3,
-      duration: 1.3
-    }, '<0.6')
+      stagger: 0.2,
+      duration: 0.8
+    }, '<0.3')
     .from(['.company-description', '.contact-btn'], {
       stagger: 0.4,
-      duration: 0.4,
       opacity: 0,
       y: 30,
     }, '<0.1')
-    // .add(function () {
-    //   anime({
-    //     targets: '.text-logo-one-row ',
-    //     strokeDashoffset: [anime.setDashoffset, 0],
-    //     easing: 'easeInOutSine',
-    //     duration: 1500,
-    //     delay: function (el, i) { return i * 250 },
-    //     direction: 'alternate',
-    //     loop: true
-    //   });
 
-    // })
     .from('.badges-list a', {
-      duration: 1,
+      duration: 0.6,
       opacity: 0,
       stagger: {
         from: "end",
         amount: 0.15,
         y: 11
       }
-    }, '<0.7')
+    }, '<0.3')
     .from('.clients-header', {
-      duration: 0.5,
+      duration: 0.3,
       opacity: 0,
       y: 5
-    }, '<0.25')
+    }, '<0.2')
     .from('.item', {
-      duration: 0.6,
+      duration: 0.3,
       opacity: 0,
       stagger: {
         from: "start",
-        amount: 0.35,
+        amount: 0.3,
         y: 5
       }
-    }, '<0.3')
+    }, '<0.2')
 
 
 

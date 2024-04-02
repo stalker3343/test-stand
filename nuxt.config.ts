@@ -21,7 +21,11 @@ export default defineNuxtConfig({
     "@hypernym/nuxt-gsap",
   ],
   telemetry: false,
-
+  gsap: {
+    extraPlugins: {
+      scrollTrigger: true,
+    },
+  },
   app: {
     baseURL: "/test-stand/",
 

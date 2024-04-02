@@ -318,6 +318,7 @@ const badges = ref([{
 }
 
 .mouse {
+  display: none;
   position: absolute;
   top: 33%;
   left: -40px;

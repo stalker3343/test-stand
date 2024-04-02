@@ -124,7 +124,7 @@ onMounted(() => {
       opacity: 0,
       y: 30,
     }, '<0.1')
-
+    .set(".mouse", { display: 'block' }, '<1')
     .from('.badges-list a', {
       duration: 0.6,
       opacity: 0,

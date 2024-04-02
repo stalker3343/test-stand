@@ -5,7 +5,6 @@
 import { ref } from 'vue';
 
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import anime from "animejs";
 
 const services = ref([{
   header: 'Web Development',
@@ -27,15 +26,15 @@ onMounted(() => {
     start: "top top",
     end: "bottom 50%+=100px",
     onEnter: () => {
-      anime({
-        targets: '.text-logo-one-row ',
-        strokeDashoffset: [anime.setDashoffset, 0],
-        easing: 'easeInOutSine',
-        duration: 1500,
-        delay: function (el, i) { return i * 250 },
-        direction: 'alternate',
-        loop: true
-      });
+      // anime({
+      //   targets: '.text-logo-one-row ',
+      //   strokeDashoffset: [anime.setDashoffset, 0],
+      //   easing: 'easeInOutSine',
+      //   duration: 1500,
+      //   delay: function (el, i) { return i * 250 },
+      //   direction: 'alternate',
+      //   loop: true
+      // });
     },
     onToggle: (self) => console.log("toggled, isActive:", self.isActive),
     onUpdate: (self) => {
@@ -63,8 +62,6 @@ onMounted(() => {
     <section class="section-wrapper">
       <div class="section-header-wrapper">
         <h2 class="section-header">SERVICES</h2>
-
-
       </div>
       <div class="service-list">
         <div
@@ -128,6 +125,7 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   gap: 37px;
+  position: relative;
 
   @media (min-width: $md) {
     gap: 44px;

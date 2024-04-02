@@ -243,8 +243,6 @@
           Let's talk
         </div>
 
-        <div class="mouse">
-        </div>
 
 
 
@@ -300,63 +298,6 @@ const badges = ref([{
   scoped
   lang="scss"
 >
-@keyframes scroll-down-pulse {
-  from {
-    transform: translateY(-8px);
-    opacity: .3;
-  }
-
-  50% {
-    transform: translateY(8px);
-    opacity: 1;
-  }
-
-  to {
-    transform: translateY(-8px);
-    opacity: .3;
-  }
-}
-
-.mouse {
-  display: none;
-  position: absolute;
-  top: 33%;
-  left: -40px;
-  border: 2px solid #FFFFFF;
-  width: 1rem;
-  height: 2rem;
-  border-radius: 15px;
-  animation: scroll-down-pulse 3s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
-}
-
-.mouse:before {
-  display: block;
-  content: '';
-  box-sizing: border-box;
-  width: 0;
-  height: 25%;
-  border-right: 2px solid #FFFFFF;
-  position: absolute;
-  top: .3rem;
-  left: 50%;
-  margin-left: -1px;
-}
-
-.mouse:after {
-  content: '';
-  display: block;
-  width: .5rem;
-  height: .5rem;
-  border-right: 2px solid #FFFFFF;
-  border-bottom: 2px solid #FFFFFF;
-  position: absolute;
-  bottom: -1rem;
-  left: 50%;
-  margin-left: -.325rem;
-  transform: rotate(45deg);
-}
-
-
 .text-logo-two-row {
   margin-top: 25px;
   /* width: 100px !important; */

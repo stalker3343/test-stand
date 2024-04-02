@@ -4,6 +4,8 @@
 
     <HeaderSection></HeaderSection>
     <OurClients />
+
+
     <OurServices></OurServices>
     <WeWork
       header="WE WORK WITH"
@@ -119,12 +121,10 @@ onMounted(() => {
       stagger: 0.2,
       duration: 0.8
     }, '<0.3')
-    .from(['.company-description', '.contact-btn'], {
-      stagger: 0.4,
+    .from('.company-description', {
       opacity: 0,
       y: 30,
     }, '<0.1')
-    .set(".mouse", { display: 'block' }, '<1')
     .from('.badges-list a', {
       duration: 0.6,
       opacity: 0,
@@ -134,6 +134,10 @@ onMounted(() => {
         y: 11
       }
     }, '<0.3')
+    .from('.contact-btn', {
+      opacity: 0,
+      y: 30,
+    }, '<0.5')
     .from('.clients-header', {
       duration: 0.3,
       opacity: 0,
@@ -148,6 +152,8 @@ onMounted(() => {
         y: 5
       }
     }, '<0.2')
+    .set(".mouse", { display: 'flex' }, '<1')
+
 
 
 

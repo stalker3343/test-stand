@@ -235,7 +235,7 @@ onMounted(() => {
   display: none;
   /* top: 33%; */
   /* left: -60px; */
-  bottom: 2px;
+  bottom: 17px;
   border: 2px solid #FFFFFF;
   width: 16px;
   height: 32px;

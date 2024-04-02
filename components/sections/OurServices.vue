@@ -4,7 +4,6 @@
 >
 import { ref } from 'vue';
 
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const services = ref([{
   header: 'Web Development',
@@ -21,33 +20,23 @@ const services = ref([{
 }])
 
 onMounted(() => {
-  ScrollTrigger.create({
-    trigger: "#services",
-    start: "top top",
-    end: "bottom 50%+=100px",
-    onEnter: () => {
-      // anime({
-      //   targets: '.text-logo-one-row ',
-      //   strokeDashoffset: [anime.setDashoffset, 0],
-      //   easing: 'easeInOutSine',
-      //   duration: 1500,
-      //   delay: function (el, i) { return i * 250 },
-      //   direction: 'alternate',
-      //   loop: true
-      // });
-    },
-    onToggle: (self) => console.log("toggled, isActive:", self.isActive),
-    onUpdate: (self) => {
-      console.log(
-        "progress:",
-        self.progress.toFixed(3),
-        "direction:",
-        self.direction,
-        "velocity",
-        self.getVelocity()
-      );
-    },
-  });
+  const { $gsap } = useNuxtApp()
+
+  $gsap.timeline({
+    scrollTrigger: {
+      trigger: "#services",
+      start: 'top 80%',
+      end: 'bottom 60%',
+      toggleActions: 'play none none reverse'
+    }
+  }).from('.service-item', {
+    opacity: 0,
+    y: 30,
+    stagger: 1,
+  })
+
+
+
 
 
 })

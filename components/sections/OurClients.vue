@@ -132,7 +132,13 @@ onMounted(() => {
   listenToScreenWidthChanges(seIconSize, 300);
   seIconSize()
   const containerWisth = container.value?.getBoundingClientRect().width || 0
+  console.log("🚀 ~ onMounted ~ container.value:", window.innerWidth)
+  console.log("🚀 ~ onMounted ~ containerWisth:", container.value)
   offsetWIdth.value = (window.innerWidth - containerWisth) / 2
+  console.log("🚀 ~ onMounted ~ offsetWIdth.value:", offsetWIdth.value)
+
+
+
 
 })
 
@@ -208,17 +214,17 @@ onMounted(() => {
 >
 @keyframes scroll-down-pulse {
   from {
-    transform: translateY(-8px);
+    /* transform: translateY(-8px); */
     opacity: .3;
   }
 
   50% {
-    transform: translateY(8px);
+    /* transform: translateY(8px); */
     opacity: 1;
   }
 
   to {
-    transform: translateY(-8px);
+    /* transform: translateY(-8px); */
     opacity: .3;
   }
 }
@@ -229,12 +235,12 @@ onMounted(() => {
   display: none;
   /* top: 33%; */
   /* left: -60px; */
-  top: -7px;
+  bottom: 2px;
   border: 2px solid #FFFFFF;
-  width: 1rem;
-  height: 2rem;
+  width: 16px;
+  height: 32px;
   border-radius: 15px;
-  /* animation: scroll-down-pulse 3s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite; */
+  animation: scroll-down-pulse 3s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
 }
 
 .mouse:before {

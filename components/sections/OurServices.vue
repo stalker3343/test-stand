@@ -21,7 +21,21 @@ const services = ref([{
 
 onMounted(() => {
   const { $gsap } = useNuxtApp()
+  const animHeaderConfig = {
+    opacity: 0,
+    duration: 0.8
+  }
 
+  // const animTextConfig = {
+  //   opacity: 0,
+  //   duration: 0.8
+  // }
+
+  const headerTextConfig = '<0.2'
+  const blockConfig = '<0.4'
+
+
+  // const animtextConfix = animHeaderConfig
   $gsap.timeline({
     scrollTrigger: {
       trigger: "#services",
@@ -29,11 +43,15 @@ onMounted(() => {
       end: 'bottom 60%',
       toggleActions: 'play none none reverse'
     }
-  }).from('.service-item', {
-    opacity: 0,
-    y: 30,
-    stagger: 1,
   })
+    .from('.service-header-0', animHeaderConfig, headerTextConfig)
+    .from('.service-text-0', animHeaderConfig, blockConfig)
+    .from('.service-header-1', animHeaderConfig, headerTextConfig)
+    .from('.service-text-1', animHeaderConfig, blockConfig)
+    .from('.service-header-2', animHeaderConfig, headerTextConfig)
+    .from('.service-text-2', animHeaderConfig, blockConfig)
+    .from('.service-header-3', animHeaderConfig, headerTextConfig)
+    .from('.service-text-3', animHeaderConfig)
 
 
 
@@ -58,10 +76,16 @@ onMounted(() => {
           :key="idx"
           class="service-item"
         >
-          <div class="service-header">
+          <div
+            :class="`service-header-${idx}`"
+            class="service-header"
+          >
             {{ item.header }}
           </div>
-          <div class="sevice-text">
+          <div
+            :class="`service-text-${idx}`"
+            class="sevice-text"
+          >
             {{ item.text }}
           </div>
         </div>

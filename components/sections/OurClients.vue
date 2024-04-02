@@ -109,6 +109,9 @@ const items = ref([{
     xxl: 24,
   }
 }])
+
+const offsetWIdth = ref(0)
+const container = ref<HTMLInputElement | null>(null)
 const imgSize = ref<'sm' | 'md' | "lg" | 'xl' | 'xxl'>('sm')
 // 
 onMounted(() => {
@@ -128,6 +131,8 @@ onMounted(() => {
   }
   listenToScreenWidthChanges(seIconSize, 300);
   seIconSize()
+  const containerWisth = container.value?.getBoundingClientRect().width || 0
+  offsetWIdth.value = (window.innerWidth - containerWisth) / 2
 
 })
 
@@ -145,7 +150,10 @@ onMounted(() => {
 <template>
   <section class="clients">
     <div class="container">
-      <div class="clients-header">Some of our clients</div>
+      <div
+        ref="container"
+        class="clients-header"
+      >Some of our clients</div>
 
 
       <!-- <div
@@ -167,7 +175,10 @@ onMounted(() => {
             :src="item.img"
           />
         </div>
-        <div class="mouse">
+        <div
+          :style="{ left: `-${offsetWIdth / 2}px` }"
+          class="mouse"
+        >
         </div>
       </div>
     </div>
@@ -217,13 +228,13 @@ onMounted(() => {
 
   display: none;
   /* top: 33%; */
-  left: -60px;
-  top: -10px;
+  /* left: -60px; */
+  top: -7px;
   border: 2px solid #FFFFFF;
   width: 1rem;
   height: 2rem;
   border-radius: 15px;
-  animation: scroll-down-pulse 3s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+  /* animation: scroll-down-pulse 3s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite; */
 }
 
 .mouse:before {
@@ -235,7 +246,7 @@ onMounted(() => {
   border-right: 2px solid #FFFFFF;
   position: absolute;
   top: .3rem;
-  left: 50%;
+  left: 54%;
   margin-left: -1px;
 }
 

@@ -8,6 +8,7 @@
 
     <OurServices></OurServices>
     <WeWork
+      id="industries"
       header="WE WORK WITH"
       :rows="rowsWeWork"
     ></WeWork>
@@ -18,6 +19,7 @@
     <ValuesSection></ValuesSection>
     <HowWeWork></HowWeWork>
     <WeWork
+      id="quality"
       header="What we do is high-quality"
       :rows="rowsWeDo"
     ></WeWork>
@@ -149,7 +151,7 @@ onMounted(() => {
       stagger: {
         from: "start",
         amount: 0.3,
-        y: 5
+        // y: 5
       }
     }, '<0.2')
     .set(".mouse", { display: 'flex' }, '<1')

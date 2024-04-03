@@ -1,20 +1,32 @@
 <template>
   <div
-    v-scroll-reveal
-    id="industries"
+    :id="id"
     class="container"
   >
-    <h2 class="section-header">{{ header }}</h2>
+    <h2 class="section-header anim-we-work-header">{{ header }}</h2>
     <div class="list-wrapper">
       <div
         v-for="(item, key) in rows"
         :key="key"
         class="list-item"
+        :class="`list-item-${key}`"
       >
-        <div class="row-title"> {{ item.title }}</div>
-        <div class="row-text">
+        <div
+          class="row-title"
+          :class="`row-title-${key}`"
+        > {{ item.title }}</div>
+        <div
+          :class="`row-text-${key}`"
+          class="row-text"
+        >
+
+
           {{ item.text }}
         </div>
+        <span
+          class="row-line"
+          :class="`row-line-${key}`"
+        ></span>
       </div>
     </div>
   </div>
@@ -27,17 +39,79 @@
 interface Props {
   rows: { title: string, text: string }[]
   header: string
+  id: string
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
 
+onMounted(() => {
+  const { $gsap } = useNuxtApp()
+  const animHeaderConfig = {
+    opacity: 0,
+    duration: 0.8
+  }
 
+  const headerTextConfig = '<0.2'
+  const blockConfig = '<0.4'
+  const lineConfig = '<0.2'
+
+  $gsap.timeline({
+    scrollTrigger: {
+      trigger: `#${props.id}`,
+      start: 'top 80%',
+      end: 'bottom 60%',
+      toggleActions: 'play none none reverse'
+    }
+  })
+    .from(`#${props.id} .anim-we-work-header`, {
+      y: 100,
+      duration: 1,
+      opacity: 0,
+    })
+
+    .from(`#${props.id} .row-title-0`, animHeaderConfig,)
+    .from(`#${props.id} .row-text-0`, animHeaderConfig, headerTextConfig)
+    .from(`.row-line-0`, {
+      width: '0%',
+      duration: 1,
+    }, lineConfig)
+
+    .from(`#${props.id} .row-title-1`, animHeaderConfig, blockConfig)
+    .from(`#${props.id} .row-text-1`, animHeaderConfig, headerTextConfig)
+    .from(`.row-line-1`, {
+      width: '0%',
+      duration: 1,
+    }, lineConfig)
+
+    .from(`#${props.id} .row-title-2`, animHeaderConfig, blockConfig)
+    .from(`#${props.id} .row-text-2`, animHeaderConfig, headerTextConfig)
+    .from(`.row-line-2`, {
+      width: '0%',
+      duration: 1,
+    }, lineConfig)
+
+    .from(`#${props.id} .row-title-3`, animHeaderConfig, blockConfig)
+    .from(`#${props.id} .row-text-3`, animHeaderConfig, headerTextConfig)
+    .from(`.row-line-3`, {
+      width: '0%',
+      duration: 1,
+    }, lineConfig)
+  // .list - item: not(: last - child): after
+})
 
 </script>
 <style
   lang="scss"
   scoped
 >
+.row-line {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
 .section-header {
   text-transform: uppercase;
   margin-top: 120px;
@@ -142,6 +216,8 @@ defineProps<Props>()
 
 
 .list-item {
+  position: relative;
+
   @media (min-width: $md) {
     padding: 24px;
 
@@ -166,8 +242,16 @@ defineProps<Props>()
     padding-bottom: 24px;
 
     @media (min-width: $md) {
-      border-bottom: 2px solid rgba(255, 255, 255, 0.3);
 
+      /* border-bottom: 2px solid rgba(255, 255, 255, 0.3); */
+      /* &:after {
+        content: '';
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.3);
+      } */
     }
 
     @media (min-width: $lg) {}

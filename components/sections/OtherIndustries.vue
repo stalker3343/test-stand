@@ -5,14 +5,46 @@
 import { ref } from 'vue';
 
 const tags = ref(['RETAIL', 'FOODTECH', 'EVENTS', 'E-COMMERCE', 'FINTECH', 'TRAVEL', 'HEALTHCARE', 'EDTECH', 'LOGISTICS'])
+
+onMounted(() => {
+  const { $gsap } = useNuxtApp()
+  const animHeaderConfig = {
+    opacity: 0,
+    duration: 0.8
+  }
+  $gsap.timeline({
+    scrollTrigger: {
+      trigger: `#other-industies`,
+      start: 'top 80%',
+      end: 'bottom 60%',
+      toggleActions: 'play none none reverse'
+    }
+  })
+    .from('.anim-section-header-other-ind', {
+      opacity: 0,
+      y: 30,
+    })
+    .from('.tag-item', {
+      duration: 0.6,
+      opacity: 0,
+      y: 5,
+      stagger: {
+        from: "start",
+        amount: 0.6,
+      }
+    }, '<0.2')
+
+
+})
+
 </script>
 
 <template>
   <div
-    v-scroll-reveal
+    id="other-industies"
     class="container"
   >
-    <h2 class="section-header">Other industries:</h2>
+    <h2 class="section-header anim-section-header-other-ind">Other industries:</h2>
     <div class="tags-wrapper">
       <div
         class="tag-item"

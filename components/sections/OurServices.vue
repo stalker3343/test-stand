@@ -49,9 +49,7 @@ onMounted(() => {
       y: 100,
       duration: 1,
       opacity: 0,
-
     })
-
     .add(function () {
       anime({
         targets: '.section-header-wrapper path',

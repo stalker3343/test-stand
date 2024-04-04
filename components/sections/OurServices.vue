@@ -66,14 +66,14 @@ onMounted(() => {
     }, '<')
     .from('.service-header', {
       opacity: 0,
-      duration: 0.2,
-      stagger: 0.2 + 0.3,
+      duration: 0.4,
+      stagger: 0.3,
     }, '<0.3')
     .from('.sevice-text', {
       opacity: 0,
-      duration: 0.2,
-      stagger: 0.2 + 0.3,
-    }, '<0.3')
+      duration: 0.4,
+      stagger: 0.3,
+    }, '<0.1')
   // .from('.service-header-1', animHeaderConfig)
   // .from('.service-text-1', animHeaderConfig, headerTextConfig)
   // .from('.service-header-2', animHeaderConfig)

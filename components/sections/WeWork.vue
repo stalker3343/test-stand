@@ -72,7 +72,7 @@ onMounted(() => {
         targets: `#${props.id} .anim-we-work-header path`,
         strokeDashoffset: [anime.setDashoffset, 0],
         easing: 'easeInOutSine',
-        duration: 1000,
+        duration: 1001,
         delay: function (el, i) { return i * 30 },
         // direction: 'alternate',
         // loop: true
@@ -81,19 +81,37 @@ onMounted(() => {
     .from(`#${props.id} .row-title`,
       {
         opacity: 0,
-        duration: 0.4,
-        stagger: 0.2 + 0.4,
-      }, '<0.2')
-    .from(`#${props.id} .row-line`, {
-      width: '0%',
-      duration: 1.2,
-      stagger: 0.5,
-    }, "<")
+        duration: 0.2,
+        stagger: 0.4,
+      }, '<0.3')
+
     .from(`#${props.id} .row-text`, {
       opacity: 0,
-      duration: 0.4,
-      stagger: 0.4 + 0.2,
-    }, "<0.2")
+      duration: 0.2,
+      stagger: 0.4,
+    }, "<0.1")
+
+    .from(`#${props.id} .row-line-0`, {
+      width: '0%',
+      duration: 2,
+      // stagger: 0.3,
+    }, "<-0.5")
+    .from(`#${props.id} .row-line-1`, {
+      width: '0%',
+      duration: 1.7,
+      // stagger: 0.3,
+    }, "<0.3")
+    .from(`#${props.id} .row-line-2`, {
+      width: '0%',
+      duration: 1.3,
+      // stagger: 0.3,
+    }, "<0.6")
+    .from(`#${props.id} .row-line-3`, {
+      width: '0%',
+      duration: 1,
+      // stagger: 0.3,
+    }, "<0.3")
+
 
 
   // .from(`#${props.id} .row-title-0`, animHeaderConfig, "<0.2")
@@ -137,12 +155,13 @@ onMounted(() => {
 
 .section-header {
   text-transform: uppercase;
+  margin: 0 auto;
+  display: block;
   margin-top: 120px;
   margin-bottom: 45px;
   color: transparent;
   -webkit-text-stroke: 1.5px #fff;
   font-family: "Open Sans", sans-serif;
-
   font-size: 70px;
   font-weight: 800;
   font-style: normal;
@@ -153,6 +172,7 @@ onMounted(() => {
   text-align: left;
 
   @media (min-width: $md) {
+
     margin-top: 127px;
     margin-bottom: 20px;
 
@@ -166,12 +186,13 @@ onMounted(() => {
   }
 
   @media (min-width: $xl) {
-    font-size: 140px;
+    /* font-size: 140px; */
+
+    height: 110px;
     line-height: 151px;
     text-align: center;
     margin-top: 140px;
     margin-bottom: 65px;
-
 
   }
 

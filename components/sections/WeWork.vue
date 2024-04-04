@@ -59,7 +59,6 @@ onMounted(() => {
       start: 'top 75%',
       end: 'bottom 60%',
       toggleActions: 'play none none reverse',
-      markers: true
     }
   })
     .from(`#${props.id} .anim-we-work-header`, {

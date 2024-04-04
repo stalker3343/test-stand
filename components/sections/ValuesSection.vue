@@ -1,13 +1,20 @@
 <template>
-  <section
-    v-scroll-reveal
-    class="values-section"
-  >
+  <section class="values-section">
     <div class="container">
-      <h2 class="section-header">OUR VALUES</h2>
+      <OurValues
+        :fontControlled="false"
+        class="section-header anim-our-values-header"
+      ></OurValues>
+
+
+
+
+
+
+
+
+      <!-- <h2 class="section-header ">OUR VALUES</h2> -->
       <div class="values-list">
-
-
         <div
           v-for="(item, key) in values"
           :key="key"
@@ -39,6 +46,8 @@
   lang="ts"
 >
 import { ref } from "vue";
+import OurValues from "@/assets/images/headers/our-values.svg?skipsvgo"
+import anime from "animejs";
 
 const values = ref([{
   header: 'Process Transparecy',
@@ -59,6 +68,57 @@ const values = ref([{
   <p>Our main value is our team.</p> 
     <p>We put focus on finding and retention of most talented engineers with which you can be sure – the project is in good hands.</p> `,
 }])
+
+
+onMounted(() => {
+  const { $gsap } = useNuxtApp()
+  $gsap.timeline({
+    scrollTrigger: {
+      trigger: `.values-section`,
+      start: 'top 75%',
+      end: 'bottom 60%',
+      toggleActions: 'play none none reverse',
+    }
+  }).from(`.anim-our-values-header`, {
+    y: 100,
+    duration: 1,
+    opacity: 0,
+  })
+    .add(function () {
+      anime({
+        targets: `.anim-our-values-header path`,
+        strokeDashoffset: [anime.setDashoffset, 0],
+        easing: 'easeInOutSine',
+        duration: 1001,
+        delay: function (el, i) { return i * 30 },
+        // direction: 'alternate',
+        // loop: true
+      });
+    }, '<')
+    .from(`.value-number`,
+      {
+        opacity: 0,
+        duration: 0.2,
+        stagger: 0.5,
+      }, '<0.3')
+    .from(`.value-header`,
+      {
+        opacity: 0,
+        duration: 0.2,
+        stagger: 0.5,
+      }, '<0.2')
+    .from(`.value-text`,
+      {
+        opacity: 0,
+        duration: 0.2,
+        stagger: 0.5,
+      }, '<0.05')
+
+
+
+
+
+})
 
 </script>
 <style
@@ -367,15 +427,17 @@ const values = ref([{
   color: transparent;
   -webkit-text-stroke: 1.5px #fff;
   font-family: "Open Sans", sans-serif;
-
+  font-variation-settings:
+    "wdth" 100;
   font-size: 70px;
   font-weight: 800;
   font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
+
   line-height: 77px;
   letter-spacing: -0.02em;
   margin-bottom: 15px;
+  margin: 0 auto;
+  display: block;
 
 
   @media (min-width: $md) {}

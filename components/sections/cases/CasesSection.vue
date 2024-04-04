@@ -196,7 +196,7 @@ onMounted(() => {
         .from(`${caseClass} .feedback-description`, {
           opacity: 0,
           duration: 0.4,
-        }, "<0.2")
+        }, "<0.1")
 
       // .from('.tag-item', {
       //   duration: 0.6,

@@ -1,17 +1,13 @@
 <template>
   <section
     class="blog-section"
-    v-scroll-reveal
     id="blog"
   >
     <div class="container">
       <div class="blog-section-wrapper">
         <div>
           <div class="blog-parag">
-
             Recent posts in blog
-
-
           </div>
         </div>
 
@@ -68,6 +64,53 @@ const articles = ref([{
   time: '3 min read',
   link: 'https://www.safetydetectives.com/news/interview-alex-orlov-afterlogic-works/'
 }])
+onMounted(() => {
+
+  const { $gsap } = useNuxtApp()
+
+  $gsap.timeline({
+    scrollTrigger: {
+      trigger: "#blog",
+      start: 'top 80%',
+      end: 'bottom 60%',
+      toggleActions: 'play none none reverse',
+
+    }
+  })
+    .from(`.blog-parag`, {
+      opacity: 0,
+      duration: 0.2,
+    })
+
+    .from(`.blog-item`, {
+      opacity: 0,
+      stagger: 0.1,
+    }, "<0.1")
+    .from(`.article-title`, {
+      opacity: 0,
+      duration: 0.2,
+      stagger: 0.2,
+    }, "<0.1")
+    .from(`.article-time`, {
+      opacity: 0,
+      duration: 0.1,
+      stagger: 0.2,
+    }, "<0.05")
+    .from(`.article-arrow`, {
+      opacity: 0,
+      duration: 0.1,
+      stagger: 0.2,
+    }, "<0.1")
+
+
+
+
+  // 
+  // 
+  // 
+
+})
+
 
 </script>
 <style

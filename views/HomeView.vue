@@ -133,7 +133,7 @@ onMounted(() => {
       stagger: {
         from: "end",
         amount: 0.15,
-        y: 11
+        // y: 11
       }
     }, '<0.3')
     .from('.contact-btn', {

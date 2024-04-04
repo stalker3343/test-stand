@@ -3,7 +3,11 @@
     :id="id"
     class="container"
   >
-    <h2 class="section-header anim-we-work-header">{{ header }}</h2>
+    <WeWorkWith
+      :fontControlled="false"
+      class="section-header anim-we-work-header"
+    ></WeWorkWith>
+    <!-- <h2 class="section-header anim-we-work-header">{{ header }}</h2> -->
     <div class="list-wrapper">
       <div
         v-for="(item, key) in rows"
@@ -35,32 +39,27 @@
   setup
   lang="ts"
 >
-
+import WeWorkWith from "@/assets/images/headers/we-work-with.svg"
 interface Props {
   rows: { title: string, text: string }[]
   header: string
   id: string
 }
+import anime from "animejs";
 
 const props = defineProps<Props>()
 
 onMounted(() => {
   const { $gsap } = useNuxtApp()
-  const animHeaderConfig = {
-    opacity: 0,
-    duration: 0.8
-  }
 
-  const headerTextConfig = '<0.2'
-  const blockConfig = '<0.4'
-  const lineConfig = '<0.2'
 
   $gsap.timeline({
     scrollTrigger: {
       trigger: `#${props.id}`,
-      start: 'top 80%',
+      start: 'top 75%',
       end: 'bottom 60%',
-      toggleActions: 'play none none reverse'
+      toggleActions: 'play none none reverse',
+      markers: true
     }
   })
     .from(`#${props.id} .anim-we-work-header`, {
@@ -68,36 +67,60 @@ onMounted(() => {
       duration: 1,
       opacity: 0,
     })
-
-    .from(`#${props.id} .row-title-0`, animHeaderConfig,)
-    .from(`#${props.id} .row-text-0`, animHeaderConfig, headerTextConfig)
-    .from(`.row-line-0`, {
+    .add(function () {
+      anime({
+        targets: `#${props.id} .anim-we-work-header path`,
+        strokeDashoffset: [anime.setDashoffset, 0],
+        easing: 'easeInOutSine',
+        duration: 1000,
+        delay: function (el, i) { return i * 30 },
+        // direction: 'alternate',
+        // loop: true
+      });
+    }, '<')
+    .from(`#${props.id} .row-title`,
+      {
+        opacity: 0,
+        duration: 0.4,
+        stagger: 0.2 + 0.4,
+      }, '<0.2')
+    .from(`#${props.id} .row-line`, {
       width: '0%',
-      duration: 1,
-    }, lineConfig)
+      duration: 1.2,
+      stagger: 0.5,
+    }, "<")
+    .from(`#${props.id} .row-text`, {
+      opacity: 0,
+      duration: 0.4,
+      stagger: 0.4 + 0.2,
+    }, "<0.2")
 
-    .from(`#${props.id} .row-title-1`, animHeaderConfig, blockConfig)
-    .from(`#${props.id} .row-text-1`, animHeaderConfig, headerTextConfig)
-    .from(`.row-line-1`, {
-      width: '0%',
-      duration: 1,
-    }, lineConfig)
 
-    .from(`#${props.id} .row-title-2`, animHeaderConfig, blockConfig)
-    .from(`#${props.id} .row-text-2`, animHeaderConfig, headerTextConfig)
-    .from(`.row-line-2`, {
-      width: '0%',
-      duration: 1,
-    }, lineConfig)
+  // .from(`#${props.id} .row-title-0`, animHeaderConfig, "<0.2")
+  // .from(`#${props.id} .row-text-0`, animHeaderConfig, headerTextConfig)
 
-    .from(`#${props.id} .row-title-3`, animHeaderConfig, blockConfig)
-    .from(`#${props.id} .row-text-3`, animHeaderConfig, headerTextConfig)
-    .from(`.row-line-3`, {
-      width: '0%',
-      duration: 1,
-    }, lineConfig)
+
+  // .from(`#${props.id} .row-title-1`, animHeaderConfig, blockConfig)
+  // .from(`#${props.id} .row-text-1`, animHeaderConfig, headerTextConfig)
+
+
+  // .from(`#${props.id} .row-title-2`, animHeaderConfig, blockConfig)
+  // .from(`#${props.id} .row-text-2`, animHeaderConfig, headerTextConfig)
+
+
+  // .from(`#${props.id} .row-title-3`, animHeaderConfig, blockConfig)
+  // .from(`#${props.id} .row-text-3`, animHeaderConfig, headerTextConfig)
+
+
+
+
   // .list - item: not(: last - child): after
 })
+
+
+
+
+
 
 </script>
 <style

@@ -19,13 +19,14 @@ export default defineNuxtConfig({
       },
     ],
     "@hypernym/nuxt-gsap",
+    "nuxt-svgo",
   ],
-  telemetry: false,
   gsap: {
     extraPlugins: {
       scrollTrigger: true,
     },
   },
+  telemetry: false,
   app: {
     baseURL: "/test-stand/",
 

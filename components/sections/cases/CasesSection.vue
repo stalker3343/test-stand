@@ -145,6 +145,87 @@ const cases = ref([{
 
 
 }])
+
+
+onMounted(() => {
+  const { $gsap } = useNuxtApp()
+  const cases = ['.looker-case', '.tyler-case', '.witmall-case', '.word-case']
+
+  const createTimelines = () => {
+    return cases.map((caseClass, idx) => {
+      return $gsap.timeline({
+        scrollTrigger: {
+          trigger: caseClass,
+          start: 'top 80%',
+          end: 'bottom 60%',
+          toggleActions: 'play none none reverse',
+        }
+      })
+        .from(`${caseClass} .base-image`, {
+          opacity: 0,
+          duration: 0.8,
+          x: idx % 2 === 0 ? -40 : 40,
+        })
+        .from(`${caseClass} .case-header`, {
+          opacity: 0,
+          duration: 0.2,
+          x: idx % 2 === 0 ? -20 : 20,
+        }, "<0.2")
+        .from(`${caseClass} .case-description`, {
+          opacity: 0,
+          duration: 0.2,
+          x: idx % 2 === 0 ? -20 : 20,
+        }, "<0.1")
+        .from(`${caseClass} .case-tech`, {
+          duration: 0.3,
+          opacity: 0,
+          stagger: {
+            from: idx % 2 === 0 ? "start" : "end",
+            amount: 0.3,
+            // y: 5
+          }
+        }, "<0.2")
+        .from(`${caseClass} .feedback-name`, {
+          opacity: 0,
+          duration: 0.1,
+        }, "<0.5")
+        .from(`${caseClass} .feedback-position-wrapper`, {
+          opacity: 0,
+          duration: 0.1,
+        }, "<0.05")
+        .from(`${caseClass} .feedback-description`, {
+          opacity: 0,
+          duration: 0.4,
+        }, "<0.2")
+
+      // .from('.tag-item', {
+      //   duration: 0.6,
+      //   opacity: 0,
+      //   y: 5,
+      //   stagger: {
+      //     from: "start",
+      //     amount: 0.6,
+      //   }
+      // }, '<0.2')
+    })
+  }
+
+
+  createTimelines()
+  // cases.forEach((caseClass, idx) => {
+  //   ScrollTrigger.create({
+  //     trigger: caseClass,
+  //     start: 'top 80%',
+  //     end: 'bottom 60%',
+  //     toggleActions: 'play none none reverse',
+  //     animation: timeLines[idx]
+  //   });
+  // })
+
+})
+
+
+
 </script>
 
 
@@ -154,22 +235,10 @@ const cases = ref([{
 
     <div class="container">
       <div class="section-wrapper">
-        <LookCase
-          v-scroll-reveal-left
-          :case-item="cases[0]"
-        ></LookCase>
-        <WordCase
-          v-scroll-reveal-right
-          :case-item="cases[1]"
-        ></WordCase>
-        <WitmallCase
-          v-scroll-reveal-left
-          :case-item="cases[2]"
-        ></WitmallCase>
-        <TylerCase
-          v-scroll-reveal-right
-          :case-item="cases[3]"
-        ></TylerCase>
+        <LookCase :case-item="cases[0]"></LookCase>
+        <WordCase :case-item="cases[1]"></WordCase>
+        <WitmallCase :case-item="cases[2]"></WitmallCase>
+        <TylerCase :case-item="cases[3]"></TylerCase>
       </div>
 
 

@@ -1,4 +1,7 @@
-<script setup lang="ts">
+<script
+  setup
+  lang="ts"
+>
 
 defineProps({
   isLeftImg: {
@@ -19,13 +22,15 @@ defineProps({
     </div>
     <div class="comment-row">
       <slot name="comment"></slot>
-
     </div>
 
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style
+  lang="scss"
+  scoped
+>
 .base-case {
   position: relative;
 }

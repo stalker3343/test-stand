@@ -26,18 +26,17 @@ defineProps({
 
 <template>
   <div class="case-feedback">
+
     <div class="feedback-name">
       {{ name }}
-      <div>
-        <span class="feedback-position">
-          {{ position }}
-        </span>
-        <span class="feedback-company">
-          {{ company }}
-        </span>
-
-
-      </div>
+    </div>
+    <div class="feedback-position-wrapper">
+      <span class="feedback-position">
+        {{ position }}
+      </span>
+      <span class="feedback-company">
+        {{ company }}
+      </span>
     </div>
 
     <div class="feedback-description">
@@ -56,6 +55,15 @@ defineProps({
   lang="scss"
   scoped
 >
+.feedback-position-wrapper {
+  text-align: center;
+  margin-bottom: 16px;
+
+  @media (min-width: $md) {
+    margin-bottom: 24px;
+  }
+}
+
 .case-feedback {
 
   @media (min-width: $md) {
@@ -86,11 +94,7 @@ defineProps({
   line-height: 22px;
   letter-spacing: 0.02em;
   text-align: center;
-  margin-bottom: 16px;
 
-  @media (min-width: $md) {
-    margin-bottom: 24px;
-  }
 
   @media (min-width: $lg) {
     font-size: 23px;
@@ -118,6 +122,7 @@ defineProps({
   line-height: 22px;
   letter-spacing: 0.02em;
   text-align: center;
+
 }
 
 

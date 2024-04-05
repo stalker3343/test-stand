@@ -1,10 +1,11 @@
 <template>
-  <section
-    v-scroll-reveal
-    class="how-we-work"
-  >
+  <section class="how-we-work">
     <div class="container">
-      <h2 class="how-work-section-header">How we work</h2>
+      <HowWeWork
+        :fontControlled="false"
+        class="how-work-section-header"
+      ></HowWeWork>
+      <!-- <h2 class="how-work-section-header">How we work</h2> -->
       <div class="block-content">
         <p class="we-work-descr">We respect Agile and Scrum.</p>
         <p class="we-work-descr">We send you regular reports to keep you on track.</p>
@@ -19,10 +20,16 @@
             class="step-item"
             :class="item.class"
           >
-            <img
+            <component
+              :fontControlled="false"
+              class="step-img"
+              :is="item.id"
+            />
+
+            <!-- <img
               class="step-img"
               :src="item.img"
-            >
+            > -->
             <div class="step-title">
               {{ item.name }}
             </div>
@@ -33,12 +40,17 @@
             src="/how-we-work/step-arrow.svg"
             alt=""
           >
-          <img
+          <StepArrowDesc
+            :fontControlled="false"
+            class="arrow-step arrow-step_desctop"
+            v-if="idx !== steps.length - 1"
+          ></StepArrowDesc>
+          <!-- <img
             class="arrow-step arrow-step_desctop"
             v-if="idx !== steps.length - 1"
             src="/how-we-work/step-arrow-desc.svg"
             alt=""
-          >
+          > -->
 
 
         </template>
@@ -52,31 +64,138 @@
   setup
   lang="ts"
 >
+import StepArrowDesc from "@/assets/images/how-we-work/step-arrow-desc.svg?skipsvgo"
+import HowWeWork from "@/assets/images/headers/how-we-work.svg"
+// const getIcon = (id: string | number) => defineAsyncComponent(() => import(`@/assets/images/how-we-work/${id}.svg`));
+
+import First from '@/assets/images/how-we-work/1.svg?skipsvgo';
+import Second from '@/assets/images/how-we-work/2.svg?skipsvgo';
+import Thirth from '@/assets/images/how-we-work/3.svg?skipsvgo';
+import Fourth from '@/assets/images/how-we-work/4.svg?skipsvgo';
+import Fifth from '@/assets/images/how-we-work/5.svg?skipsvgo';
+import Six from '@/assets/images/how-we-work/6.svg?skipsvgo';
+import Seven from '@/assets/images/how-we-work/7.svg?skipsvgo';
+
+
+import anime from "animejs";
+
 import { ref } from 'vue';
 
-const steps = ref([{
+const steps = [{
   name: 'Analysis',
-  img: './how-we-work/1.svg'
+  img: './how-we-work/1.svg',
+  id: First
 }, {
   name: 'Mapping',
-  img: './how-we-work/2.svg'
+  img: './how-we-work/2.svg',
+  id: Second
 }, {
   name: 'Wireframing',
-  img: './how-we-work/3.svg'
+  img: './how-we-work/3.svg',
+  id: Thirth
 }, {
   name: 'UI design',
-  img: './how-we-work/4.svg'
+  img: './how-we-work/4.svg',
+  id: Fourth
 }, {
   name: 'Development',
-  img: './how-we-work/5.svg'
+  img: './how-we-work/5.svg',
+  id: Fifth
 }, {
   class: 'quality-assurance',
   name: 'Quality assurance',
-  img: './how-we-work/6.svg'
+  img: './how-we-work/6.svg',
+  id: Six
 }, {
   name: 'Release',
-  img: './how-we-work/7.svg'
-}])
+  img: './how-we-work/7.svg',
+  id: Seven
+}]
+
+
+
+onMounted(() => {
+  const { $gsap } = useNuxtApp()
+  $gsap.timeline({
+    scrollTrigger: {
+      trigger: `.how-we-work`,
+      start: 'top 75%',
+      end: 'bottom 60%',
+      toggleActions: 'play none none reverse',
+    }
+  }).from(`.how-work-section-header`, {
+    // y: 100,
+    duration: 1,
+    opacity: 0,
+  })
+    .add(function () {
+      anime({
+        targets: `.how-work-section-header path`,
+        strokeDashoffset: [anime.setDashoffset, 0],
+        easing: 'easeInOutSine',
+        duration: 1001,
+        delay: function (el, i) { return i * 30 },
+        // direction: 'alternate',
+        // loop: true
+      });
+    }, '<')
+    .from(`.block-content`,
+      {
+        opacity: 0,
+        duration: 0.2,
+      }, '<0.5')
+    .from(`.step-title`,
+      {
+        opacity: 0,
+        x: -50,
+        duration: 0.3,
+        stagger: 0.05,
+      }, '<0.2')
+    .from(`.step-img`,
+      {
+        opacity: 0,
+        x: -50,
+        duration: 0.3,
+        stagger: 0.05,
+      }, '<0.05')
+    .add(function () {
+      anime({
+        targets: `.step-img path`,
+        strokeDashoffset: [anime.setDashoffset, 0],
+        easing: 'easeInOutSine',
+        duration: 150,
+        delay: function (el, i) { return i * 15 },
+
+      });
+    }, '<')
+    .from(`.arrow-step_desctop`,
+      {
+        opacity: 0,
+        x: -50,
+        duration: 0.05,
+        stagger: 0.05,
+      }, '<0.05')
+    .add(function () {
+      anime({
+        targets: `.arrow-step_desctop path`,
+        strokeDashoffset: [anime.setDashoffset, 0],
+        easing: 'easeInOutSine',
+        duration: 600,
+        delay: function (el, i) { return i * 20 },
+        // direction: 'alternate',
+        // loop: true
+      });
+    }, '<')
+
+
+
+
+
+
+
+})
+
+
 </script>
 
 <style
@@ -135,6 +254,7 @@ const steps = ref([{
   }
 
   @media (min-width: $xl) {
+    height: 110px;
     font-size: 140px;
     line-height: 154px;
     letter-spacing: -0.02em;

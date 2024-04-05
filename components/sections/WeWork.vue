@@ -4,9 +4,18 @@
     class="container"
   >
     <WeWorkWith
+      v-if="id === 'industries'"
       :fontControlled="false"
       class="section-header anim-we-work-header"
     ></WeWorkWith>
+
+    <WeWorkHightQuality
+      v-if="id === 'quality'"
+      :fontControlled="false"
+      class="section-header anim-we-work-header"
+    >
+
+    </WeWorkHightQuality>
     <!-- <h2 class="section-header anim-we-work-header">{{ header }}</h2> -->
     <div class="list-wrapper">
       <div
@@ -40,6 +49,8 @@
   lang="ts"
 >
 import WeWorkWith from "@/assets/images/headers/we-work-with.svg"
+import WeWorkHightQuality from "@/assets/images/headers/we-work-hight-quality.svg"
+
 interface Props {
   rows: { title: string, text: string }[]
   header: string
@@ -185,9 +196,7 @@ onMounted(() => {
   }
 
   @media (min-width: $xl) {
-    /* font-size: 140px; */
-
-    height: 110px;
+    font-size: 140px;
     line-height: 151px;
     text-align: center;
     margin-top: 140px;
@@ -202,6 +211,24 @@ onMounted(() => {
 
   }
 }
+
+#industries .section-header {
+  @media (min-width: $xl) {
+    height: 110px;
+  }
+}
+
+#quality .section-header {
+  @media (min-width: $xl) {
+    /* font-size: 140px; */
+
+    height: 250px;
+
+
+  }
+
+}
+
 
 .row-title {
   //styleName: H2_mobile;

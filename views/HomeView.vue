@@ -110,7 +110,7 @@ onMounted(() => {
         targets: '.text-logo-one-row path',
         strokeDashoffset: [anime.setDashoffset, 0],
         easing: 'easeInOutSine',
-        duration: 1000,
+        duration: 1001,
         delay: function (el, i) { return i * 30 },
         // direction: 'alternate',
         // loop: true

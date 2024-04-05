@@ -40,11 +40,11 @@
             src="/how-we-work/step-arrow.svg"
             alt=""
           >
-          <StepArrowDesc
+          <StepArrowDescUp
             :fontControlled="false"
             class="arrow-step arrow-step_desctop"
             v-if="idx !== steps.length - 1"
-          ></StepArrowDesc>
+          ></StepArrowDescUp>
           <!-- <img
             class="arrow-step arrow-step_desctop"
             v-if="idx !== steps.length - 1"
@@ -65,6 +65,8 @@
   lang="ts"
 >
 import StepArrowDesc from "@/assets/images/how-we-work/step-arrow-desc.svg?skipsvgo"
+
+import StepArrowDescUp from "@/assets/images/how-we-work/step-arrow-desc-up.svg?skipsvgo"
 import HowWeWork from "@/assets/images/headers/how-we-work.svg"
 // const getIcon = (id: string | number) => defineAsyncComponent(() => import(`@/assets/images/how-we-work/${id}.svg`));
 

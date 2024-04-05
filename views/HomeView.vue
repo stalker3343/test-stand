@@ -25,17 +25,12 @@
     ></WeWork>
     <!-- <OurOtherClients></OurOtherClients> -->
     <AppFooter></AppFooter>
-    <TestDinamBg></TestDinamBg>
-    <ShapesBg> </ShapesBg>
-
+    <ShapesBg></ShapesBg>
 
 
   </div>
 </template>
-<script
-  lang="ts"
-  setup
->
+<script lang="ts" setup>
 import { defineAsyncComponent, ref } from "vue";
 // import OurClients from "../components/sections/OurClients.vue";
 const OurClients = defineAsyncComponent(() =>
@@ -110,7 +105,7 @@ onMounted(() => {
         targets: '.text-logo-one-row path',
         strokeDashoffset: [anime.setDashoffset, 0],
         easing: 'easeInOutSine',
-        duration: 1001,
+        duration: 1000,
         delay: function (el, i) { return i * 30 },
         // direction: 'alternate',
         // loop: true

@@ -1,7 +1,4 @@
-<script
-  lang="ts"
-  setup
->
+<script lang="ts" setup>
 
 onMounted(() => {
 
@@ -160,7 +157,7 @@ onMounted(() => {
     > -->
     <img
       class="shapes-all"
-      src="/bg/shapes.svg"
+      src="/bg/shapes-new.svg"
     >
 
     <!-- <img
@@ -193,10 +190,7 @@ onMounted(() => {
 
 </template>
 
-<style
-  scoped
-  lang="scss"
->
+<style scoped lang="scss">
 .shapes-all {
   width: 100%;
   position: absolute;

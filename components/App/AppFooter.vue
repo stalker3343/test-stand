@@ -1,7 +1,4 @@
-<script
-  lang="ts"
-  setup
->
+<script lang="ts" setup>
 import BaseInput from '@/ui/BaseInput.vue'
 import BaseButton from '@/ui/BaseButton.vue'
 import SuccessBlock from '@/components/sections/Footer/SuccessBlock.vue'
@@ -11,6 +8,8 @@ import { useForm } from 'vee-validate';
 import { object, string } from 'yup';
 import { toTypedSchema } from '@vee-validate/yup';
 import { ref } from 'vue';
+import LetsTalk from "@/assets/images/headers/lets-talk.svg?skipsvgo"
+import anime from "animejs";
 
 const formSendSucess = ref(false)
 const formError = ref('')
@@ -77,6 +76,41 @@ const onSubmit = handleSubmit((values) => {
 
 })
 
+onMounted(() => {
+  const { $gsap } = useNuxtApp()
+
+
+  $gsap.timeline({
+    scrollTrigger: {
+      trigger: `.footer-section`,
+      start: 'top 75%',
+      end: 'bottom 60%',
+      toggleActions: 'play none none reverse',
+    }
+  })
+    .from(`.footer-main-text`, {
+      y: 100,
+      duration: 1,
+      opacity: 0,
+    })
+    .add(function () {
+      anime({
+        targets: `.footer-main-text path`,
+        strokeDashoffset: [anime.setDashoffset, 0],
+        easing: 'easeInOutSine',
+        duration: 1001,
+        delay: function (el, i) { return i * 30 },
+        // direction: 'alternate',
+        // loop: true
+      });
+    }, '<')
+
+
+
+
+
+})
+
 
 
 
@@ -86,12 +120,16 @@ const onSubmit = handleSubmit((values) => {
 <template>
   <footer class="footer-section">
     <div class="container">
-      <div class="footer-main-text">
+      <LetsTalk
+        class="footer-main-text"
+        :fontControlled="false"
+      ></LetsTalk>
+      <!-- <div class="footer-main-text">
         READY TO TAKE THE NEXT STEP ?
         <span class="main-text-accent">
           Let’s Talk !
         </span>
-      </div>
+      </div> -->
 
       <div class="main-footer-wrapper">
         <div
@@ -235,10 +273,7 @@ const onSubmit = handleSubmit((values) => {
   </footer>
 </template>
 
-<style
-  scoped
-  lang="scss"
->
+<style scoped lang="scss">
 .main-footer-wrapper {
   @media (min-width: $md) {}
 
@@ -505,7 +540,9 @@ const onSubmit = handleSubmit((values) => {
 
   }
 
-  @media (min-width: $xl) {}
+  @media (min-width: $xl) {
+    width: 1024px;
+  }
 
   @media (min-width: $xxl) {}
 

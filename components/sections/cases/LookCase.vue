@@ -76,6 +76,7 @@ defineProps({
 }
 
 .base-image {
+  z-index: 10;
   position: absolute;
   top: 0px;
   max-width: initial;
@@ -89,7 +90,7 @@ defineProps({
   }
 
   @media (min-width: $lg) {
-    height: 465px;
+    height: 705px;
     left: -380px;
     top: -29px;
 
@@ -98,7 +99,7 @@ defineProps({
 
   @media (min-width: $xl) {
     left: -320px;
-    top: -20px;
+    top: -130px;
 
   }
 

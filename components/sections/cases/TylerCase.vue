@@ -1,7 +1,4 @@
-<script
-  setup
-  lang="ts"
->
+<script setup lang="ts">
 import BaseCase from "./BaseCase.vue";
 import CaseDescription from "./CaseDescription.vue";
 import CaseFeedback from "./CaseFeedback.vue";
@@ -22,12 +19,28 @@ defineProps({
     :is-left-img="false"
   >
     <template #img>
-      <img
+      <!-- <img
         class="base-image"
         :src="caseItem.img"
         alt=""
         loading="lazy"
+      > -->
+      <video
+        class="base-image"
+        autoplay
+        loop
+        muted
+        playsinline
       >
+        <source
+          src="https://rotato.netlify.app/alpha-demo/movie-hevc.mov"
+          type='video/mp4; codecs="hvc1"'
+        >
+        <source
+          :src="caseItem.video"
+          type="video/webm"
+        >
+      </video>
     </template>
     <template #description>
       <CaseDescription
@@ -43,10 +56,7 @@ defineProps({
   </BaseCase>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss" scoped>
 .tyler-case-description {
 
 

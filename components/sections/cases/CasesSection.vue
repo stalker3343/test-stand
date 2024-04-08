@@ -1,7 +1,4 @@
-<script
-  setup
-  lang="ts"
->
+<script setup lang="ts">
 import { ref } from "vue";
 
 
@@ -12,6 +9,7 @@ import TylerCase from "./TylerCase.vue";
 
 const cases = ref([{
   img: './cases/1.png',
+  video: './cases/video/look.webm',
   header: 'LookLook',
   description: `<p>Corporate survey platform with advanced features of marketing research. Survey answers may include audio and video with automatic transcription and translation – the legacy system had issues with scaling all these heavy tasks.</p> <p>We rebuilt the frontend and backend of the platform on the modern technology stack based on Amazon services. As a result, we developed an automatically scaling system that balances the peak loads.</p> `,
   technologies: [
@@ -48,6 +46,9 @@ const cases = ref([{
     <p>  We helped Mavenir (NYSE: Mavenir Sys) build modern web portals and dashboards servicing millions of subscribers of telco carriers in the USA, Europe and Australia.</p>
     <p>We developed all the webpages, APIs for the servers, video/audio transcoding, as well as implemented localisation for several languages. Also we performed low-level optimization and customization of server infrastructure.</p>
   `,
+  video: './cases/video/look.webm',
+
+
   technologies: [
     {
       src: './cases/technologies/js.svg',
@@ -84,6 +85,10 @@ const cases = ref([{
   img: './cases/3.png',
   header: 'SolidNumber',
   description: `SolidNumber - a multifunctional money system made in honor to ease transferring payments for businesses. Besides money-related functions the app provides you with key business information, SMS/Email reminders, automated sales funnels. It is also one of the most cost-effective money transaction tools in the United States. Since it is an online payment and banking system, safety and reliability were the core values during the development of this project. This platform is PCI compliant.`,
+
+  video: './cases/video/solid.webm',
+
+
   technologies: [
     {
       src: './cases/technologies/node.svg',
@@ -114,6 +119,8 @@ const cases = ref([{
 }, {
   img: './cases/4.png',
   header: 'TYLR',
+  video: './cases/video/tyler.webm',
+
   description: `The service helps increase users' engagement and makes content more accessible for people of all abilities using an AI-powered system. This includes the website widget which enables text conversion to speech on the fly with translation to several languages, and dashboard with the advanced analytics. We also developed a plugin to simplify integration of Tyler with WordPress-powered sites. `,
   technologies: [
     {
@@ -248,10 +255,7 @@ onMounted(() => {
   </section>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss" scoped>
 .section-cases {
   margin-top: 120px;
   margin-top: 120px;

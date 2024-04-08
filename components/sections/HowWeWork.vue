@@ -60,10 +60,7 @@
 
 </template>
 
-<script
-  setup
-  lang="ts"
->
+<script setup lang="ts">
 import StepArrowDesc from "@/assets/images/how-we-work/step-arrow-desc.svg?skipsvgo"
 
 import StepArrowDescUp from "@/assets/images/how-we-work/step-arrow-desc-up.svg?skipsvgo"
@@ -149,16 +146,16 @@ onMounted(() => {
     .from(`.step-title`,
       {
         opacity: 0,
-        x: -50,
+        x: -100,
         duration: 0.3,
-        stagger: 0.05,
+        stagger: 0.7, // 0.6 .5 .4 .3 
       }, '<0.2')
     .from(`.step-img`,
       {
         opacity: 0,
-        x: -50,
+        x: -100,
         duration: 0.3,
-        stagger: 0.05,
+        stagger: 0.7,
       }, '<0.05')
     .add(function () {
       anime({
@@ -173,9 +170,9 @@ onMounted(() => {
     .from(`.arrow-step_desctop`,
       {
         opacity: 0,
-        x: -50,
+        x: -100,
         duration: 0.05,
-        stagger: 0.05,
+        stagger: 0.7,
       }, '<0.05')
     .add(function () {
       anime({
@@ -200,20 +197,14 @@ onMounted(() => {
 
 </script>
 
-<style
-  scoped
-  lang="scss"
->
+<style scoped lang="scss">
 .quality-assurance {
   width: 150px !important;
 }
 </style>
 
 
-<style
-  scoped
-  lang="scss"
->
+<style scoped lang="scss">
 .how-we-work {
   margin-top: 100px;
 

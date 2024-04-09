@@ -105,6 +105,39 @@ onMounted(() => {
       });
     }, '<')
 
+    .from(`.anim-footer-email`, {
+      duration: 0.05,
+      opacity: 0,
+    }, '<0.5')
+    .from(`.anim-footer-phone`, {
+      duration: 0.05,
+      opacity: 0,
+    }, '<')
+    .from(".adress-item", {
+      duration: 0.05,
+      opacity: 0,
+    }, '<')
+    .from(".social-link-item", {
+      duration: 0.3,
+      opacity: 0,
+      stagger: {
+        amount: 0.3,
+        // y: 5
+      }
+    }, '<')
+    .from([".free-consalt", ".footer-input", '.anim-textarea'], {
+      duration: 0.05,
+      opacity: 0,
+      stager: 0.05
+    }, '<0.2')
+    .from(".anim-footer-send-btn", {
+      duration: 0.05,
+      opacity: 0,
+      stager: 0.05
+    }, '<0.2')
+
+
+
 
 
 
@@ -152,21 +185,31 @@ onMounted(() => {
             Book a free consultation with tech experts.
           </p>
           <div>
-            <BaseInput
-              class="footer-input"
-              placeholder="Your name"
-              name="name"
-            ></BaseInput>
+            <div class="two-input-row">
+              <BaseInput
+                class="footer-input"
+                placeholder="Your name"
+                name="name"
+              ></BaseInput>
+              <BaseInput
+                class="footer-input"
+                placeholder="Email"
+                name="email"
+              ></BaseInput>
+            </div>
+
             <BaseInput
               name="description"
               style="resize: none"
               as="textarea"
               placeholder="Tell us about your project"
+              class="anim-textarea"
             >
             </BaseInput>
           </div>
           <div>
             <BaseButton
+              class="anim-footer-send-btn"
               :disabled="isSubmitting"
               block
             >
@@ -187,13 +230,13 @@ onMounted(() => {
 
           <div class="footer-contacts">
             <a
-              class="contact-link "
+              class="contact-link anim-footer-email"
               href="mailto:works@afterlogic.com"
             >
               works@afterlogic.com
             </a>
             <a
-              class="contact-link "
+              class="contact-link anim-footer-phone"
               href="tel:+14155130152"
             >
               +1 415 513 0152
@@ -274,6 +317,14 @@ onMounted(() => {
 </template>
 
 <style scoped lang="scss">
+.two-input-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+}
+
+
+
 .main-footer-wrapper {
   @media (min-width: $md) {}
 
@@ -541,7 +592,7 @@ onMounted(() => {
   }
 
   @media (min-width: $xl) {
-    width: 1024px;
+    width: 1124px;
   }
 
   @media (min-width: $xxl) {}

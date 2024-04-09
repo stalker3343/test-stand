@@ -166,7 +166,7 @@ onMounted(() => {
       $gsap.to('.arrow-step',
         {
           opacity: 1,
-          duration: 0.5,
+          duration: 0.25,
           stagger: 0.05
         })
 

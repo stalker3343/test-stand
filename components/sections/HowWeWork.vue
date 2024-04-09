@@ -164,8 +164,11 @@ onMounted(() => {
         })
       $gsap.to('.arrow-step',
         {
-          opacity: 1,
-          duration: 0.7,
+          scaleY: 1,
+          scaleX: 1,
+
+          // opacity: 1,
+          duration: 0.8,
           stagger: 0.14
         })
 
@@ -347,7 +350,8 @@ onMounted(() => {
 }
 
 .arrow-step {
-  opacity: 0;
+  // opacity: 0;
+  transform: scale(0.5, 0);
 
   @media (min-width: $md) {
     height: 160px;

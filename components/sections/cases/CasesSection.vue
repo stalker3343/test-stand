@@ -9,7 +9,7 @@ import TylerCase from "./TylerCase.vue";
 
 const cases = ref([{
   img: './cases/1.png',
-  video: './cases/video/mavenir.webm',
+  video: './cases/video/look.webm',
   header: 'LookLook',
   description: `<p>Corporate survey platform with advanced features of marketing research. Survey answers may include audio and video with automatic transcription and translation – the legacy system had issues with scaling all these heavy tasks.</p> <p>We rebuilt the frontend and backend of the platform on the modern technology stack based on Amazon services. As a result, we developed an automatically scaling system that balances the peak loads.</p> `,
   technologies: [
@@ -86,7 +86,7 @@ const cases = ref([{
   header: 'SolidNumber',
   description: `SolidNumber - a multifunctional money system made in honor to ease transferring payments for businesses. Besides money-related functions the app provides you with key business information, SMS/Email reminders, automated sales funnels. It is also one of the most cost-effective money transaction tools in the United States. Since it is an online payment and banking system, safety and reliability were the core values during the development of this project. This platform is PCI compliant.`,
 
-  video: './cases/video/mavenir.webm',
+  video: './cases/video/solid.webm',
 
 
   technologies: [
@@ -119,7 +119,7 @@ const cases = ref([{
 }, {
   img: './cases/4.png',
   header: 'TYLR',
-  video: './cases/video/mavenir.webm',
+  video: './cases/video/tyler.webm',
 
   description: `The service helps increase users' engagement and makes content more accessible for people of all abilities using an AI-powered system. This includes the website widget which enables text conversion to speech on the fly with translation to several languages, and dashboard with the advanced analytics. We also developed a plugin to simplify integration of Tyler with WordPress-powered sites. `,
   technologies: [

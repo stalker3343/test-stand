@@ -2,6 +2,13 @@
 
 onMounted(() => {
 
+  const { $gsap } = useNuxtApp()
+
+  $gsap.set(`#realFollowCursor`, { scale: 0.8 })
+
+
+  $gsap.to(`#realFollowCursor`, { scale: 1.5, yoyo: true }
+  )
 
   var tracker = document.getElementById('realFollowCursor');
   var targetX = 0, targetY = 0; // Целевые координаты, куда должен двигаться элемент
@@ -24,13 +31,13 @@ onMounted(() => {
     tracker.style.left = currentX + 'px';
     tracker.style.top = currentY + 'px';
 
-    // Изменение размера элемента
-    scale += window.scaleDirection;
-    tracker.style.transform = `scale(${scale})`;
-    // Проверяем, нужно ли изменить направление масштабирования
-    if (scale <= 0.8 || scale >= 1.5) {
-      window.scaleDirection = -window.scaleDirection;
-    }
+    // // Изменение размера элемента
+    // scale += window.scaleDirection;
+    // tracker.style.transform = `scale(${scale})`;
+    // // Проверяем, нужно ли изменить направление масштабирования
+    // if (scale <= 0.8 || scale >= 1.5) {
+    //   window.scaleDirection = -window.scaleDirection;
+    // }
 
 
     // Планируем следующее обновление

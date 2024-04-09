@@ -90,7 +90,7 @@ defineProps({
   }
 
   @media (min-width: $lg) {
-    height: 705px;
+    height: 465px;
     left: -380px;
     top: -29px;
 
@@ -99,7 +99,7 @@ defineProps({
 
   @media (min-width: $xl) {
     left: -320px;
-    top: -130px;
+    top: -20px;
 
   }
 

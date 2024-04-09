@@ -135,7 +135,6 @@ onMounted(() => {
   })
     // .set(".step-item", { opacity: 0 }, 1)
     .from(`.how-work-section-header`, {
-      // y: 100,
       duration: 1,
       opacity: 0,
     })
@@ -161,13 +160,13 @@ onMounted(() => {
         {
           opacity: 1,
           duration: 0.7,
-          stagger: 0.05
+          stagger: 0.3
         })
       $gsap.to('.arrow-step',
         {
           opacity: 1,
-          duration: 0.25,
-          stagger: 0.05
+          duration: 0.7,
+          stagger: 0.14
         })
 
       // $gsap.from(`.step-img`,
@@ -182,46 +181,46 @@ onMounted(() => {
         targets: `.step-img path`,
         strokeDashoffset: [anime.setDashoffset, 0],
         easing: 'easeInOutSine',
-        duration: 250,
-        delay: function (el, i) { return i * 11 },
+        duration: 800,
+        delay: function (el, i) { return i * 22 },
       })
 
 
       $gsap.from([`.step-item-0`, '.arrow-step-0'],
         {
           x: step * 2,
-          duration: 0.7,
+          duration: 1.7,
         })
 
       $gsap.from([`.step-item-1`, '.arrow-step-1'],
         {
           x: step * 3,
-          duration: 0.7,
+          duration: 1.7,
         })
       $gsap.from([`.step-item-2`, '.arrow-step-2'],
         {
           x: step * 4,
-          duration: 0.7,
+          duration: 1.7,
         })
       $gsap.from([`.step-item-3`, '.arrow-step-3'],
         {
           x: step * 5,
-          duration: 0.7,
+          duration: 1.7,
         })
       $gsap.from([`.step-item-4`, '.arrow-step-4'],
         {
           x: step * 6,
-          duration: 0.7,
+          duration: 1.7,
         })
       $gsap.from([`.step-item-5`, '.arrow-step-5'],
         {
           x: step * 7,
-          duration: 0.7,
+          duration: 1.7,
         })
       $gsap.from([`.step-item-6`, '.arrow-step-6'],
         {
           x: step * 8,
-          duration: 0.7,
+          duration: 1.7,
         })
 
     }, '<')

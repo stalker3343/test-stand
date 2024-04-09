@@ -94,17 +94,15 @@ defineProps({
   }
 
   @media (min-width: $xl) {
-    top: -60px;
-    left: 410px;
-    height: 700px;
+    top: -80px;
+
+    left: 610px;
 
   }
 
   @media (min-width: $xxl) {
-    height: 750px;
-
     top: -100px;
-    left: 640px;
+    left: 840px;
   }
 
 }

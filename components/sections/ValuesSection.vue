@@ -41,10 +41,7 @@
     </div>
   </section>
 </template>
-<script
-  setup
-  lang="ts"
->
+<script setup lang="ts">
 import { ref } from "vue";
 import OurValues from "@/assets/images/headers/our-values.svg?skipsvgo"
 import anime from "animejs";
@@ -80,7 +77,6 @@ onMounted(() => {
       toggleActions: 'play none none reverse',
     }
   }).from(`.anim-our-values-header`, {
-    y: 100,
     duration: 1,
     opacity: 0,
   })
@@ -121,10 +117,7 @@ onMounted(() => {
 })
 
 </script>
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss" scoped>
 .values-list {
   @media (min-width: $md) {
     display: grid;

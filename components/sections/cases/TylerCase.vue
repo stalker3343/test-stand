@@ -95,15 +95,15 @@ defineProps({
   }
 
   @media (min-width: $xl) {
-    top: -120px;
-    left: 500px;
+    top: -30px;
+    left: 600px;
 
-    height: 762px;
+    height: 462px;
   }
 
   @media (min-width: $xxl) {
-    top: -150px;
-    left: 670px;
+    top: -30px;
+    left: 870px;
 
   }
 

@@ -89,7 +89,6 @@ onMounted(() => {
     }
   })
     .from(`.footer-main-text`, {
-      y: 100,
       duration: 1,
       opacity: 0,
     })
@@ -106,15 +105,15 @@ onMounted(() => {
     }, '<')
 
     .from(`.anim-footer-email`, {
-      duration: 0.05,
+      duration: 0.1,
       opacity: 0,
     }, '<0.5')
     .from(`.anim-footer-phone`, {
-      duration: 0.05,
+      duration: 0.1,
       opacity: 0,
     }, '<')
     .from(".adress-item", {
-      duration: 0.05,
+      duration: 0.1,
       opacity: 0,
     }, '<')
     .from(".social-link-item", {
@@ -126,12 +125,12 @@ onMounted(() => {
       }
     }, '<')
     .from([".free-consalt", ".footer-input", '.anim-textarea'], {
-      duration: 0.05,
+      duration: 0.1,
       opacity: 0,
       stager: 0.05
     }, '<0.2')
     .from(".anim-footer-send-btn", {
-      duration: 0.05,
+      duration: 0.1,
       opacity: 0,
       stager: 0.05
     }, '<0.2')

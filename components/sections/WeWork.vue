@@ -44,10 +44,7 @@
     </div>
   </div>
 </template>
-<script
-  setup
-  lang="ts"
->
+<script setup lang="ts">
 import WeWorkWith from "@/assets/images/headers/we-work-with.svg"
 import WeWorkHightQuality from "@/assets/images/headers/we-work-hight-quality.svg"
 
@@ -73,7 +70,6 @@ onMounted(() => {
     }
   })
     .from(`#${props.id} .anim-we-work-header`, {
-      y: 100,
       duration: 1,
       opacity: 0,
     })
@@ -151,10 +147,7 @@ onMounted(() => {
 
 
 </script>
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss" scoped>
 .row-line {
   position: absolute;
   bottom: 0px;

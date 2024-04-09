@@ -18,7 +18,7 @@
         >
           <div
             class="step-item"
-            :class="item.class"
+            :class="[`${item.class}`, `step-item-${idx}`]"
           >
             <component
               :fontControlled="false"
@@ -43,6 +43,7 @@
           <StepArrowDescUp
             :fontControlled="false"
             class="arrow-step arrow-step_desctop"
+            :class="`arrow-step-${idx}`"
             v-if="idx !== steps.length - 1"
           ></StepArrowDescUp>
           <!-- <img
@@ -111,8 +112,17 @@ const steps = [{
   id: Seven
 }]
 
+// aTweens = [
+// 			TweenMax.from(".how_we_work .stage", 1, {opacity: 0, ease: Power2.easeOut}),
+// 			TweenMax.from(".how_we_work .stage1", 1, {left: '-5%', ease: Power2.easeOut}),
+// 			TweenMax.from(".how_we_work .stage2", 1, {left: '-20%', ease: Power2.easeOut}),
+// 			TweenMax.from(".how_we_work .stage3", 1, {left: '-35%', ease: Power2.easeOut}),
+// 			TweenMax.from(".how_we_work .stage4", 1, {left: '-50%', ease: Power2.easeOut}),
+// 			TweenMax.from(".how_we_work .stage5", 1, {left: '-65%', ease: Power2.easeOut}),
+// 			TweenMax.from(".how_we_work .stage6", 1, {left: '-80%', ease: Power2.easeOut})
+// 		];
 
-
+// .step-item-0
 onMounted(() => {
   const { $gsap } = useNuxtApp()
   $gsap.timeline({
@@ -122,11 +132,13 @@ onMounted(() => {
       end: 'bottom 60%',
       toggleActions: 'play none none reverse',
     }
-  }).from(`.how-work-section-header`, {
-    // y: 100,
-    duration: 1,
-    opacity: 0,
   })
+    // .set(".step-item", { opacity: 0 }, 1)
+    .from(`.how-work-section-header`, {
+      // y: 100,
+      duration: 1,
+      opacity: 0,
+    })
     .add(function () {
       anime({
         targets: `.how-work-section-header path`,
@@ -141,50 +153,123 @@ onMounted(() => {
     .from(`.block-content`,
       {
         opacity: 0,
-        duration: 0.2,
+        duration: 1.0,
       }, '<0.5')
-    .from(`.step-title`,
-      {
-        opacity: 0,
-        x: -100,
-        duration: 0.3,
-        stagger: 0.7, // 0.6 .5 .4 .3 
-      }, '<0.2')
-    .from(`.step-img`,
-      {
-        opacity: 0,
-        x: -100,
-        duration: 0.3,
-        stagger: 0.7,
-      }, '<0.05')
     .add(function () {
+      const step = -160;
+      $gsap.to(`.step-item`,
+        {
+          opacity: 1,
+          duration: 0.7,
+          stagger: 0.05
+        })
+      $gsap.to('.arrow-step',
+        {
+          opacity: 1,
+          duration: 0.5,
+          stagger: 0.05
+        })
+
+      // $gsap.from(`.step-img`,
+      //   {
+      //     opacity: 0,
+      //     // x: -100,
+      //     duration: 0.1,
+      //     stagger: 1,
+      //   })
+
       anime({
         targets: `.step-img path`,
         strokeDashoffset: [anime.setDashoffset, 0],
         easing: 'easeInOutSine',
-        duration: 150,
-        delay: function (el, i) { return i * 15 },
+        duration: 250,
+        delay: function (el, i) { return i * 11 },
+      })
 
-      });
+
+      $gsap.from([`.step-item-0`, '.arrow-step-0'],
+        {
+          x: step * 2,
+          duration: 0.7,
+        })
+
+      $gsap.from([`.step-item-1`, '.arrow-step-1'],
+        {
+          x: step * 3,
+          duration: 0.7,
+        })
+      $gsap.from([`.step-item-2`, '.arrow-step-2'],
+        {
+          x: step * 4,
+          duration: 0.7,
+        })
+      $gsap.from([`.step-item-3`, '.arrow-step-3'],
+        {
+          x: step * 5,
+          duration: 0.7,
+        })
+      $gsap.from([`.step-item-4`, '.arrow-step-4'],
+        {
+          x: step * 6,
+          duration: 0.7,
+        })
+      $gsap.from([`.step-item-5`, '.arrow-step-5'],
+        {
+          x: step * 7,
+          duration: 0.7,
+        })
+      $gsap.from([`.step-item-6`, '.arrow-step-6'],
+        {
+          x: step * 8,
+          duration: 0.7,
+        })
+
     }, '<')
-    .from(`.arrow-step_desctop`,
-      {
-        opacity: 0,
-        x: -100,
-        duration: 0.05,
-        stagger: 0.7,
-      }, '<0.05')
-    .add(function () {
-      anime({
-        targets: `.arrow-step_desctop path`,
-        strokeDashoffset: [anime.setDashoffset, 0],
-        easing: 'easeInOutSine',
-        duration: 600,
-        delay: function (el, i) { return i * 20 },
-        // direction: 'alternate',
-        // loop: true
-      });
-    }, '<')
+
+
+
+  // .from(`.step-title`,
+  //   {
+  //     opacity: 0,
+  //     x: -100,
+  //     duration: 0.3,
+  //     stagger: 0.7,
+  //   }, '<0.2')
+  // .from(`.step-img`,
+  //   {
+  //     opacity: 0,
+  //     // x: -100,
+  //     duration: 0.5,
+  //     stagger: 1,
+  //   }, '<0.05')
+  // .add(function () {
+  //   anime({
+  //     targets: `.step-img path`,
+  //     strokeDashoffset: [anime.setDashoffset, 0],
+  //     easing: 'easeInOutSine',
+  //     duration: 150,
+  //     delay: function (el, i) { return i * 15 },
+
+  //   });
+  // }, '<')
+  // .from(`.arrow-step_desctop`,
+  //   {
+  //     opacity: 0,
+  //     x: -100,
+  //     duration: 0.05,
+  //     stagger: 0.7,
+  //   }, '<0.05')
+  // .add(function () {
+  //   anime({
+  //     targets: `.arrow-step_desctop path`,
+  //     strokeDashoffset: [anime.setDashoffset, 0],
+  //     easing: 'easeInOutSine',
+  //     duration: 600,
+  //     delay: function (el, i) { return i * 20 },
+  //     // direction: 'alternate',
+  //     // loop: true
+  //   });
+  // }, '<')
 
 
 
@@ -263,6 +348,8 @@ onMounted(() => {
 }
 
 .arrow-step {
+  opacity: 0;
+
   @media (min-width: $md) {
     height: 160px;
   }
@@ -395,6 +482,7 @@ onMounted(() => {
   text-align: center;
   align-items: center;
   width: 120px;
+  opacity: 0;
 }
 
 .step-title {

@@ -157,10 +157,7 @@
   </div>
 </template>
 
-<script
-  lang="ts"
-  setup
->
+<script lang="ts" setup>
 import { ref } from 'vue';
 
 import MainTitleOneRow from "@/assets/images/headers/main-title-one-row.svg?skipsvgo"
@@ -200,10 +197,7 @@ const badges = ref([{
 ])
 </script>
 
-<style
-  scoped
-  lang="scss"
->
+<style scoped lang="scss">
 .text-logo-two-row {
   margin-top: 25px;
   /* width: 100px !important; */
@@ -324,7 +318,7 @@ const badges = ref([{
 
 
   @media (min-width: $xl) {
-    margin-top: 75px;
+    margin-top: 92px;
 
   }
 

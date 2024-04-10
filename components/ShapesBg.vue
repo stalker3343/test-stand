@@ -7,6 +7,58 @@ onMounted(() => {
   $gsap.set(`#realFollowCursor`, { scale: 0.8 })
   $gsap.to(`#realFollowCursor`, { duration: 2, scale: 1.4, repeat: -1, yoyo: true })
 
+  // $gsap.timeline({
+  //   scrollTrigger: {
+  //     trigger: `.footer-section`,
+  //     start: 'top -10%',
+  //     end: 'bottom 60%',
+  //     toggleActions: 'play none none reverse',
+  //     markers: true
+  //   }
+  // })
+
+
+  /////// 
+  const onCroseLineToFooter = () => {
+    pulsarAnim.pause()
+    $gsap.to(`#realFollowCursor`, { duration: 2, scale: 0 })
+
+  }
+
+  const onCroseLineFromFooter = () => {
+    $gsap.to(`#realFollowCursor`, { duration: 1, scale: 0.8 })
+    pulsarAnim.play(0)
+
+  }
+
+  // Получаем div элемент
+  // const divElement = document.querySelector('.hidden-row-for-anim');
+
+  // // Добавляем событие mousemove на div элемент
+  // divElement.addEventListener('mouseleave', (event) => {
+  //   // Получаем координаты курсора относительно div элемента
+  //   const x = event.clientX - divElement.offsetLeft;
+  //   const y = event.clientY - divElement.offsetTop;
+
+  //   // Определяем высоту и ширину div элемента
+  //   const height = divElement.offsetHeight;
+  //   const width = divElement.offsetWidth;
+  //   console.log("~ x:", x)
+  //   console.log("~ y:", y)
+
+  //   // Определяем, пересекает ли курсор мышки div элемент в форме линии
+  //   const isIntersecting = y < x && y < width - x && y > x - height && y > -x + height;
+
+  //   // Если курсор мышки пересекает div элемент в форме линии, то выполняем какое-либо действие
+  //   if (isIntersecting) {
+  //     console.log('Курсор мышки пересекает div элемент в форме линии');
+  //   }
+  // });
+
+
+
+
+
   var tracker = document.getElementById('realFollowCursor');
   var targetX = 0, targetY = 0; // Целевые координаты, куда должен двигаться элемент
   var currentX = 0, currentY = 0; // Текущие координаты элемента

@@ -24,7 +24,6 @@ defineProps({
         class="base-image"
         lazy
         autoplay
-        loop
         muted
       >
         <!-- <source

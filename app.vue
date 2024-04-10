@@ -1,7 +1,4 @@
-<script
-  lang="ts"
-  setup
->
+<script lang="ts" setup>
 // import { RouterView } from 'vue-router'
 import AppHeader from './components/App/AppHeader.vue'
 import HomeView from '@/views/HomeView.vue'

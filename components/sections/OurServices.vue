@@ -59,6 +59,10 @@ onMounted(() => {
         // loop: true
       });
     }, '<')
+    // .to('.mouse', {
+    //   opacity: 0,
+    //   animation: ''
+    // })
     .from('.service-header', {
       opacity: 0,
       duration: 0.4,

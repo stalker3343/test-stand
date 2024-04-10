@@ -28,7 +28,6 @@ defineProps({
       <video
         class="base-image"
         autoplay
-        loop
         muted
         playsinline
       >

@@ -1,7 +1,4 @@
-<script
-  lang="ts"
-  setup
->
+<script lang="ts" setup>
 import { ref } from 'vue';
 // import AppMobileMenu from './AppMobileMenu.vue'
 import AppMobileMenuRight from './AppMobileMenuRight.vue'
@@ -65,10 +62,7 @@ const onToggleMenu = () => {
   </div>
 </template>
 
-<style
-  scoped
-  lang="scss"
->
+<style scoped lang="scss">
 .header-wrapper {
   // position: sticky;
   top: 0px;
@@ -143,7 +137,8 @@ const onToggleMenu = () => {
   justify-content: space-between;
 
   @media (min-width: $xl) {
-    height: 72px;
+    height: 81px;
+
   }
 
   @media (min-width: $xxl) {}

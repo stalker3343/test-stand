@@ -86,6 +86,7 @@ onMounted(() => {
       start: 'top 75%',
       end: 'bottom 60%',
       toggleActions: 'play none none none',
+
     }
   })
     .from(`.footer-main-text`, {
@@ -112,35 +113,48 @@ onMounted(() => {
       toggleActions: 'play none none none',
     }
   })
-    .from(`.anim-footer-email`, {
+    .from(`.anim-contact-link`, {
       duration: 0.1,
       opacity: 0,
-    }, '<0.05')
-    .from(`.anim-footer-phone`, {
-      duration: 0.1,
-      opacity: 0,
-    }, '<0.05')
+      stagger: {
+        amount: 0.2,
+        // y: 5
+      }
+    })
+    // .from(`.anim-footer-phone`, {
+    //   duration: 0.1,
+    //   opacity: 0,
+    // }, '<0.1')
     .from(".adress-item", {
       duration: 0.1,
       opacity: 0,
-    }, '<0.05')
+      stagger: {
+        amount: 0.2,
+        // y: 5
+      }
+    }, '<0.3')
     .from(".social-link-item", {
-      duration: 0.4,
+      duration: 0.2,
       opacity: 0,
       stagger: {
         amount: 0.3,
-        // y: 5
       }
-    }, '<0.05')
-    .from([".free-consalt", ".footer-input", '.anim-textarea'], {
+    }, '<0.2')
+    .from(".free-consalt", {
       duration: 0.1,
       opacity: 0,
-      stagger: 0.05
-    }, '<0.4')
-    .from(".anim-footer-send-btn", {
-      duration: 3,
+    })
+    .from(".anim-input-item", {
+      duration: 0.1,
       opacity: 0,
-    }, '<')
+      stagger: {
+        amount: 0.3,
+      }
+    }, "<0.1")
+    .from(".anim-footer-send-btn", {
+      duration: 0.1,
+      opacity: 0,
+    }, "<")
 
 
 
@@ -194,12 +208,12 @@ onMounted(() => {
           <div>
             <div class="two-input-row">
               <BaseInput
-                class="footer-input"
+                class="anim-input-item footer-input"
                 placeholder="Your name"
                 name="name"
               ></BaseInput>
               <BaseInput
-                class="footer-input"
+                class="anim-input-item footer-input"
                 placeholder="Email"
                 name="email"
               ></BaseInput>
@@ -210,7 +224,7 @@ onMounted(() => {
               style="resize: none"
               as="textarea"
               placeholder="Tell us about your project"
-              class="anim-textarea"
+              class="anim-input-item anim-textarea"
             >
             </BaseInput>
           </div>
@@ -237,13 +251,13 @@ onMounted(() => {
 
           <div class="footer-contacts">
             <a
-              class="contact-link anim-footer-email"
+              class="contact-link anim-contact-link anim-footer-email"
               href="mailto:works@afterlogic.com"
             >
               works@afterlogic.com
             </a>
             <a
-              class="contact-link anim-footer-phone"
+              class="contact-link anim-contact-link anim-footer-phone"
               href="tel:+14155130152"
             >
               +1 415 513 0152
@@ -319,7 +333,7 @@ onMounted(() => {
       </div>
 
     </div>
-
+    <!-- <div class="hidden-row-for-anim"></div> -->
   </footer>
 </template>
 
@@ -330,7 +344,17 @@ onMounted(() => {
   column-gap: 20px;
 }
 
+.footer-section {
+  position: relative;
+}
 
+.hidden-row-for-anim {
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  top: -10px;
+  background: red;
+}
 
 .main-footer-wrapper {
   @media (min-width: $md) {}

@@ -1,7 +1,4 @@
-<script
-  setup
-  lang="ts"
->
+<script setup lang="ts">
 import { ref } from 'vue';
 import anime from "animejs";
 import ServicesHeader from "@/assets/images/headers/services.svg"
@@ -48,7 +45,6 @@ onMounted(() => {
     }
   })
     .from('.section-header-wrapper', {
-      y: 101,
       duration: 1,
       opacity: 0,
     })
@@ -126,10 +122,7 @@ onMounted(() => {
     </section>
   </div>
 </template>
-<style
-  scoped
-  lang="scss"
->
+<style scoped lang="scss">
 .section-wrapper {
   margin-top: 120px;
   display: grid;

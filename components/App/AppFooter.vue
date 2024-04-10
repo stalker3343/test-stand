@@ -85,7 +85,7 @@ onMounted(() => {
       trigger: `.footer-section`,
       start: 'top 75%',
       end: 'bottom 60%',
-      toggleActions: 'play none none reverse',
+      toggleActions: 'play none none none',
     }
   })
     .from(`.footer-main-text`, {
@@ -104,36 +104,44 @@ onMounted(() => {
       });
     }, '<')
 
+  $gsap.timeline({
+    scrollTrigger: {
+      trigger: `.main-footer-wrapper`,
+      start: 'top 75%',
+      end: 'bottom 60%',
+      toggleActions: 'play none none none',
+    }
+  })
     .from(`.anim-footer-email`, {
       duration: 0.1,
       opacity: 0,
-    }, '<0.5')
+    }, '<0.05')
     .from(`.anim-footer-phone`, {
       duration: 0.1,
       opacity: 0,
-    }, '<')
+    }, '<0.05')
     .from(".adress-item", {
       duration: 0.1,
       opacity: 0,
-    }, '<')
+    }, '<0.05')
     .from(".social-link-item", {
-      duration: 0.3,
+      duration: 0.4,
       opacity: 0,
       stagger: {
         amount: 0.3,
         // y: 5
       }
-    }, '<')
+    }, '<0.05')
     .from([".free-consalt", ".footer-input", '.anim-textarea'], {
       duration: 0.1,
       opacity: 0,
-      stager: 0.05
-    }, '<0.2')
+      stagger: 0.05
+    }, '<0.4')
     .from(".anim-footer-send-btn", {
-      duration: 0.1,
+      duration: 3,
       opacity: 0,
-      stager: 0.05
-    }, '<0.2')
+    }, '<')
+
 
 
 

@@ -1,7 +1,4 @@
-<script
-  setup
-  lang="ts"
->
+<script setup lang="ts">
 // @ts-ignore
 // import SuperMarquee from 'sp-supermarquee'// import { Marquee, loop } from 'dynamic-marquee'
 import { listenToScreenWidthChanges } from '@/helpers'
@@ -174,8 +171,8 @@ onMounted(() => {
         >
           <img
             :style="{
-            height: `${item.height[imgSize]}px`
-          }"
+              height: `${item.height[imgSize]}px`
+            }"
             class="item-img"
             alt=""
             :src="item.img"
@@ -208,10 +205,7 @@ onMounted(() => {
   object-fit: cover;
 }
 </style>
-<style
-  scoped
-  lang="scss"
->
+<style scoped lang="scss">
 @keyframes scroll-down-pulse {
   from {
     /* transform: translateY(-8px); */
@@ -231,7 +225,7 @@ onMounted(() => {
 
 .mouse {
   position: absolute;
-
+  transform: translateX(-50%);
   display: none;
   /* top: 33%; */
   /* left: -60px; */
@@ -240,7 +234,7 @@ onMounted(() => {
   width: 16px;
   height: 32px;
   border-radius: 15px;
-  animation: scroll-down-pulse 3s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+  animation: scroll-down-pulse 1s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
 }
 
 .mouse:before {

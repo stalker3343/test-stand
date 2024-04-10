@@ -5,10 +5,7 @@ onMounted(() => {
   const { $gsap } = useNuxtApp()
 
   $gsap.set(`#realFollowCursor`, { scale: 0.8 })
-
-
-  $gsap.to(`#realFollowCursor`, { scale: 1.5, yoyo: true }
-  )
+  $gsap.to(`#realFollowCursor`, { duration: 2, scale: 1.4, repeat: -1, yoyo: true })
 
   var tracker = document.getElementById('realFollowCursor');
   var targetX = 0, targetY = 0; // Целевые координаты, куда должен двигаться элемент

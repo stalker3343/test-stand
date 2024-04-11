@@ -1,7 +1,4 @@
-<script
-  lang="ts"
-  setup
->
+<script lang="ts" setup>
 import { toRef } from 'vue';
 import { useField } from 'vee-validate';
 
@@ -44,7 +41,7 @@ const validationListeners = {
 </script>
 
 <template>
-  <div>
+  <div style="position: relative;">
     <component
       :name="name"
       :value="inputValue"
@@ -67,10 +64,7 @@ const validationListeners = {
   </div>
 </template>
 
-<style
-  scoped
-  lang="scss"
->
+<style scoped lang="scss">
 .input-inner {
   appearance: none;
   background: transparent;
@@ -106,8 +100,11 @@ const validationListeners = {
 }
 
 .help-message {
-  font-family: 'Onest';
-  font-style: normal;
+  position: absolute;
+  left: 17px;
+  bottom: -26px;
+  font-family: Onest;
+  font-size: 14px;
   font-weight: 400;
   font-size: 16px;
   line-height: 140%;

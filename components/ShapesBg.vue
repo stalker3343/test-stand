@@ -10,15 +10,15 @@ onMounted(() => {
 
   ScrollTrigger.create({
     trigger: `.footer-section`,
-    start: 'top 75%',
+    start: 'top 140%',
     end: 'bottom 60%',
     markers: true,
     onEnter: (self) => {
       pulsarAnim.pause()
-      $gsap.to(`#realFollowCursor`, { duration: 2, ease: "power4.in", scale: 0 })
+      $gsap.to(`#realFollowCursor`, { duration: 2, ease: "power4.in", scale: 0, opacity: 0 })
     },
     onLeaveBack: (self) => {
-      $gsap.to(`#realFollowCursor`, { duration: 2, scale: 0.8 })
+      $gsap.to(`#realFollowCursor`, { duration: 2, scale: 0.8, opacity: 1 })
       setTimeout(() => {
         $gsap.set(`#realFollowCursor`, { scale: 0.8 })
         pulsarAnim.play(0)

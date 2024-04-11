@@ -569,7 +569,8 @@ onMounted(() => {
 }
 
 .footer-input {
-  margin-bottom: 20px;
+  margin-bottom: 32px;
+
 }
 
 .footer-section {

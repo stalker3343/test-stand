@@ -1,33 +1,64 @@
 <script lang="ts" setup>
-
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 onMounted(() => {
 
   const { $gsap } = useNuxtApp()
 
   $gsap.set(`#realFollowCursor`, { scale: 0.8 })
-  $gsap.to(`#realFollowCursor`, { duration: 2, scale: 1.4, repeat: -1, yoyo: true })
+  const pulsarAnim = $gsap.to(`#realFollowCursor`, { duration: 2, scale: 1.4, repeat: -1, yoyo: true })
+
+
+  ScrollTrigger.create({
+    trigger: `.footer-section`,
+    start: 'top 75%',
+    end: 'bottom 60%',
+    markers: true,
+    onEnter: (self) => {
+      pulsarAnim.pause()
+      $gsap.to(`#realFollowCursor`, { duration: 2, ease: "power4.in", scale: 0 })
+    },
+    onLeaveBack: (self) => {
+      $gsap.to(`#realFollowCursor`, { duration: 2, scale: 0.8 })
+      setTimeout(() => {
+        $gsap.set(`#realFollowCursor`, { scale: 0.8 })
+        pulsarAnim.play(0)
+      }, 2000)
+
+    },
+    // onToggle: (self) => console.log("toggled, isActive:", self.isActive),
+    // onUpdate: (self) => {
+    //   console.log(
+    //     "progress:",
+    //     self.progress.toFixed(3),
+    //     "direction:",
+    //     self.direction,
+    //     "velocity",
+    //     self.getVelocity()
+    //   );
+    // },
+  });
+
+
 
   // $gsap.timeline({
   //   scrollTrigger: {
   //     trigger: `.footer-section`,
-  //     start: 'top -10%',
+  //     start: 'top 75%',
   //     end: 'bottom 60%',
   //     toggleActions: 'play none none reverse',
-  //     markers: true
+  //     markers: true,
   //   }
   // })
 
 
   /////// 
   const onCroseLineToFooter = () => {
-    pulsarAnim.pause()
-    $gsap.to(`#realFollowCursor`, { duration: 2, scale: 0 })
+
 
   }
 
   const onCroseLineFromFooter = () => {
-    $gsap.to(`#realFollowCursor`, { duration: 1, scale: 0.8 })
-    pulsarAnim.play(0)
+
 
   }
 

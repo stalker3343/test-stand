@@ -129,23 +129,9 @@ onMounted(() => {
   listenToScreenWidthChanges(seIconSize, 300);
   seIconSize()
   const containerWisth = container.value?.getBoundingClientRect().width || 0
-  console.log("🚀 ~ onMounted ~ container.value:", window.innerWidth)
-  console.log("🚀 ~ onMounted ~ containerWisth:", container.value)
   offsetWIdth.value = (window.innerWidth - containerWisth) / 2
-  console.log("🚀 ~ onMounted ~ offsetWIdth.value:", offsetWIdth.value)
-
-
-
-
 })
 
-
-// onMounted(() => {
-//   const sm = new SuperMarquee(document.getElementById('supermarquee'), {
-//     "license": "BEFC87AE-065E44C8-A867C836-9856C754",
-//     content: items.value.map(el => `<div class="our-clients-img-wrapper"><img src='${el.img}' class="our-clients-img"  /></div>`).join('')
-//   })
-// })
 
 
 </script>

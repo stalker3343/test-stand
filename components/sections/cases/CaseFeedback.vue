@@ -1,7 +1,4 @@
-<script
-  lang="ts"
-  setup
->
+<script lang="ts" setup>
 defineProps({
   name: {
     type: String,
@@ -51,10 +48,7 @@ defineProps({
   </div>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss" scoped>
 .feedback-position-wrapper {
   text-align: center;
   margin-bottom: 16px;
@@ -97,7 +91,7 @@ defineProps({
 
 
   @media (min-width: $lg) {
-    font-size: 23px;
+    font-size: 20px;
   }
 
   @media (min-width: $xl) {

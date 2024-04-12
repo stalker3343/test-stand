@@ -1,8 +1,7 @@
-<script
-  lang="ts"
-  setup
->
-
+<script lang="ts" setup>
+defineOptions({
+  inheritAttrs: false
+})
 defineProps({
   block: {
     default: false,
@@ -54,10 +53,7 @@ defineProps({
   </button>
 </template>
 
-<style
-  scoped
-  lang="scss"
->
+<style scoped lang="scss">
 .base-button {
   appearance: none;
   /* Property 1=Default */
@@ -80,7 +76,6 @@ defineProps({
 
   border: none;
   cursor: pointer;
-  transition: all .2s ease-out;
 
   &_block {
     width: 100%;
@@ -91,6 +86,8 @@ defineProps({
     color: #0097EC;
 
     &:hover {
+      transition: all .2s ease-out;
+
       background-color: #0097EC;
       color: white;
     }
@@ -102,6 +99,8 @@ defineProps({
 
     &.base-button_white {
       &:hover {
+        transition: all .2s ease-out;
+
         background-color: white;
         color: #0097EC;
       }
@@ -109,6 +108,8 @@ defineProps({
 
     &.base-button_primary {
       &:hover {
+        transition: all .2s ease-out;
+
         background-color: #0097EC;
         color: white;
       }

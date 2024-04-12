@@ -3,109 +3,28 @@
 // import SuperMarquee from 'sp-supermarquee'// import { Marquee, loop } from 'dynamic-marquee'
 import { listenToScreenWidthChanges } from '@/helpers'
 
-
+function getRandomInt(min: number, max: number) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 import { onMounted, ref } from 'vue';
-const items = ref([{
-  img: './clients/natro.svg',
-  height: {
-    sm: 24,
-    md: 24,
-    lg: 13.49,
-    xl: 17.14,
-    xxl: 24,
-  }
-}, {
-  img: './clients/locaweb.svg',
-  height: {
-    sm: 24,
-    md: 24,
-    lg: 13.49,
-    xl: 17.14,
-    xxl: 24,
-  }
-}, {
-  img: './clients/cellcom.svg',
-  height: {
-    sm: 24,
-    md: 24,
-    lg: 13.49,
-    xl: 17.14,
-    xxl: 24,
-  }
-}, {
-  img: './clients/solid.svg',
-  height: {
-    sm: 24,
-    md: 24,
-    lg: 13.49,
-    xl: 17.14,
-    xxl: 24,
-  }
-}, {
-  img: './clients/gallery.svg',
-  height: {
-    sm: 24,
-    md: 28.5,
-    lg: 16.01,
-    xl: 20.36,
-    xxl: 28.5,
-  }
-}, {
-  img: './clients/netcore.svg',
-  height: {
-    sm: 24,
-    md: 24,
-    lg: 13.49,
-    xl: 17.14,
-    xxl: 24,
-  }
-}, {
-  img: './clients/GCT.svg',
-  height: {
-    sm: 24,
-    md: 24,
-    lg: 13.49,
-    xl: 17.14,
-    xxl: 24,
-  }
-}, {
-  img: './clients/Mavenir.svg',
-  height: {
-    sm: 24,
-    md: 24,
-    lg: 13.49,
-    xl: 17.14,
-    xxl: 24,
-  }
-}, {
-  img: './clients/spark.svg',
-  height: {
-    sm: 24,
-    md: 24,
-    lg: 13.49,
-    xl: 17.14,
-    xxl: 24,
-  }
-}, {
-  img: './clients/Algau.svg',
-  height: {
-    sm: 24,
-    md: 24,
-    lg: 13.49,
-    xl: 17.14,
-    xxl: 24,
-  }
-}, {
-  img: './clients/private.svg',
-  height: {
-    sm: 24,
-    md: 24,
-    lg: 13.49,
-    xl: 17.14,
-    xxl: 24,
-  }
-}])
+
+const allLinks = ['./clients/natro.svg', './clients/cellcom.svg', './clients/solid.svg', './clients/mavenir.svg', './clients/spark.svg', './clients/router.svg', './clients/locaweb.svg', './clients/netcore.svg', './clients/gct.svg', './clients/informatik.svg']
+const items = ref(
+  allLinks.slice(0, 6).map((el, idx) => ({
+    id: idx,
+    img: el,
+    height: {
+      sm: 30,
+      md: 40,
+      lg: 30,
+      xl: 34,
+      xxl: 48,
+    }
+  }))
+)
 
 const offsetWIdth = ref(0)
 const container = ref<HTMLInputElement | null>(null)
@@ -130,6 +49,46 @@ onMounted(() => {
   seIconSize()
   const containerWisth = container.value?.getBoundingClientRect().width || 0
   offsetWIdth.value = (window.innerWidth - containerWisth) / 2
+  const { $gsap } = useNuxtApp()
+  const displayedIndexes = [0, 1, 2, 3, 4, 5]
+  const notDisplayedIndexes = [6, 7, 8, 9]
+  setTimeout(() => {
+    setInterval(() => {
+      console.log('call interval');
+
+      const swapFromArrIdx = getRandomInt(0, 5)
+      const swapToArrIdx = getRandomInt(0, 3)
+      const swapFromSrcIdx = displayedIndexes[swapFromArrIdx]
+      const swapToSrcIdx = notDisplayedIndexes[swapToArrIdx]
+
+      displayedIndexes[swapFromArrIdx] = swapToSrcIdx;
+      notDisplayedIndexes[swapToArrIdx] = swapFromSrcIdx;
+
+
+      console.log('--------');
+      console.log(displayedIndexes);
+      console.log(notDisplayedIndexes);
+      console.log('--------');
+
+
+      const item = `.item-${swapFromArrIdx}`
+      const itemToSrc = allLinks[swapToSrcIdx]
+      $gsap.timeline()
+        .to(item, {
+          scale: 0,
+          opacity: 0,
+          duration: 0.3
+        }).add(function () {
+          items.value[swapFromArrIdx].img = itemToSrc
+        }).to(item, {
+          scale: 1,
+          opacity: 1,
+          duration: 0.3
+        }, "+=0.3")
+
+    }, 3000)
+  }, 2000)
+
 })
 
 
@@ -142,7 +101,9 @@ onMounted(() => {
       <div
         ref="container"
         class="clients-header"
-      >Some of our clients</div>
+      >
+        Some of our clients
+      </div>
 
 
       <!-- <div
@@ -151,9 +112,10 @@ onMounted(() => {
     /> -->
       <div class="gallery">
         <div
-          v-for="(item, idx) in items"
-          :key="idx"
+          v-for="item in items"
+          :key="item.id"
           class="item"
+          :class="`item-${item.id}`"
         >
           <img
             :style="{
@@ -278,11 +240,13 @@ onMounted(() => {
 
 .clients-header {
   font-family: "Onest", sans-serif;
+  //styleName: H4;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 33.6px;
+  text-align: center;
 
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 28px;
-  letter-spacing: 0px;
+
   text-align: center;
   color: white;
   margin-bottom: 25px;
@@ -324,20 +288,23 @@ onMounted(() => {
   /* grid-template-columns: repeat(3, 1fr); */
   /* grid-template-rows: masonry; */
 
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  // flex-wrap: wrap;
+  // justify-content: center;
   /*  justify-content: space-between;*/
-  row-gap: 30px;
-  column-gap: 24px;
+  row-gap: 60px;
+  // column-gap: 30px;
   /* column-gap: 62px; */
   /* padding: 0px 20px; */
 
   @media (min-width: $md) {
+
     /* gap: 10px; */
   }
 
   @media (min-width: $lg) {
+    display: flex;
     row-gap: 0px;
     column-gap: 0px;
     justify-content: space-between;
@@ -354,6 +321,7 @@ onMounted(() => {
   flex: none;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .item-img {}

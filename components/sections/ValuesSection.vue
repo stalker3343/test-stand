@@ -1,7 +1,13 @@
 <template>
   <section class="values-section">
     <div class="container">
+      <OurValuesSm
+        v-if="$viewport.match('sm')"
+        :fontControlled="false"
+        class="section-header anim-our-values-header"
+      ></OurValuesSm>
       <OurValues
+        v-else
         :fontControlled="false"
         class="section-header anim-our-values-header"
       ></OurValues>
@@ -43,8 +49,14 @@
 </template>
 <script setup lang="ts">
 import { ref } from "vue";
-import OurValues from "@/assets/images/headers/our-values.svg?skipsvgo"
+
+
+const OurValues = defineAsyncComponent(() => import('@/assets/images/headers/our-values.svg?skipsvgo'))
+const OurValuesSm = defineAsyncComponent(() => import('@/assets/images/headers/our-values-sm.svg?skipsvgo'))
+
+
 import anime from "animejs";
+const { $viewport } = useNuxtApp()
 
 const values = ref([{
   header: 'Process Transparecy',
@@ -140,24 +152,27 @@ onMounted(() => {
 }
 
 .values-section {
-  margin-top: 135px;
+  margin-top: 150px;
 
   @media (min-width: $md) {
-    margin-top: 120px;
+    margin-top: 140px;
 
   }
 
   @media (min-width: $lg) {
-    margin-top: 80px;
+    margin-top: 110px;
 
   }
 
   @media (min-width: $xl) {
-    margin-top: 80px;
+    margin-top: 100px;
 
   }
 
-  @media (min-width: $xxl) {}
+  @media (min-width: $xxl) {
+    margin-top: 145px;
+
+  }
 }
 
 
@@ -389,6 +404,8 @@ onMounted(() => {
 }
 
 .value-text {
+  font-family: "Onest", sans-serif;
+
   font-size: 17px;
   font-weight: 400;
   line-height: 24px;
@@ -398,16 +415,20 @@ onMounted(() => {
 
 
   @media (min-width: $md) {
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 23.8px;
+    text-align: left;
+  }
 
+  @media (min-width: $lg) {
+    //styleName: Body_desktop;
     font-size: 19px;
     font-weight: 400;
-    line-height: 27px;
-    letter-spacing: 0em;
+    line-height: 26.6px;
     text-align: left;
 
   }
-
-  @media (min-width: $lg) {}
 
   @media (min-width: $xl) {}
 
@@ -418,35 +439,46 @@ onMounted(() => {
 
 .section-header {
   color: transparent;
-  -webkit-text-stroke: 1.5px #fff;
-  font-family: "Open Sans", sans-serif;
-  font-variation-settings:
-    "wdth" 100;
-  font-size: 70px;
-  font-weight: 800;
-  font-style: normal;
+  // -webkit-text-stroke: 1.5px #fff;
+  // font-family: "Open Sans", sans-serif;
+  // font-variation-settings:
+  //   "wdth" 100;
+  // font-size: 70px;
+  // font-weight: 800;
+  // font-style: normal;
 
-  line-height: 77px;
-  letter-spacing: -0.02em;
-  margin-bottom: 15px;
-  margin: 0 auto;
+  // line-height: 77px;
+  // letter-spacing: -0.02em;
+  // 
   display: block;
+  margin-bottom: 20px;
 
 
-  @media (min-width: $md) {}
+  @media (min-width: $md) {
+    height: 54px;
+    margin-bottom: 30px;
+  }
 
   @media (min-width: $lg) {
+    margin: 0 auto;
+    height: 90px;
+    margin-bottom: 45px;
+
     font-size: 120px;
     line-height: 144px;
     text-align: center;
   }
 
   @media (min-width: $xl) {
-    font-size: 140px;
-    line-height: 140px;
+    margin-bottom: 30px;
+    height: 110px;
+
   }
 
   @media (min-width: $xxl) {
+    height: 110px;
+    margin-bottom: 50px;
+
     line-height: 196px;
   }
 }

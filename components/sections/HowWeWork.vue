@@ -1,7 +1,14 @@
 <template>
   <section class="how-we-work">
     <div class="container">
+
+      <HowWeWorkSm
+        v-if="$viewport.match('sm')"
+        :fontControlled="false"
+        class="how-work-section-header"
+      ></HowWeWorkSm>
       <HowWeWork
+        v-else
         :fontControlled="false"
         class="how-work-section-header"
       ></HowWeWork>
@@ -65,7 +72,12 @@
 import StepArrowDesc from "@/assets/images/how-we-work/step-arrow-desc.svg?skipsvgo"
 
 import StepArrowDescUp from "@/assets/images/how-we-work/step-arrow-desc-up.svg?skipsvgo"
-import HowWeWork from "@/assets/images/headers/how-we-work.svg"
+
+const HowWeWork = defineAsyncComponent(() => import('@/assets/images/headers/how-we-work.svg'))
+const HowWeWorkSm = defineAsyncComponent(() => import('@/assets/images/headers/how-we-work-sm.svg'))
+
+
+
 // const getIcon = (id: string | number) => defineAsyncComponent(() => import(`@/assets/images/how-we-work/${id}.svg`));
 
 import First from '@/assets/images/how-we-work/1.svg?skipsvgo';
@@ -80,6 +92,7 @@ import Seven from '@/assets/images/how-we-work/7.svg?skipsvgo';
 import anime from "animejs";
 
 import { ref } from 'vue';
+const { $viewport } = useNuxtApp()
 
 const steps = [{
   name: 'Analysis',
@@ -312,22 +325,35 @@ onMounted(() => {
 }
 
 .how-work-section-header {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 800;
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
-  font-size: 70px;
-  line-height: 77px;
-  text-transform: uppercase;
+  // font-family: 'Open Sans', sans-serif;
+  // font-weight: 800;
+  // font-style: normal;
+  // font-variation-settings:
+  //   "wdth" 100;
+  // font-size: 70px;
+  // line-height: 77px;
+  // text-transform: uppercase;
   color: transparent;
-  -webkit-text-stroke: 1.5px #fff;
-  margin-bottom: 32px;
-  letter-spacing: -0.02em;
+  // -webkit-text-stroke: 1.5px #fff;
+  // margin-bottom: 32px;
+  // letter-spacing: -0.02em;
 
+  margin-top: 12px;
+  margin-bottom: 35px;
+  height: 130px;
+
+  @media (min-width: $md) {
+    height: 50px;
+
+    margin-top: 80px;
+    margin-bottom: 30px;
+  }
 
 
   @media (min-width: $lg) {
+    height: 90px;
+    margin-top: 30px;
+
     font-size: 120px;
     line-height: 144px;
     letter-spacing: -0.02em;

@@ -27,6 +27,7 @@
     "@nuxtjs/google-fonts": "^3.2.0",
     "@types/animejs": "^3.1.12",
     "nuxt-svgo": "^4.0.0",
+    "nuxt-viewport": "^2.1.4",
     "sass": "^1.72.0"
   }
 }

@@ -76,17 +76,20 @@ defineProps({
   z-index: 10;
 
   position: absolute;
-  top: 3px;
+  top: -10px;
+  left: -30px;
   max-width: initial;
   /* left: -20px; */
-  height: 355px;
+  height: 385px;
 
   @media (min-width: $md) {
-    height: 501px;
+    height: 571px;
+    top: -30px;
+    left: -30px;
   }
 
   @media (min-width: $lg) {
-    height: 536px;
+    height: 566px;
     left: 432px;
     top: -55px;
 
@@ -94,6 +97,7 @@ defineProps({
 
   @media (min-width: $xl) {
     top: -80px;
+    height: 576px;
 
     left: 610px;
 
@@ -102,6 +106,7 @@ defineProps({
   @media (min-width: $xxl) {
     top: -100px;
     left: 840px;
+
   }
 
 }

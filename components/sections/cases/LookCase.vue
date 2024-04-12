@@ -77,33 +77,38 @@ defineProps({
 .base-image {
   z-index: 10;
   position: absolute;
-  top: 0px;
+  top: -30px;
   max-width: initial;
-  left: -20px;
-  height: 283px;
+  left: -75px;
+  height: 393px;
   object-fit: cover;
 
   @media (min-width: $md) {
-    height: 448px;
-    left: -50px;
+    top: -40px;
+
+    height: 608px;
+    left: -120px;
   }
 
   @media (min-width: $lg) {
-    height: 465px;
-    left: -380px;
-    top: -29px;
+    height: 665px;
+    left: -395px;
+    top: -92px;
 
 
   }
 
   @media (min-width: $xl) {
-    left: -320px;
-    top: -20px;
+    left: -345px;
+    top: -80px;
 
   }
 
   @media (min-width: $xxl) {
-    left: 0px;
+    left: -70px;
+    top: -40px;
+    height: 665px;
+
 
   }
 }

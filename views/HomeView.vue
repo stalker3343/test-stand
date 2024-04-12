@@ -56,7 +56,7 @@ import HowWeWork from "../components/sections/HowWeWork.vue";
 
 const rowsWeWork = ref([{
   title: 'Small and mid-size businesses',
-  text: "We're proficient in building secure, scalable and reliable backends and APIs in Node.js, PHP (Laravel) for web and mobile apps operating in the cloud or on your premises."
+  text: "<p> Creating affordable web and mobile solutions for SMBs across the world for more than 12 years.</p> <p>We both develop applications from scratch and adapt legacy ones to your actual requirements.</p>"
 }, {
   title: 'Managed Services Providers / System Integrators',
   text: "Extend the capabilities of your development team and strengthen your technical expertise when working on your client's projects. This may include all kinds of integration, deployment, migration, ongoing maintenance, support and so on."

@@ -12,7 +12,7 @@ const services = ref([{
   text: 'At Afterlogic.Works, we develop iOS/Android cross-platform mobile apps written in Flutter along with the server backend if required.'
 }, {
   header: 'Outstaffing / Team Augmentation',
-  text: 'Hire dedicated backend, frontend, mobile, QA experts on a full-time or time-and-material basis as an extension of your team. All the engineers are fluent in English.'
+  text: 'Hire dedicated backend, frontend, mobile, QA experts on a full-time or time-and-material basis as an extension of your team. Leveraging the renowned expertise and cost-effectiveness of Eastern and Central European developers, we offer you the ones who would be the best match for your project. All the engineers are fluent in English.'
 }, {
   header: 'Rescuing Troubled Projects',
   text: "Deadline is approaching but the project is still on fire with tons of bugs keep popping up? We'll promptly assess the situation and draw up an action plan. Then we carry out onboarding of experienced developers and QA to resolve difficulties in the project and ensure the smooth release."
@@ -128,7 +128,7 @@ onMounted(() => {
 </template>
 <style scoped lang="scss">
 .section-wrapper {
-  margin-top: 120px;
+  margin-top: 150px;
   display: grid;
   grid-template-columns: 67px 1fr;
   column-gap: 36px;
@@ -136,7 +136,7 @@ onMounted(() => {
   position: relative;
 
   @media (min-width: $md) {
-    margin-top: 140px;
+    margin-top: 133px;
     grid-template-columns: 107px 1fr;
 
 
@@ -188,7 +188,21 @@ onMounted(() => {
 
 .section-header-wrapper {
   position: relative;
-  width: 110px;
+  width: 65px;
+
+  @media (min-width: $md) {}
+
+  @media (min-width: $lg) {
+    width: 105px;
+
+  }
+
+  @media (min-width: $xl) {
+    width: 110px;
+
+  }
+
+  @media (min-width: $xxl) {}
 }
 
 .service-header {
@@ -253,19 +267,19 @@ onMounted(() => {
   /* transform: rotate(270deg); */
 
   position: absolute;
-  top: 10px;
-  left: 0px;
+  top: 1px;
+  left: 2px;
   color: transparent;
-  -webkit-text-stroke: 1.5px #fff;
-  font-family: "Open Sans", sans-serif;
+  // -webkit-text-stroke: 1.5px #fff;
+  // font-family: "Open Sans", sans-serif;
 
-  font-size: 80px;
-  font-weight: 800;
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
-  line-height: 63px;
-  letter-spacing: -0.02em;
+  // font-size: 80px;
+  // font-weight: 800;
+  // font-style: normal;
+  // font-variation-settings:
+  //   "wdth" 100;
+  // line-height: 63px;
+  // letter-spacing: -0.02em;
   /* text-align: right; */
 
   @media (min-width: $lg) {

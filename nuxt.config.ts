@@ -20,7 +20,26 @@ export default defineNuxtConfig({
     ],
     "@hypernym/nuxt-gsap",
     "nuxt-svgo",
+    "nuxt-viewport",
   ],
+  viewport: {
+    breakpoints: {
+      sm: 340,
+      md: 640,
+      lg: 1024,
+      xl: 1440,
+      xxl: 1920,
+    },
+
+    defaultBreakpoints: {
+      desktop: "xl",
+      mobile: "sm",
+      tablet: "lg",
+    },
+
+    fallbackBreakpoint: "xl",
+  },
+
   gsap: {
     extraPlugins: {
       scrollTrigger: true,

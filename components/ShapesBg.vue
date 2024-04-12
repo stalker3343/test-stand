@@ -12,7 +12,6 @@ onMounted(() => {
     trigger: `.footer-section`,
     start: 'top 140%',
     end: 'bottom 60%',
-    markers: true,
     onEnter: (self) => {
       pulsarAnim.pause()
       $gsap.to(`#realFollowCursor`, { duration: 2, ease: "power4.in", scale: 0, opacity: 0 })

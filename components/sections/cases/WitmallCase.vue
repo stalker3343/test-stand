@@ -77,30 +77,35 @@ defineProps({
   position: absolute;
   top: 3px;
   max-width: initial;
-  left: 0px;
-  height: 355px;
+  left: -90px;
+  height: 455px;
 
   @media (min-width: $md) {
-    height: 501px;
+    height: 680px;
+    left: -130px;
+    top: -46px;
+
+
   }
 
   @media (min-width: $lg) {
-    height: 476px;
-    left: -140px;
-    top: 30px;
+    height: 626px;
+    left: -320px;
+    top: -60px;
 
   }
 
   @media (min-width: $xl) {
-    top: 15px;
-    left: -190px;
+    top: -90px;
+    left: -320px;
 
-    height: 570px;
+    height: 670px;
   }
 
   @media (min-width: $xxl) {
-    top: 5px;
-    left: 0px;
+    left: -30px;
+    top: -40px;
+    height: 645px;
   }
 
 }

@@ -3,19 +3,34 @@
     :id="id"
     class="container"
   >
+    <WeWorkWithSm
+      v-if="id === 'industries' && $viewport.match('sm')"
+      :fontControlled="false"
+      class="section-header anim-we-work-header"
+    ></WeWorkWithSm>
+
     <WeWorkWith
-      v-if="id === 'industries'"
+      v-else-if="id === 'industries'"
       :fontControlled="false"
       class="section-header anim-we-work-header"
     ></WeWorkWith>
 
-    <WeWorkHightQuality
-      v-if="id === 'quality'"
+    <WeWorkHightQualitySm
+      v-if="id === 'quality' && $viewport.match('sm')"
       :fontControlled="false"
       class="section-header anim-we-work-header"
     >
+    </WeWorkHightQualitySm>
+    <WeWorkHightQuality
+      v-else-if="id === 'quality'"
+      :fontControlled="false"
+      class="section-header anim-we-work-header"
+    ></WeWorkHightQuality>
 
-    </WeWorkHightQuality>
+
+
+
+
     <!-- <h2 class="section-header anim-we-work-header">{{ header }}</h2> -->
     <div class="list-wrapper">
       <div
@@ -31,10 +46,9 @@
         <div
           :class="`row-text-${key}`"
           class="row-text"
+          v-html="item.text"
         >
 
-
-          {{ item.text }}
         </div>
         <span
           class="row-line"
@@ -45,8 +59,17 @@
   </div>
 </template>
 <script setup lang="ts">
-import WeWorkWith from "@/assets/images/headers/we-work-with.svg"
-import WeWorkHightQuality from "@/assets/images/headers/we-work-hight-quality.svg"
+
+const WeWorkWith = defineAsyncComponent(() => import("@/assets/images/headers/we-work-with.svg"))
+const WeWorkWithSm = defineAsyncComponent(() => import("@/assets/images/headers/we-work-with-sm.svg"))
+
+
+const WeWorkHightQuality = defineAsyncComponent(() => import('@/assets/images/headers/we-work-hight-quality.svg'))
+
+const WeWorkHightQualitySm = defineAsyncComponent(() => import('@/assets/images/headers/we-work-hight-quality-sm.svg'))
+
+
+
 
 interface Props {
   rows: { title: string, text: string }[]
@@ -56,6 +79,7 @@ interface Props {
 import anime from "animejs";
 
 const props = defineProps<Props>()
+const { $viewport } = useNuxtApp()
 
 onMounted(() => {
   const { $gsap } = useNuxtApp()
@@ -157,67 +181,120 @@ onMounted(() => {
 }
 
 .section-header {
-  text-transform: uppercase;
-  margin: 0 auto;
-  display: block;
-  margin-top: 120px;
-  margin-bottom: 45px;
+  // text-transform: uppercase;
   color: transparent;
-  -webkit-text-stroke: 1.5px #fff;
-  font-family: "Open Sans", sans-serif;
-  font-size: 70px;
-  font-weight: 800;
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
-  line-height: 77px;
-  letter-spacing: -0.02em;
-  text-align: left;
+
+  display: block;
 
   @media (min-width: $md) {
-
-    margin-top: 127px;
-    margin-bottom: 20px;
-
+    margin: 0 auto;
   }
 
-  @media (min-width: $lg) {
-    margin-top: 120px;
-    font-size: 120px;
-    line-height: 132px;
-    text-align: center;
-  }
+  @media (min-width: $lg) {}
 
-  @media (min-width: $xl) {
-    font-size: 140px;
-    line-height: 151px;
-    text-align: center;
-    margin-top: 140px;
-    margin-bottom: 65px;
+  @media (min-width: $xl) {}
 
-  }
-
-  @media (min-width: $xxl) {
-    margin-top: 145px;
-    margin-bottom: 45px;
+  @media (min-width: $xxl) {}
 
 
-  }
+  // margin-top: 120px;
+  // margin-bottom: 45px;
+  // -webkit-text-stroke: 1.5px #fff;
+  // font-family: "Open Sans", sans-serif;
+  // font-size: 70px;
+  // font-weight: 800;
+  // font-style: normal;
+  // font-variation-settings:
+  //   "wdth" 100;
+  // line-height: 77px;
+  // letter-spacing: -0.02em;
+  // text-align: left;
+
+
+
+  // @media (min-width: $lg) {
+  //   margin-top: 120px;
+  //   font-size: 120px;
+  //   line-height: 132px;
+  //   text-align: center;
+  // }
+
+  // @media (min-width: $xl) {
+  //   font-size: 140px;
+  //   line-height: 151px;
+  //   text-align: center;
+  //   margin-top: 140px;
+  //   margin-bottom: 65px;
+
+  // }
+
+  // @media (min-width: $xxl) {
+  //   margin-top: 145px;
+  //   margin-bottom: 45px;
+
+
+  // }
 }
 
 #industries .section-header {
+  margin-top: 135px;
+  margin-bottom: 60px;
+  height: 204px;
+
+  @media (min-width: $md) {
+    height: 54px;
+    margin-top: 130px;
+    margin-bottom: 30px;
+  }
+
+
+  @media (min-width: $lg) {
+    height: 94px;
+    margin-top: 130px;
+    margin-bottom: 30px;
+  }
+
+
   @media (min-width: $xl) {
+    margin-top: 180px;
+    margin-bottom: 75px;
     height: 110px;
+  }
+
+
+
+  @media (min-width: $xxl) {
+    margin-top: 150px;
+    margin-bottom: 55px;
+
   }
 }
 
 #quality .section-header {
+  margin-top: 125px;
+  margin-bottom: 40px;
+  height: 299px;
+
+  @media (min-width: $md) {
+    height: 144px;
+    margin-top: 140px;
+    margin-bottom: 0px;
+
+  }
+
+
+  @media (min-width: $lg) {
+    height: 254px;
+    margin-bottom: 35px;
+
+  }
+
+
+
   @media (min-width: $xl) {
-    /* font-size: 140px; */
-
-    height: 250px;
-
-
+    margin-top: 155px;
+    margin-bottom: 65px;
+    height: 280px;
   }
 
 }
@@ -331,7 +408,7 @@ onMounted(() => {
   gap: 34px;
 
   @media (min-width: $md) {
-    gap: 10px;
+    gap: 6px;
   }
 
   @media (min-width: $xl) {

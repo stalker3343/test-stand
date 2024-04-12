@@ -8,7 +8,6 @@ import { useForm } from 'vee-validate';
 import { object, string } from 'yup';
 import { toTypedSchema } from '@vee-validate/yup';
 import { ref } from 'vue';
-import LetsTalk from "@/assets/images/headers/lets-talk.svg?skipsvgo"
 import anime from "animejs";
 
 const formSendSucess = ref(false)
@@ -154,7 +153,7 @@ onMounted(() => {
     .from(".anim-footer-send-btn", {
       duration: 0.1,
       opacity: 0,
-    }, "<")
+    }, "<0.5")
 
 
 
@@ -167,17 +166,41 @@ onMounted(() => {
 
 
 
-
+const { $viewport } = useNuxtApp()
+const LetsTalkSm = defineAsyncComponent(() => import('@/assets/images/headers/footer/sm.svg'))
+const LetsTalkMd = defineAsyncComponent(() => import('@/assets/images/headers/footer/md.svg'))
+const LetsTalkLg = defineAsyncComponent(() => import('@/assets/images/headers/footer/lg.svg'))
+const LetsTalkXl = defineAsyncComponent(() => import('@/assets/images/headers/footer/xl.svg'))
 
 </script>
 
 <template>
   <footer class="footer-section">
     <div class="container">
-      <LetsTalk
+      <LetsTalkSm
+        v-if="$viewport.match('sm')"
         class="footer-main-text"
         :fontControlled="false"
-      ></LetsTalk>
+      ></LetsTalkSm>
+      <LetsTalkMd
+        v-else-if="$viewport.match('md')"
+        class="footer-main-text"
+        :fontControlled="false"
+      ></LetsTalkMd>
+      <LetsTalkLg
+        v-else-if="$viewport.match('lg')"
+        class="footer-main-text"
+        :fontControlled="false"
+      ></LetsTalkLg>
+      <LetsTalkXl
+        v-else="$viewport.match('xl')"
+        class="footer-main-text"
+        :fontControlled="false"
+      ></LetsTalkXl>
+      <!-- <LetsTalk
+        class="footer-main-text"
+        :fontControlled="false"
+      ></LetsTalk> -->
       <!-- <div class="footer-main-text">
         READY TO TAKE THE NEXT STEP ?
         <span class="main-text-accent">
@@ -229,6 +252,9 @@ onMounted(() => {
             </BaseInput>
           </div>
           <div>
+            <!-- <button class="anim-footer-send-btn">
+              Book a call
+            </button> -->
             <BaseButton
               class="anim-footer-send-btn"
               :disabled="isSubmitting"
@@ -340,8 +366,19 @@ onMounted(() => {
 <style scoped lang="scss">
 .two-input-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 20px;
+
+
+  @media (min-width: $md) {}
+
+  @media (min-width: $lg) {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+  }
+
+  @media (min-width: $xl) {}
+
+  @media (min-width: $xxl) {}
+
 }
 
 .footer-section {
@@ -361,7 +398,7 @@ onMounted(() => {
 
   @media (min-width: $lg) {
     display: grid;
-    grid-template-columns: 1fr 504px;
+    grid-template-columns: 1fr 604px;
     column-gap: 20px;
 
   }
@@ -458,7 +495,7 @@ onMounted(() => {
   flex-direction: column;
   align-items: center;
   gap: 24px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 
 
   @media (min-width: $lg) {
@@ -529,12 +566,13 @@ onMounted(() => {
 }
 
 .free-consalt {
-  // TODO заменить на переменную
   font-family: "Onest", sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 28px;
-  letter-spacing: 0px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 33.6px;
+
+
+
 
   @media (min-width: $md) {
     font-size: 24px;
@@ -549,8 +587,8 @@ onMounted(() => {
 .footer-form {
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  margin-bottom: 55px;
+  gap: 45px;
+  margin-bottom: 70px;
 
   @media (min-width: $md) {
     margin-bottom: 55px;
@@ -574,40 +612,35 @@ onMounted(() => {
 }
 
 .footer-section {
-  margin-top: 140px;
+  margin-top: 160px;
   padding-bottom: 32px;
 
-  @media (min-width: $md) {}
+  @media (min-width: $md) {
+    margin-top: 140px;
+
+  }
 
   @media (min-width: $lg) {
-    margin-top: 140px;
+    margin-top: 50px;
     padding-bottom: 60px;
 
   }
 
   @media (min-width: $xl) {
-    margin-top: 120px;
+    margin-top: 0px;
 
   }
 
-  @media (min-width: $xxl) {}
+  @media (min-width: $xxl) {
+    margin-top: 140px;
+
+  }
 }
 
 .footer-main-text {
   color: transparent;
-  text-transform: uppercase;
-  font-family: "Open Sans", sans-serif;
-  font-size: 70px;
-  font-optical-sizing: auto;
-  font-weight: 800;
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
-  line-height: 77px;
-  letter-spacing: -0.02em;
-  text-align: left;
-  -webkit-text-stroke: 1.5px #fff;
   margin-bottom: 40px;
+  height: 515px;
 
   @media (min-width: $md) {
     font-size: 140px;
@@ -615,19 +648,27 @@ onMounted(() => {
     line-height: 140px;
     letter-spacing: -0.02em;
     text-align: left;
+    height: 1085px;
+
 
   }
 
   @media (min-width: $lg) {
+    height: 610px;
+
     margin-bottom: 60px;
 
   }
 
   @media (min-width: $xl) {
-    width: 1124px;
+    width: 1224px;
   }
 
-  @media (min-width: $xxl) {}
+  @media (min-width: $xxl) {
+    width: initial;
+    height: 375px;
+
+  }
 
 
 }

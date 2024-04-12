@@ -119,10 +119,10 @@
       </h1> -->
 
       <ul class="company-description">
+        <li>Web and mobile development company</li>
         <li>Reliable tech partner for more than 100 companies since 2011</li>
-        <li>Cost-effective developers in Eastern and Central Europe</li>
-        <li> Web and mobile development company</li>
-        <li> US jurisdiction</li>
+        <li>Full cycle web and mobile developmente</li>
+        <li>US jurisdiction</li>
       </ul>
       <div class="talk-badges-wrapper">
         <div class="badges-list">
@@ -199,7 +199,7 @@ const badges = ref([{
 
 <style scoped lang="scss">
 .text-logo-two-row {
-  margin-top: 25px;
+  margin-top: 18px;
   /* width: 100px !important; */
 
   @media (min-width: $md) {
@@ -292,8 +292,7 @@ const badges = ref([{
 }
 
 .badge-item {
-
-  height: 60px;
+  height: 57px;
 
   @media (min-width: $xxl) {
     height: 96px;
@@ -406,7 +405,7 @@ const badges = ref([{
   letter-spacing: 0em;
   text-align: left;
   margin: 0px;
-  margin-top: 23px;
+  margin-top: 27px;
   padding-left: 18px;
 
 
@@ -447,9 +446,12 @@ const badges = ref([{
 
   li {
     clip-path: polygon(-20px 0%, -20% 0, -20% 100%, -20px 100%);
-    margin-bottom: 10px;
+    margin-bottom: 16px;
 
+    @media (min-width: $md) {
+      margin-bottom: 12px;
 
+    }
 
     @media (min-width: $lg) {
       margin-bottom: 7px;

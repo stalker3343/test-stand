@@ -304,15 +304,19 @@ onMounted(() => {
   }
 
   @media (min-width: $lg) {
-    display: flex;
-    row-gap: 0px;
-    column-gap: 0px;
-    justify-content: space-between;
+    // display: flex;
+    // row-gap: 0px;
+    // column-gap: 0px;
+    // justify-content: space-between;
 
 
   }
 
-  @media (min-width: $xl) {}
+  @media (min-width: $xl) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+
+  }
 
   @media (min-width: $xxl) {}
 }

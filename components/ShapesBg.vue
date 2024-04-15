@@ -1,5 +1,11 @@
 <script lang="ts" setup>
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import CorsorElement from '@/assets/bg/cursor.svg?skipsvgo';
+
+import ShepesElement from '@/assets/bg/shapes-new.svg?skipsvgo';
+
+
+
 onMounted(() => {
 
   const { $gsap } = useNuxtApp()
@@ -24,17 +30,6 @@ onMounted(() => {
       }, 2000)
 
     },
-    // onToggle: (self) => console.log("toggled, isActive:", self.isActive),
-    // onUpdate: (self) => {
-    //   console.log(
-    //     "progress:",
-    //     self.progress.toFixed(3),
-    //     "direction:",
-    //     self.direction,
-    //     "velocity",
-    //     self.getVelocity()
-    //   );
-    // },
   });
 
 
@@ -174,10 +169,11 @@ onMounted(() => {
       id="realFollowCursor"
       class="cursor-div-vrapper"
     >
-      <img
+      <CorsorElement class="corsor-elem"></CorsorElement>
+      <!-- <img
         class="corsor-elem"
         src="/bg/cursor.svg"
-      >
+      > -->
       <!-- <svg
         class="corsor-elem"
         viewBox="0 0 930 880"
@@ -241,10 +237,11 @@ onMounted(() => {
       class="shapes-all-noth"
       src="/bg/Northern.svg"
     > -->
-    <img
+    <ShepesElement class="shapes-all"></ShepesElement>
+    <!-- <img
       class="shapes-all"
       src="/bg/shapes-new.svg"
-    >
+    > -->
 
     <!-- <img
       class="blob-6"
@@ -276,15 +273,30 @@ onMounted(() => {
 
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 .shapes-all {
   width: 100%;
   position: absolute;
   top: 0px;
   left: 0px;
   z-index: 1;
-}
 
+
+
+
+  g {
+
+    // background: #BD00FF;
+    // mix-blend-mode: hard-light;
+    filter: blur(101.32px);
+  }
+
+
+
+}
+</style>
+
+<style scoped lang="scss">
 .cursor-div-vrapper {
   position: fixed;
   width: calc(556.15px * 2.2);
@@ -404,6 +416,16 @@ onMounted(() => {
   /* cursor */
 
   position: absolute;
+
+
+
+  // background: #FFE0E0;
+  // mix-blend-mode: soft-light;
+  filter: blur(101.32px);
+  // transform: rotate(-146.6deg);
+
+
+
 
   /* left: 791.3px;
   top: 810.64px; */

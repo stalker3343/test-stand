@@ -170,6 +170,8 @@ onMounted(() => {
       class="cursor-div-vrapper"
     >
       <CorsorElement class="corsor-elem"></CorsorElement>
+      <CorsorElement class="corsor-elem"></CorsorElement>
+
       <!-- <svg
         class="corsor-elem"
         width="930"

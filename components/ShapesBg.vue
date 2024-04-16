@@ -163,7 +163,6 @@ onMounted(() => {
 </script>
 
 <template>
-
   <div class="color-dodge-wrapper">
     <div
       id="realFollowCursor"
@@ -284,12 +283,12 @@ onMounted(() => {
 
 
 
-  g {
+  // g {
 
-    // background: #BD00FF;
-    // mix-blend-mode: hard-light;
-    filter: blur(101.32px);
-  }
+  //   // background: #BD00FF;
+  //   // mix-blend-mode: hard-light;
+  //   filter: blur(101.32px);
+  // }
 
 
 
@@ -324,7 +323,7 @@ onMounted(() => {
   left: 0px;
   width: 100%;
   height: 100%;
-  mix-blend-mode: color-dodge;
+  mix-blend-mode: lighten;
 }
 
 .blob-6 {
@@ -421,7 +420,10 @@ onMounted(() => {
 
   // background: #FFE0E0;
   // mix-blend-mode: soft-light;
-  filter: blur(101.32px);
+
+  // filter: blur(101.32px);
+
+
   // transform: rotate(-146.6deg);
 
 

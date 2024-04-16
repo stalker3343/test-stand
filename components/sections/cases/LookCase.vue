@@ -22,16 +22,16 @@ defineProps({
 
       <video
         class="base-image"
-        lazy
         autoplay
         muted
+        playsinline
       >
-        <!-- <source
-          src="https://rotato.netlify.app/alpha-demo/movie-hevc.mov"
-          type='video/mp4; codecs="hvc1"'
-        > -->
         <source
-          :src="caseItem.video"
+          :src="`${caseItem.video}.mp4`"
+          type='video/mp4; codecs="hvc1"'
+        >
+        <source
+          :src="`${caseItem.video}.webm`"
           type="video/webm"
         >
       </video>

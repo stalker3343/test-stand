@@ -50,7 +50,8 @@ const onToggleMenu = () => {
           <button
             v-scroll-to="'#footer-form'"
             class="call-to-action"
-          >Book a call</button>
+          >
+            Book a call</button>
         </nav>
       </header>
       <AppMobileMenu
@@ -204,33 +205,34 @@ const onToggleMenu = () => {
 }
 
 .call-to-action {
-  background-color: transparent;
-  color: white;
-  border-radius: 48px;
-  padding: 12px 24px;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 100%;
-  font-family: "Onest", sans-serif;
-  letter-spacing: 0.48px;
-  border: none;
-  cursor: pointer;
-  // transition: all .3s ease-out;
 
 
-
-
-
+  background: rgba(255, 255, 255, 0.08);
   border: 2px solid #FFFFFF;
   border-radius: 48px;
 
 
 
 
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0.02em;
+  font-family: "Onest", sans-serif;
+  color: white;
+  padding: 12px 24px;
+  cursor: pointer;
+
+
+
+
+
 
   &:hover {
-    background: white;
-    color: #0097ec;
+    background: #FFFFFF;
+
+    color: #0097EC
   }
 }
 </style>

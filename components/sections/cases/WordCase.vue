@@ -96,10 +96,10 @@ defineProps({
   }
 
   @media (min-width: $xl) {
-    top: -80px;
-    height: 576px;
+    top: -160px;
+    height: 756px;
 
-    left: 610px;
+    left: 480px;
 
   }
 

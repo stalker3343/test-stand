@@ -96,10 +96,10 @@ defineProps({
   }
 
   @media (min-width: $xl) {
-    top: -90px;
-    left: -320px;
+    top: -60px;
+    left: -270px;
 
-    height: 670px;
+    height: 740px;
   }
 
   @media (min-width: $xxl) {
@@ -108,6 +108,18 @@ defineProps({
     height: 645px;
   }
 
+}
+
+
+.witmall-case-feedback {
+
+  @media (min-width: $xl) {
+    padding-top: 105px;
+  }
+
+  @media (min-width: $xxl) {
+    padding-top: 50px;
+  }
 }
 
 .witmall-case {

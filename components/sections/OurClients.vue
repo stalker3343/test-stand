@@ -54,7 +54,6 @@ onMounted(() => {
   const notDisplayedIndexes = [6, 7, 8, 9]
   setTimeout(() => {
     setInterval(() => {
-      console.log('call interval');
 
       const swapFromArrIdx = getRandomInt(0, 5)
       const swapToArrIdx = getRandomInt(0, 3)
@@ -65,11 +64,6 @@ onMounted(() => {
       notDisplayedIndexes[swapToArrIdx] = swapFromSrcIdx;
 
 
-      console.log('--------');
-      console.log(displayedIndexes);
-      console.log(notDisplayedIndexes);
-      console.log('--------');
-
 
       const item = `.item-${swapFromArrIdx}`
       const itemToSrc = allLinks[swapToSrcIdx]
@@ -77,13 +71,13 @@ onMounted(() => {
         .to(item, {
           scale: 0,
           opacity: 0,
-          duration: 0.3
+          duration: 0.12
         }).add(function () {
           items.value[swapFromArrIdx].img = itemToSrc
         }).to(item, {
           scale: 1,
           opacity: 1,
-          duration: 0.3
+          duration: 0.12
         }, "+=0.3")
 
     }, 3000)

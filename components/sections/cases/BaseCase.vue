@@ -1,7 +1,4 @@
-<script
-  setup
-  lang="ts"
->
+<script setup lang="ts">
 
 defineProps({
   isLeftImg: {
@@ -27,10 +24,7 @@ defineProps({
   </div>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss" scoped>
 .base-case {
   position: relative;
 }
@@ -57,7 +51,7 @@ defineProps({
   @media (min-width: $xl) {
     padding: 0px;
     max-width: 490px;
-    margin-right: v-bind('isLeftImg ? `110px` : `0px`');
+    margin-right: v-bind('isLeftImg ? `70px` : `0px`');
 
   }
 

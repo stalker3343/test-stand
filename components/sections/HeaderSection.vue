@@ -250,7 +250,7 @@ const badges = ref([{
   }
 
   @media (min-width: $xl) {
-    margin-top: 10px;
+    margin-top: 0px;
 
   }
 
@@ -266,7 +266,7 @@ const badges = ref([{
 
   @media (min-width: $md) {
     width: 100%;
-    justify-content: space-around;
+    justify-content: space-between;
     margin-top: 35px;
 
   }
@@ -292,7 +292,11 @@ const badges = ref([{
 }
 
 .badge-item {
-  height: 57px;
+  height: 64px;
+
+  @media (min-width: $xl) {
+    height: 80px;
+  }
 
   @media (min-width: $xxl) {
     height: 96px;

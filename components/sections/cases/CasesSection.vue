@@ -266,7 +266,7 @@ onMounted(() => {
   }
 
   @media (min-width: $xl) {
-    margin-top: 130px;
+    margin-top: 140px;
   }
 
   @media (min-width: $xxl) {

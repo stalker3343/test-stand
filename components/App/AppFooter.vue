@@ -16,9 +16,9 @@ const formError = ref('')
 const { handleSubmit, isSubmitting } = useForm({
   validationSchema: toTypedSchema(
     object({
-      // email: string().required().email().default(''),
+      email: string().required().email().label('Email').default(''),
       name: string().required().label('Name').default(''),
-      description: string().label('Description').required().default(''),
+      description: string().label('Description').default(''),
     }),
   ),
 });
@@ -167,10 +167,11 @@ onMounted(() => {
 
 
 const { $viewport } = useNuxtApp()
-const LetsTalkSm = defineAsyncComponent(() => import('@/assets/images/headers/footer/sm.svg'))
-const LetsTalkMd = defineAsyncComponent(() => import('@/assets/images/headers/footer/md.svg'))
-const LetsTalkLg = defineAsyncComponent(() => import('@/assets/images/headers/footer/lg.svg'))
-const LetsTalkXl = defineAsyncComponent(() => import('@/assets/images/headers/footer/xl.svg'))
+const LetsTalkSm = defineAsyncComponent(() => import('@/assets/images/headers/footer/sm.svg?skipsvgo'))
+const LetsTalkMd = defineAsyncComponent(() => import('@/assets/images/headers/footer/md.svg?skipsvgo'))
+const LetsTalkLg = defineAsyncComponent(() => import('@/assets/images/headers/footer/lg.svg?skipsvgo'))
+const LetsTalkXl = defineAsyncComponent(() => import('@/assets/images/headers/footer/xl.svg?skipsvgo'))
+const LetsTalkXXl = defineAsyncComponent(() => import('@/assets/images/headers/footer/xxl.svg?skipsvgo'))
 
 </script>
 
@@ -193,10 +194,15 @@ const LetsTalkXl = defineAsyncComponent(() => import('@/assets/images/headers/fo
         :fontControlled="false"
       ></LetsTalkLg>
       <LetsTalkXl
-        v-else="$viewport.match('xl')"
+        v-else-if="$viewport.match('xl')"
         class="footer-main-text"
         :fontControlled="false"
       ></LetsTalkXl>
+      <LetsTalkXXl
+        v-else="$viewport.match('xxl')"
+        class="footer-main-text"
+        :fontControlled="false"
+      ></LetsTalkXXl>
       <!-- <LetsTalk
         class="footer-main-text"
         :fontControlled="false"
@@ -638,16 +644,16 @@ const LetsTalkXl = defineAsyncComponent(() => import('@/assets/images/headers/fo
 }
 
 .footer-main-text {
-  color: transparent;
+  // color: transparent;
   margin-bottom: 40px;
   height: 515px;
 
   @media (min-width: $md) {
-    font-size: 140px;
-    font-weight: 800;
-    line-height: 140px;
-    letter-spacing: -0.02em;
-    text-align: left;
+    // font-size: 140px;
+    // font-weight: 800;
+    // line-height: 140px;
+    // letter-spacing: -0.02em;
+    // text-align: left;
     height: 1085px;
 
 

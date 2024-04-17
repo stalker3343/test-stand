@@ -342,7 +342,7 @@ onMounted(() => {
     }
 
     @media (min-width: $xl) {
-      top: 76px;
+      top: -35px;
       left: 29px;
     }
 

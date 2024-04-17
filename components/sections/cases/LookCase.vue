@@ -99,8 +99,10 @@ defineProps({
   }
 
   @media (min-width: $xl) {
-    left: -345px;
-    top: -80px;
+    left: -305px;
+    top: -110px;
+    height: 695px;
+
 
   }
 

@@ -32,7 +32,7 @@ const {
 });
 
 const validationListeners = {
-  blur: (evt: Event) => handleBlur(evt, true),
+  blur: (evt: Event) => handleBlur(evt, false),
   change: handleChange,
   input: (evt: Event) => handleChange(evt, !!errorMessage.value),
 };

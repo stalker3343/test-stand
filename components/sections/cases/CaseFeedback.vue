@@ -96,7 +96,13 @@ defineProps({
 
   @media (min-width: $xl) {
     line-height: 26px;
+    font-size: 23px;
+
   }
+
+  @media (min-width: $xl) {}
+
+  @media (min-width: $xxl) {}
 
 }
 
@@ -123,12 +129,6 @@ defineProps({
 
 .feedback-description {
 
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: italic;
-  font-variation-settings:
-    "slnt" 0;
 
 
   margin: 0 auto;
@@ -136,6 +136,18 @@ defineProps({
   line-height: 19px;
   letter-spacing: 0.01em;
   text-align: center;
+
+
+  font-family: 'Onest', sans-serif;
+
+  font-size: 20px;
+  font-weight: 200;
+  line-height: 28px;
+  letter-spacing: 0.01em;
+  text-align: center;
+
+
+
 
 
   @media (min-width: $lg) {
@@ -155,6 +167,13 @@ defineProps({
 .feedback-description-tick {
   font-family: "Onest", sans-serif;
 
-  font-weight: 700;
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 30.8px;
+  letter-spacing: 0.01em;
+  text-align: center;
+
+
+
 }
 </style>

@@ -106,20 +106,20 @@ onMounted(() => {
     .from(`.value-number`,
       {
         opacity: 0,
-        duration: 0.1,
-        stagger: 0.4,
+        duration: 0.4,
+        stagger: 1,
       }, '<0.3')
     .from(`.value-header`,
       {
         opacity: 0,
         duration: 0.2,
-        stagger: 0.4,
-      }, '<0.2')
+        stagger: 1.5,
+      }, '<3')
     .from(`.value-text`,
       {
         opacity: 0,
         duration: 0.2,
-        stagger: 0.4,
+        stagger: 1.5,
       }, '<0.05')
 
 

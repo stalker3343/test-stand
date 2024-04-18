@@ -107,19 +107,19 @@ onMounted(() => {
       {
         opacity: 0,
         duration: 0.1,
-        stagger: 0.2,
+        stagger: 0.4,
       }, '<0.3')
     .from(`.value-header`,
       {
         opacity: 0,
-        duration: 0.1,
-        stagger: 0.2,
+        duration: 0.2,
+        stagger: 0.4,
       }, '<0.2')
     .from(`.value-text`,
       {
         opacity: 0,
-        duration: 0.1,
-        stagger: 0.2,
+        duration: 0.2,
+        stagger: 0.4,
       }, '<0.05')
 
 

@@ -218,7 +218,10 @@ onMounted(() => {
       </svg> -->
       <!--     <canvas></canvas> -->
     </div>
+    <!-- <div class="container shapes-container"> -->
     <ShepesElement class="shapes-all"></ShepesElement>
+
+    <!-- </div> -->
 
 
 
@@ -234,6 +237,14 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
+.shapes-container {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .shapes-all {
   width: 100%;
   position: absolute;

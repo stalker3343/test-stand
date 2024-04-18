@@ -11,7 +11,7 @@ function getRandomInt(min: number, max: number) {
 
 import { onMounted, ref } from 'vue';
 
-const allLinks = ['./clients/natro.svg', './clients/cellcom.svg', './clients/solid.svg', './clients/mavenir.svg', './clients/spark.svg', './clients/router.svg', './clients/locaweb.svg', './clients/netcore.svg', './clients/gct.svg', './clients/informatik.svg']
+const allLinks = ['./clients/natro.svg', './clients/cellcom.svg', './clients/solid.svg', './clients/mavenir.svg', './clients/sprk-gct.svg', './clients/router.svg', './clients/locaweb.svg', './clients/netcore.svg', './clients/gallery.svg', './clients/informatik.svg']
 const items = ref(
   allLinks.slice(0, 6).map((el, idx) => ({
     id: idx,
@@ -26,10 +26,13 @@ const items = ref(
   }))
 )
 
+
+
 const offsetWIdth = ref(0)
 const container = ref<HTMLInputElement | null>(null)
 const imgSize = ref<'sm' | 'md' | "lg" | 'xl' | 'xxl'>('sm')
 // 
+let stopInter: NodeJS.Timeout | null = null;
 onMounted(() => {
   const getIconSize = () => {
     if (window.innerWidth >= 1920) return 'xxl'
@@ -50,18 +53,43 @@ onMounted(() => {
   const containerWisth = container.value?.getBoundingClientRect().width || 0
   offsetWIdth.value = (window.innerWidth - containerWisth) / 2
   const { $gsap } = useNuxtApp()
+
+
+
   const displayedIndexes = [0, 1, 2, 3, 4, 5]
   const notDisplayedIndexes = [6, 7, 8, 9]
   setTimeout(() => {
-    setInterval(() => {
+    stopInter = setInterval(() => {
 
-      const swapFromArrIdx = getRandomInt(0, 5)
-      const swapToArrIdx = getRandomInt(0, 3)
-      const swapFromSrcIdx = displayedIndexes[swapFromArrIdx]
-      const swapToSrcIdx = notDisplayedIndexes[swapToArrIdx]
+      let swapFromArrIdx = getRandomInt(0, 5)
+      let swapToArrIdx = getRandomInt(0, 3)
+      // 4 -> 8
+
+
+      let swapFromSrcIdx = displayedIndexes[swapFromArrIdx]
+      let swapToSrcIdx = notDisplayedIndexes[swapToArrIdx]
+
+
+      if (swapToSrcIdx === 4 && swapFromSrcIdx !== 8) {
+        swapFromArrIdx = displayedIndexes.findIndex(el => el === 8)
+        swapFromSrcIdx = 8
+      }
+      if (swapToSrcIdx === 8 && swapFromSrcIdx !== 4) {
+        swapFromArrIdx = displayedIndexes.findIndex(el => el === 4)
+        swapFromSrcIdx = 4
+      }
+      if (swapToSrcIdx !== 8 && swapFromSrcIdx === 4) {
+        swapToArrIdx = notDisplayedIndexes.findIndex(el => el === 8)
+        swapToSrcIdx = 8
+      }
+      if (swapToSrcIdx !== 4 && swapFromSrcIdx === 8) {
+        swapToArrIdx = notDisplayedIndexes.findIndex(el => el === 4)
+        swapToSrcIdx = 4
+      }
 
       displayedIndexes[swapFromArrIdx] = swapToSrcIdx;
       notDisplayedIndexes[swapToArrIdx] = swapFromSrcIdx;
+
 
 
 
@@ -69,23 +97,21 @@ onMounted(() => {
       const itemToSrc = allLinks[swapToSrcIdx]
       $gsap.timeline()
         .to(item, {
-          scale: 0,
-          opacity: 0,
-          duration: 0.12
+          scale: 0.4,
+          opacity: 0.5,
+          duration: 0.2
         }).add(function () {
           items.value[swapFromArrIdx].img = itemToSrc
-        }).to(item, {
+        }, '<0.1').to(item, {
           scale: 1,
           opacity: 1,
-          duration: 0.12
-        }, "+=0.3")
+          duration: 0.2
+        }, "+=0.2")
 
     }, 3000)
   }, 2000)
 
 })
-
-
 
 </script>
 
@@ -307,8 +333,10 @@ onMounted(() => {
   }
 
   @media (min-width: $xl) {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    display: flex;
+    justify-content: space-between;
+    // display: grid;
+    // grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 
   }
 

@@ -312,13 +312,23 @@ onMounted(() => {
 
 
 
-  @media (min-width: $md) {
-    font-size: 540px;
-    font-weight: 400;
-    line-height: 540px;
-    letter-spacing: 0px;
-    text-align: right;
+  // @media (min-width: $md) {
+  //   font-size: 540px;
+  //   font-weight: 400;
+  //   line-height: 540px;
+  //   letter-spacing: 0px;
+  //   text-align: right;
+  // }
+
+  @media (min-width: $md) {}
+
+  @media (min-width: $lg) {}
+
+  @media (min-width: $xl) {
+    height: 400px;
   }
+
+  @media (min-width: $xxl) {}
 
   &-0 {
     top: 90px;
@@ -337,7 +347,7 @@ onMounted(() => {
     }
 
     @media (min-width: $xl) {
-      top: 35px;
+      top: 30px;
       right: 135px;
     }
 
@@ -363,12 +373,12 @@ onMounted(() => {
     }
 
     @media (min-width: $xl) {
-      top: 35px;
+      top: 23px;
       left: 59px;
     }
 
     @media (min-width: $xxl) {
-      top: 50px;
+      top: 40px;
       right: initial;
       left: 120px;
     }
@@ -393,7 +403,7 @@ onMounted(() => {
     }
 
     @media (min-width: $xl) {
-      top: 32px;
+      top: 30px;
       left: 50px;
     }
 

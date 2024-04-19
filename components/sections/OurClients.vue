@@ -97,8 +97,8 @@ onMounted(() => {
       const itemToSrc = allLinks[swapToSrcIdx]
       $gsap.timeline()
         .to(item, {
-          scale: 0.4,
-          opacity: 0.5,
+          scale: 0.5,
+          opacity: 0,
           duration: 0.2
         }).add(function () {
           items.value[swapFromArrIdx].img = itemToSrc

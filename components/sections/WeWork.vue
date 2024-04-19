@@ -51,6 +51,7 @@
 
         </div>
         <span
+          v-if="key !== 3"
           class="row-line"
           :class="`row-line-${key}`"
         ></span>

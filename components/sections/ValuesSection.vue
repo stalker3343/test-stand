@@ -36,12 +36,17 @@
           >
 
           </div>
-          <div
+          <component
+            class="value-number"
+            :class="`value-number-${key}`"
+            :is="numbersSvgList[key]"
+          ></component>
+          <!-- <div
             class="value-number"
             :class="`value-number-${key}`"
           >
             {{ key + 1 }}
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -50,6 +55,10 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
+import NumberOne from '@/assets/images/numbers/1.svg?skipsvgo'
+import NumberTwo from '@/assets/images/numbers/2.svg?skipsvgo'
+import NumberThree from '@/assets/images/numbers/3.svg?skipsvgo'
+
 
 const OurValues = defineAsyncComponent(() => import('@/assets/images/headers/our-values.svg?skipsvgo'))
 const OurValuesSm = defineAsyncComponent(() => import('@/assets/images/headers/our-values-sm.svg?skipsvgo'))
@@ -57,7 +66,7 @@ const OurValuesSm = defineAsyncComponent(() => import('@/assets/images/headers/o
 
 import anime from "animejs";
 const { $viewport } = useNuxtApp()
-
+const numbersSvgList = [NumberOne, NumberTwo, NumberThree]
 const values = ref([{
   header: 'Process Transparecy',
   text: `
@@ -103,23 +112,35 @@ onMounted(() => {
         // loop: true
       });
     }, '<')
+    .add(function () {
+      anime({
+        targets: `.value-number path`,
+        strokeDashoffset: [anime.setDashoffset, 0],
+        easing: 'easeInOutSine',
+        duration: 1200,
+        delay: function (el, i) { return i * 600 },
+        // direction: 'alternate',
+        // loop: true
+      });
+    })
+
     .from(`.value-number`,
       {
         opacity: 0,
-        duration: 0.4,
-        stagger: 1,
-      }, '<0.3')
+        duration: 0.3,
+        stagger: 0.6,
+      }, '<')
     .from(`.value-header`,
       {
         opacity: 0,
         duration: 0.2,
-        stagger: 1.5,
-      }, '<3')
+        stagger: 0.5,
+      }, '<1.4')
     .from(`.value-text`,
       {
         opacity: 0,
         duration: 0.2,
-        stagger: 1.5,
+        stagger: 0.5,
       }, '<0.05')
 
 
@@ -316,13 +337,13 @@ onMounted(() => {
     }
 
     @media (min-width: $xl) {
-      top: -35px;
-      right: 75px;
+      top: 35px;
+      right: 135px;
     }
 
     @media (min-width: $xxl) {
-      top: -20px;
-      right: 190px;
+      top: 50px;
+      right: 260px;
     }
   }
 
@@ -342,14 +363,14 @@ onMounted(() => {
     }
 
     @media (min-width: $xl) {
-      top: -35px;
-      left: 29px;
+      top: 35px;
+      left: 59px;
     }
 
     @media (min-width: $xxl) {
-      top: -20px;
+      top: 50px;
       right: initial;
-      left: 103px;
+      left: 120px;
     }
   }
 
@@ -372,12 +393,12 @@ onMounted(() => {
     }
 
     @media (min-width: $xl) {
-      top: -32px;
-      left: 20px;
+      top: 32px;
+      left: 50px;
     }
 
     @media (min-width: $xxl) {
-      top: -20px;
+      top: 40px;
       right: 190px;
     }
   }

@@ -42,7 +42,7 @@ onMounted(() => {
       end: 'bottom 60%',
       toggleActions: 'play none none none',
       scrub: true,
-      markers: true,
+      // markers: true,
       once: true
 
     }

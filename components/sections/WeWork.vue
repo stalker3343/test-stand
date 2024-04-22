@@ -84,14 +84,12 @@ const { $viewport } = useNuxtApp()
 
 onMounted(() => {
   const { $gsap } = useNuxtApp()
-
-
   $gsap.timeline({
     scrollTrigger: {
       trigger: `#${props.id}`,
       start: 'top 75%',
       end: 'bottom 60%',
-      toggleActions: 'play none none reverse',
+      toggleActions: 'play none none none',
     }
   })
     .from(`#${props.id} .anim-we-work-header`, {
@@ -109,6 +107,20 @@ onMounted(() => {
         // loop: true
       });
     }, '<')
+
+
+  $gsap.timeline({
+    scrollTrigger: {
+      trigger: `#${props.id}`,
+      start: 'top 80%',
+      end: 'bottom 60%',
+      toggleActions: 'play none none none',
+      scrub: 2,
+      markers: true,
+      once: true
+
+    }
+  })
     .from(`#${props.id} .row-title`,
       {
         opacity: 0,
@@ -142,6 +154,9 @@ onMounted(() => {
       duration: 1,
       // stagger: 0.3,
     }, "<0.3")
+
+
+
 
 
 

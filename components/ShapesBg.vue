@@ -93,7 +93,7 @@ onMounted(() => {
   var tracker = document.getElementById('realFollowCursor');
   var targetX = 0, targetY = 0; // Целевые координаты, куда должен двигаться элемент
   var currentX = 0, currentY = 0; // Текущие координаты элемента
-  window.speed = 0.02; // Скорость перемещения элемента (от 0 до 1)
+  window.speed = 0.01; // Скорость перемещения элемента (от 0 до 1)
 
 
   // Начальные и конечные размеры элемента

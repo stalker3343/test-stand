@@ -6,6 +6,7 @@ import Lenis from '@studio-freight/lenis'
 
 
 onMounted(() => {
+  history.scrollRestoration = "manual"
   const lenis = new Lenis()
 
   function raf(time) {

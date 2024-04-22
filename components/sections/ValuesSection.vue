@@ -309,6 +309,7 @@ onMounted(() => {
   color: rgba(127, 218, 255, .2);
   mix-blend-mode: soft-light;
   position: absolute;
+  opacity: 0.325;
 
 
 

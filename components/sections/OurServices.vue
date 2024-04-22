@@ -38,10 +38,34 @@ onMounted(() => {
   $gsap.timeline({
     scrollTrigger: {
       trigger: "#services",
+      start: 'top 100%',
+      end: 'bottom 60%',
+      toggleActions: 'play none none none',
+      scrub: true,
+      markers: true,
+      once: true
+
+    }
+  })
+
+    .from('.service-header', {
+      opacity: 0,
+      duration: 0.4,
+      stagger: 0.3,
+    }, '<0.3')
+    .from('.sevice-text', {
+      opacity: 0,
+      duration: 0.4,
+      stagger: 0.3,
+    }, '<0.1')
+
+
+  $gsap.timeline({
+    scrollTrigger: {
+      trigger: "#services",
       start: 'top 80%',
       end: 'bottom 60%',
-      toggleActions: 'play none none reverse',
-
+      toggleActions: 'play none none none',
     }
   })
     .from('.section-header-wrapper', {
@@ -59,20 +83,9 @@ onMounted(() => {
         // loop: true
       });
     }, '<')
-    .to('.mouse', {
-      animation: 'none',
-      opacity: 0
-    })
-    .from('.service-header', {
-      opacity: 0,
-      duration: 0.4,
-      stagger: 0.3,
-    }, '<0.3')
-    .from('.sevice-text', {
-      opacity: 0,
-      duration: 0.4,
-      stagger: 0.3,
-    }, '<0.1')
+
+
+
   // .from('.service-header-1', animHeaderConfig)
   // .from('.service-text-1', animHeaderConfig, headerTextConfig)
   // .from('.service-header-2', animHeaderConfig)

@@ -2,7 +2,17 @@
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CorsorElement from '@/assets/bg/cursor.svg?skipsvgo';
 
-import ShepesElement from '@/assets/bg/shapes-new.svg?skipsvgo';
+// import ShepesElement from '@/assets/bg/shapes-new.svg?skipsvgo';
+// import ShepesElementNew from '@/assets/bg/BLOBS_MAP.svg?skipsvgo';
+// import ShepesElementNew from '@/assets/bg/BLOBMAP_1440.svg?skipsvgo';
+
+
+const ShepesElementXl = defineAsyncComponent(() => import('@/assets/bg/BLOBMAP_1440.svg?skipsvgo'))
+const ShepesElementXXl = defineAsyncComponent(() => import('@/assets/bg/BLOBS_MAP.svg?skipsvgo'))
+
+
+
+
 
 
 
@@ -225,9 +235,21 @@ onMounted(() => {
       <!--     <canvas></canvas> -->
     </div>
     <!-- <div class="container shapes-container"> -->
-    <ShepesElement class="shapes-all"></ShepesElement>
+    <!-- <ShepesElement class="shapes-all"></ShepesElement> -->
+    <!-- <ShepesElementNew class="shapes-all"></ShepesElementNew> -->
+    <ShepesElementXXl
+      v-if="$viewport.match('xxl')"
+      class="shapes-all"
+    >
+    </ShepesElementXXl>
+    <ShepesElementXl
+      v-else
+      class="shapes-all"
+    ></ShepesElementXl>
 
     <!-- </div> -->
+
+
 
 
 
@@ -257,7 +279,7 @@ onMounted(() => {
   top: 0px;
   left: 0px;
   // height: 100%;
-  z-index: 1;
+  z-index: 2;
 
 }
 

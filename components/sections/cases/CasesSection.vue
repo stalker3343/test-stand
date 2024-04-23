@@ -206,7 +206,6 @@ onMounted(() => {
           start: 'top 30%',
           end: 'bottom 60%',
           toggleActions: 'play none none none',
-          markers: true,
 
         }
       })

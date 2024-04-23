@@ -165,11 +165,6 @@ onMounted(() => {
 
         }
       })
-        .from(`${caseClass} .base-image`, {
-          opacity: 0,
-          duration: 0.8,
-          x: idx % 2 === 0 ? -40 : 40,
-        })
         .from(`${caseClass} .case-header`, {
           opacity: 0,
           duration: 0.2,
@@ -180,15 +175,18 @@ onMounted(() => {
           duration: 0.2,
           x: idx % 2 === 0 ? -20 : 20,
         }, "<0.1")
+        .from(`${caseClass} .base-image`, {
+          opacity: 0,
+          duration: 0.8,
+          x: idx % 2 === 0 ? -40 : 40,
+        })
 
       $gsap.timeline({
         scrollTrigger: {
           trigger: caseClass,
-          start: 'top 70%',
+          start: 'top 50%',
           end: 'bottom 90%',
           toggleActions: 'play none none none',
-          markers: true,
-
         }
       })
         .from(`${caseClass} .case-tech`, {
@@ -205,9 +203,11 @@ onMounted(() => {
       $gsap.timeline({
         scrollTrigger: {
           trigger: caseClass,
-          start: 'top 60%',
+          start: 'top 30%',
           end: 'bottom 60%',
           toggleActions: 'play none none none',
+          markers: true,
+
         }
       })
         .from(`${caseClass} .feedback-name`, {

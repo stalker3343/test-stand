@@ -43,10 +43,7 @@
     </div>
   </section>
 </template>
-<script
-  setup
-  lang="ts"
->
+<script setup lang="ts">
 import BaseIcon from '@/ui/BaseIcon.vue'
 import { ref } from "vue";
 
@@ -74,6 +71,10 @@ onMounted(() => {
       start: 'top 80%',
       end: 'bottom 60%',
       toggleActions: 'play none none reverse',
+      scrub: true,
+      // markers: true,
+      once: true
+
 
     }
   })
@@ -113,10 +114,7 @@ onMounted(() => {
 
 
 </script>
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss" scoped>
 .blog-section {
   margin-top: 145px;
 

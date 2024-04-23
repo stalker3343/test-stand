@@ -12,7 +12,6 @@
         :fontControlled="false"
         class="how-work-section-header"
       ></HowWeWork>
-      <!-- <h2 class="how-work-section-header">How we work</h2> -->
       <div class="block-content">
         <p class="we-work-descr">We respect Agile and Scrum.</p>
         <p class="we-work-descr">We send you regular reports to keep you on track.</p>
@@ -138,6 +137,9 @@ const steps = [{
 // .step-item-0
 onMounted(() => {
   const { $gsap } = useNuxtApp()
+
+
+
   $gsap.timeline({
     scrollTrigger: {
       trigger: `.how-we-work`,
@@ -162,11 +164,31 @@ onMounted(() => {
         // loop: true
       });
     }, '<')
+
+  $gsap.timeline({
+    scrollTrigger: {
+      trigger: `.how-we-work`,
+      start: 'top 50%',
+      end: 'bottom 60%',
+      toggleActions: 'play none none reverse',
+    }
+  })
     .from(`.block-content`,
       {
         opacity: 0,
         duration: 1.0,
       }, '<0.5')
+
+
+  $gsap.timeline({
+    scrollTrigger: {
+      trigger: `.how-we-work`,
+      start: 'top 30%',
+      end: 'bottom 60%',
+      toggleActions: 'play none none reverse',
+    }
+  })
+
     .add(function () {
       const step = -160;
       $gsap.to(`.step-item`,

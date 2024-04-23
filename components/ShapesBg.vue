@@ -292,7 +292,7 @@ onMounted(() => {
   
   */
 
-  mix-blend-mode: lighten;
+  mix-blend-mode: color-dodge;
   /*   transform: translate3d(0, 0, 0); */
 }
 

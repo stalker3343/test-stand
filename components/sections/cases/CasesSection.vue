@@ -155,12 +155,14 @@ onMounted(() => {
 
   const createTimelines = () => {
     return cases.map((caseClass, idx) => {
-      return $gsap.timeline({
+
+      $gsap.timeline({
         scrollTrigger: {
           trigger: caseClass,
-          start: 'top 80%',
+          start: 'top 75%',
           end: 'bottom 60%',
           toggleActions: 'play none none none',
+
         }
       })
         .from(`${caseClass} .base-image`, {
@@ -178,6 +180,17 @@ onMounted(() => {
           duration: 0.2,
           x: idx % 2 === 0 ? -20 : 20,
         }, "<0.1")
+
+      $gsap.timeline({
+        scrollTrigger: {
+          trigger: caseClass,
+          start: 'top 70%',
+          end: 'bottom 90%',
+          toggleActions: 'play none none none',
+          markers: true,
+
+        }
+      })
         .from(`${caseClass} .case-tech`, {
           duration: 0.3,
           opacity: 0,
@@ -187,6 +200,16 @@ onMounted(() => {
             // y: 5
           }
         }, "<0.2")
+
+
+      $gsap.timeline({
+        scrollTrigger: {
+          trigger: caseClass,
+          start: 'top 60%',
+          end: 'bottom 60%',
+          toggleActions: 'play none none none',
+        }
+      })
         .from(`${caseClass} .feedback-name`, {
           opacity: 0,
           duration: 0.1,
@@ -199,6 +222,7 @@ onMounted(() => {
           opacity: 0,
           duration: 0.4,
         }, "<0.1")
+
 
       // .from('.tag-item', {
       //   duration: 0.6,

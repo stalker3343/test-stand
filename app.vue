@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-// import { RouterView } from 'vue-router'
 import AppHeader from './components/App/AppHeader.vue'
 import HomeView from '@/views/HomeView.vue'
 import Lenis from '@studio-freight/lenis'
@@ -35,7 +34,6 @@ onMounted(() => {
     ></video> -->
     <AppHeader></AppHeader>
     <HomeView></HomeView>
-    <!-- <RouterView /> -->
   </div>
 </template>
 

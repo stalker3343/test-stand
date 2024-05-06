@@ -1,20 +1,50 @@
 <template>
-  <div ref="navigation" class="overlay">
+  <div
+    ref="navigation"
+    class="overlay"
+  >
     <div class="menu-inner">
-      <div class="menu-list">
-        <li @click="onLinkClick('#services')" class="menu-item">Services</li>
-        <li @click="onLinkClick('#industries')" class="menu-item">Industries</li>
-        <li @click="onLinkClick('#blog')" class="menu-item">Blog</li>
-      </div>
-      <BaseButton class="action-btn" height="74px" block>
+      <ul class="menu-list">
+        <li
+          v-scroll-to="'#services'"
+          @click="onLinkClick('#services')"
+          class="menu-item"
+        >
+          Services
+        </li>
+        <li
+          v-scroll-to="'#industries'"
+          @click="onLinkClick('#industries')"
+          class="menu-item"
+        >
+          Industries</li>
+        <li
+          v-scroll-to="'#blog'"
+          @click="onLinkClick('#blog')"
+          class="menu-item"
+        >
+          Blog
+        </li>
+      </ul>
+      <BaseButton
+        class="action-btn"
+        height="74px"
+        block
+      >
         Get in touch
       </BaseButton>
 
       <div class="menu-contacts">
-        <a class="contact-link" href="mailto:works@afterlogic.com">
+        <a
+          class="contact-link"
+          href="mailto:works@afterlogic.com"
+        >
           works@afterlogic.com
         </a>
-        <a class="contact-link" href="tel:+14155130152">
+        <a
+          class="contact-link"
+          href="tel:+14155130152"
+        >
           +1 415 513 0152
         </a>
       </div>
@@ -24,14 +54,35 @@
           <BaseIcon :size="48" name="twitter"></BaseIcon>
         </a> -->
 
-        <a target="_blank" class="social-link-item" href="https://www.facebook.com/Afterlogic.Works">
-          <BaseIcon :size="48" name="facebook"></BaseIcon>
+        <a
+          target="_blank"
+          class="social-link-item"
+          href="https://www.facebook.com/Afterlogic.Works"
+        >
+          <BaseIcon
+            :size="48"
+            name="facebook"
+          ></BaseIcon>
         </a>
-        <a target="_blank" class="social-link-item" href="https://afterlogic.medium.com/">
-          <BaseIcon :size="48" name="medium"></BaseIcon>
+        <a
+          target="_blank"
+          class="social-link-item"
+          href="https://afterlogic.medium.com/"
+        >
+          <BaseIcon
+            :size="48"
+            name="medium"
+          ></BaseIcon>
         </a>
-        <a target="_blank" class="social-link-item" href="https://linkedin.com/company/afterlogic-works">
-          <BaseIcon :size="48" name="linkedin"></BaseIcon>
+        <a
+          target="_blank"
+          class="social-link-item"
+          href="https://linkedin.com/company/afterlogic-works"
+        >
+          <BaseIcon
+            :size="48"
+            name="linkedin"
+          ></BaseIcon>
         </a>
         <!-- <a class="social-link-item" href="http://">
           <BaseIcon :size="48" name="youtube"></BaseIcon>
@@ -70,7 +121,6 @@ export default {
         const elem = this.$refs.navigation as HTMLElement
         elem.style.height = '0%'
         document.body.classList.remove('fix-scroll');
-
       }
       // this.$store.commit('changeNoScroll', {
       //   item: 'menu',
@@ -81,8 +131,10 @@ export default {
   methods: {
     onLinkClick(route: string) {
       this.$emit('close');
+      console.log("🚀 ~ onLinkClick ~ scrollTo:", route)
+
       // @ts-ignore
-      this.$scrollTo(route)
+      // this.$scrollTo(route)
     }
   }
 
@@ -114,7 +166,6 @@ export default {
 .contact-link {
   position: relative;
   display: block;
-  font-family: "Onest", sans-serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 34px;
@@ -161,7 +212,6 @@ export default {
   height: 74px;
   border-bottom: 1px solid rgba(0, 151, 236, 0.2);
 
-  font-family: "Onest", sans-serif;
   font-size: 24px;
   font-weight: 700;
   line-height: 34px;

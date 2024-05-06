@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <main>
 
 
     <HeaderSection></HeaderSection>
@@ -24,11 +24,12 @@
       :rows="rowsWeDo"
     ></WeWork>
     <!-- <OurOtherClients></OurOtherClients> -->
-    <AppFooter></AppFooter>
     <ShapesBg></ShapesBg>
 
 
-  </div>
+  </main>
+  <AppFooter></AppFooter>
+
 </template>
 <script lang="ts" setup>
 import { defineAsyncComponent, ref } from "vue";
@@ -70,6 +71,10 @@ const rowsWeWork = ref([{
 
 
 const rowsWeDo = ref([{
+  title: 'In QA we trust',
+  text: `<p>Before going live, any changes in the project being developed undergo the meticulous testing process.</p>
+  <p>In our company, it's performed by dedicated QA engineers which report back any issues found and won't let them reach production server or app.</p>`
+}, {
   title: 'Code cross-reviews',
   text: `We conduct quality control inspections, where our experienced developers review each other's code to ensure that the decisions made lead to a well-thought, extensible, safe and secure solution.`
 }, {

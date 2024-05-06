@@ -1,23 +1,64 @@
 <template>
   <div>
-    <transition name="dialog-transition" appear>
-      <div v-if="modelValue" class="modal" role="dialog">
+    <transition
+      name="dialog-transition"
+      appear
+    >
+      <div
+        v-if="modelValue"
+        class="modal"
+        role="dialog"
+      >
         <div class="modal-inner">
           <div class="menu-inner">
-            <div class="menu-list">
-              <li @click="onLinkClick('#services')" class="menu-item">Services</li>
-              <li @click="onLinkClick('#industries')" class="menu-item">Industries</li>
-              <li @click="onLinkClick('#blog')" class="menu-item">Blog</li>
-            </div>
-            <BaseButton @click="onLinkClick('#footer-form')" class="action-btn" height="74px" color="primary" block>
+            <nav class="menu-list">
+              <a
+                v-scroll-to="'#services'"
+                href="#services"
+                @click.prevent="onLinkClick('#services')"
+                class="menu-item"
+              >
+                Services
+              </a>
+              <a
+                v-scroll-to="'#industries'"
+                href="#industries"
+                @click.prevent="onLinkClick('#industries')"
+                class="menu-item"
+              >
+                Industries
+              </a>
+              <a
+                v-scroll-to="'#blog'"
+                href="#blog"
+                @click.prevent="onLinkClick('#blog')"
+                class="menu-item"
+              >
+                Blog
+              </a>
+            </nav>
+            <BaseButton
+              v-scroll-to="'#footer-form'"
+              @click="onLinkClick('#footer-form')"
+              class="action-btn"
+              height="74px"
+              color="primary"
+              block
+            >
               Get in touch
             </BaseButton>
 
             <div class="menu-contacts">
-              <a class="contact-link" href="mailto:works@afterlogic.com">
+              <a
+                class="contact-link"
+                href="mailto:works@afterlogic.com"
+              >
                 works@afterlogic.com
               </a>
-              <a class="contact-link" href="tel:+14155130152">
+              <a
+                class="contact-link"
+                href="tel:+14155130152"
+              >
                 +1 415 513 0152
               </a>
             </div>
@@ -27,14 +68,38 @@
                 <BaseIcon :size="48" name="twitter"></BaseIcon>
               </a> -->
 
-              <a target="_blank" class="social-link-item" href="https://www.facebook.com/Afterlogic.Works">
-                <BaseIcon :size="48" name="facebook"></BaseIcon>
+              <a
+                aria-label="Facebook link"
+                target="_blank"
+                class="social-link-item"
+                href="https://www.facebook.com/Afterlogic.Works"
+              >
+                <BaseIcon
+                  :size="48"
+                  name="facebook"
+                ></BaseIcon>
               </a>
-              <a target="_blank" class="social-link-item" href="https://afterlogic.medium.com/">
-                <BaseIcon :size="48" name="medium"></BaseIcon>
+              <a
+                aria-label="Medium link"
+                target="_blank"
+                class="social-link-item"
+                href="https://afterlogic.medium.com/"
+              >
+                <BaseIcon
+                  :size="48"
+                  name="medium"
+                ></BaseIcon>
               </a>
-              <a target="_blank" class="social-link-item" href="https://linkedin.com/company/afterlogic-works">
-                <BaseIcon :size="48" name="linkedin"></BaseIcon>
+              <a
+                aria-label="Linkedin link"
+                target="_blank"
+                class="social-link-item"
+                href="https://linkedin.com/company/afterlogic-works"
+              >
+                <BaseIcon
+                  :size="48"
+                  name="linkedin"
+                ></BaseIcon>
               </a>
               <!-- <a class="social-link-item" href="http://">
                 <BaseIcon :size="48" name="youtube"></BaseIcon>
@@ -102,9 +167,10 @@ export default {
       this.hide();
     },
     onLinkClick(route: string) {
+
       this.hide();
       // @ts-ignore
-      this.$scrollTo(route)
+      // this.$scrollTo(route)
     }
   },
 };
@@ -252,7 +318,6 @@ export default {
 .contact-link {
   position: relative;
   display: block;
-  font-family: "Onest", sans-serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 34px;
@@ -306,14 +371,13 @@ export default {
 }
 
 .menu-item {
-
-
+  color: #0097EC;
+  text-decoration: none;
   display: flex;
   align-items: center;
   height: 74px;
   border-bottom: 1px solid rgba(0, 151, 236, 0.2);
 
-  font-family: "Onest", sans-serif;
   font-size: 24px;
   font-weight: 700;
   line-height: 34px;

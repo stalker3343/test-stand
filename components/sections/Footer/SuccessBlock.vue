@@ -1,28 +1,23 @@
-<script
-  lang="ts"
-  setup
->
+<script lang="ts" setup>
 
 
+import DoneIcon from '@/assets/images/done.svg?skipsvgo';
 
 </script>
 
 <template>
   <div class="success-block-footer">
-    <img
+    <DoneIcon
+      :fontControlled="false"
       class="block-img"
-      src="@/assets/images/done.svg"
-    >
-    <div class="block-header">See yous soon!</div>
+    ></DoneIcon>
+    <div class="block-header">See you!</div>
     <div class="block-description">Your response was successfully send. We will contact you soon.</div>
   </div>
 
 </template>
 
-<style
-  scoped
-  lang="scss"
->
+<style scoped lang="scss">
 .block-img {
   margin-bottom: 24px;
 }
@@ -47,7 +42,6 @@
 }
 
 .block-header {
-  font-family: "Onest";
   font-size: 25px;
   font-weight: 700;
   line-height: 30px;
@@ -64,7 +58,6 @@
   max-width: 256px;
 
 
-  font-family: 'Onest';
   font-style: normal;
   font-weight: 300;
   font-size: 14px;

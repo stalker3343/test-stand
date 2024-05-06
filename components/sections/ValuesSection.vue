@@ -1,6 +1,9 @@
 <template>
   <section class="values-section">
     <div class="container">
+      <h2 class="visually-hidden">Our values</h2>
+
+
       <OurValuesSm
         v-if="$viewport.match('sm')"
         :fontControlled="false"
@@ -227,7 +230,7 @@ onMounted(() => {
     }
 
     @media (min-width: $lg) {
-      padding-top: 120px;
+      padding-top: 150px;
       padding-left: 50px;
 
       .value-text {
@@ -241,11 +244,14 @@ onMounted(() => {
     padding-top: 87px;
 
     @media (min-width: $md) {
-      padding-top: 295px;
-      padding-bottom: 115px;
+      padding-top: 330px;
+      padding-bottom: 0px;
     }
 
     @media (min-width: $lg) {
+      padding-top: 370px;
+      padding-bottom: 20px;
+
       padding-left: 0px;
 
       .value-text {
@@ -262,11 +268,18 @@ onMounted(() => {
     padding-bottom: 100px;
 
     @media (min-width: $md) {
+      margin-top: -35px;
       padding-top: 0px;
       padding-left: 25px;
+      padding-bottom: 85px;
+
     }
 
     @media (min-width: $lg) {
+      padding-bottom: 0px;
+
+      margin-top: initial;
+
       padding-top: 0px;
       padding-left: 50px;
 
@@ -299,7 +312,6 @@ onMounted(() => {
 
 
 .value-number {
-  font-family: "Onest", sans-serif;
 
   font-size: 240px;
   font-weight: 400;
@@ -310,6 +322,9 @@ onMounted(() => {
   mix-blend-mode: soft-light;
   position: absolute;
   opacity: 0.325;
+  height: 170px;
+  width: auto;
+
 
 
 
@@ -321,9 +336,15 @@ onMounted(() => {
   //   text-align: right;
   // }
 
-  @media (min-width: $md) {}
+  @media (min-width: $md) {
+    height: 300px;
 
-  @media (min-width: $lg) {}
+  }
+
+  @media (min-width: $lg) {
+    height: 390px;
+
+  }
 
   @media (min-width: $xl) {
     height: 400px;
@@ -332,19 +353,19 @@ onMounted(() => {
   @media (min-width: $xxl) {}
 
   &-0 {
-    top: 90px;
-    left: 230px;
+    top: 120px;
+    left: 240px;
 
     @media (min-width: $md) {
       left: initial;
       font-size: 540px;
-      top: -23px;
-      right: 0px;
+      top: 25px;
+      right: 25px;
     }
 
     @media (min-width: $lg) {
-      top: -33px;
-      right: 143px;
+      top: 10px;
+      right: 213px;
     }
 
     @media (min-width: $xl) {
@@ -359,17 +380,19 @@ onMounted(() => {
   }
 
   &-1 {
-    top: 115px;
-    left: 180px;
+    top: 135px;
+    left: 195px;
 
     @media (min-width: $md) {
       font-size: 540px;
-      top: 261px;
-      left: -21px;
+      top: 221px;
+      left: 20px;
     }
 
     @media (min-width: $lg) {
-      left: -25px;
+      left: 40px;
+      top: 251px;
+
 
     }
 
@@ -386,21 +409,19 @@ onMounted(() => {
   }
 
   &-2 {
-
-    top: 187px;
-    left: 175px;
+    top: 218px;
+    left: 187px;
 
     @media (min-width: $md) {
       left: initial;
-      font-size: 540px;
-      top: -158px;
-      right: -66px;
+      top: -68px;
+      right: 6px;
     }
 
     @media (min-width: $lg) {
 
-      top: -159px;
-      right: 111px;
+      top: -149px;
+      right: 91px;
     }
 
     @media (min-width: $xl) {
@@ -436,7 +457,6 @@ onMounted(() => {
 }
 
 .value-text {
-  font-family: "Onest", sans-serif;
 
   font-size: 17px;
   font-weight: 400;
@@ -472,7 +492,6 @@ onMounted(() => {
 .section-header {
   color: transparent;
   // -webkit-text-stroke: 1.5px #fff;
-  // font-family: "Open Sans", sans-serif;
   // font-variation-settings:
   //   "wdth" 100;
   // font-size: 70px;

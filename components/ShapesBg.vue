@@ -2,16 +2,51 @@
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CorsorElement from '@/assets/bg/cursor.svg?skipsvgo';
 
+import CorsorSmallElement from '@/assets/bg/cursorSmalBlure.svg?skipsvgo';
+
+
+
+
 // import ShepesElement from '@/assets/bg/shapes-new.svg?skipsvgo';
 // import ShepesElementNew from '@/assets/bg/BLOBS_MAP.svg?skipsvgo';
 // import ShepesElementNew from '@/assets/bg/BLOBMAP_1440.svg?skipsvgo';
 
-
+const ShepesElementSm = defineAsyncComponent(() => import('@/assets/bg/BLOBS_360.svg?skipsvgo'))
+const ShepesElementMd = defineAsyncComponent(() => import('@/assets/bg/BLOBS_640.svg?skipsvgo'))
+const ShepesElementLg = defineAsyncComponent(() => import('@/assets/bg/BLOBS_1024.svg?skipsvgo'))
 const ShepesElementXl = defineAsyncComponent(() => import('@/assets/bg/BLOBMAP_1440.svg?skipsvgo'))
 const ShepesElementXXl = defineAsyncComponent(() => import('@/assets/bg/BLOBS_MAP.svg?skipsvgo'))
 
 
+let mouseListener: (e: MouseEvent) => void = () => { };
+let requestAnimationFrameListener: number | null = null;
 
+
+const { $viewport } = useNuxtApp()
+
+console.log($viewport.isGreaterThan('lg'), 'outside mounted mounted', window && window.innerWidth);
+
+
+watch($viewport.breakpoint, (newBreakpoint, oldBreakpoint) => {
+  console.log('Breakpoint updated:', oldBreakpoint, '->', newBreakpoint)
+  if (!$viewport.isGreaterThan('lg')) {
+    console.log('remove all listeners');
+
+    document.removeEventListener("mousemove", mouseListener)
+
+    if (requestAnimationFrameListener) {
+      window.cancelAnimationFrame(requestAnimationFrameListener)
+    }
+    var tracker = document.getElementById('realFollowCursor');
+    var tracker2 = document.getElementById('realFollowCursor2');
+    tracker && (tracker.style.left = '50%')
+    tracker && (tracker.style.top = '50%')
+
+    tracker2 && (tracker2.style.left = '50%')
+    tracker2 && (tracker2.style.top = '50%')
+
+  }
+})
 
 
 
@@ -21,9 +56,13 @@ onMounted(() => {
   const { $gsap } = useNuxtApp()
 
   $gsap.set(`#realFollowCursor`, { scale: 0.8 })
-  const pulsarAnim = $gsap.to(`#realFollowCursor`, { duration: 25, ease: "power1.inOut", scale: 1.4, repeat: -1, yoyo: true })
+  $gsap.set(`#realFollowCursor2`, { scale: 1.4 })
 
-  const rotateanim = $gsap.to(`#realFollowCursor`, { duration: 15, rotation: 360, ease: "power1.inOut", repeat: -1, yoyo: true })
+  const pulsarAnim = $gsap.to([`#realFollowCursor`], { duration: 25, ease: "power1.inOut", scale: 1.3, repeat: -1, yoyo: true })
+  const pulsarAnim2 = $gsap.to(['#realFollowCursor2'], { duration: 25, ease: "power1.inOut", scale: 2, repeat: -1, yoyo: true })
+
+  const rotateanim = $gsap.to(`#realFollowCursor`, { duration: 30, rotation: 360, ease: "power1.inOut", repeat: -1, yoyo: true })
+  const rotateanim2 = $gsap.to(`#realFollowCursor2`, { duration: 30, rotation: -360, ease: "power1.inOut", repeat: -1, yoyo: true })
 
   ScrollTrigger.create({
     trigger: `.footer-section`,
@@ -47,60 +86,19 @@ onMounted(() => {
 
     },
   });
+  console.log($viewport.isGreaterThan('lg'), 'in mounted', window.innerWidth);
 
-
-
-  // $gsap.timeline({
-  //   scrollTrigger: {
-  //     trigger: `.footer-section`,
-  //     start: 'top 75%',
-  //     end: 'bottom 60%',
-  //     toggleActions: 'play none none reverse',
-  //     markers: true,
-  //   }
-  // })
-
-
-  /////// 
-  const onCroseLineToFooter = () => {
-
-
+  if (!$viewport.isGreaterThan('lg')) {
+    return
   }
-
-  const onCroseLineFromFooter = () => {
-
-
-  }
-
-  // Получаем div элемент
-  // const divElement = document.querySelector('.hidden-row-for-anim');
-
-  // // Добавляем событие mousemove на div элемент
-  // divElement.addEventListener('mouseleave', (event) => {
-  //   // Получаем координаты курсора относительно div элемента
-  //   const x = event.clientX - divElement.offsetLeft;
-  //   const y = event.clientY - divElement.offsetTop;
-
-  //   // Определяем высоту и ширину div элемента
-  //   const height = divElement.offsetHeight;
-  //   const width = divElement.offsetWidth;
-  //   console.log("~ x:", x)
-  //   console.log("~ y:", y)
-
-  //   // Определяем, пересекает ли курсор мышки div элемент в форме линии
-  //   const isIntersecting = y < x && y < width - x && y > x - height && y > -x + height;
-
-  //   // Если курсор мышки пересекает div элемент в форме линии, то выполняем какое-либо действие
-  //   if (isIntersecting) {
-  //     console.log('Курсор мышки пересекает div элемент в форме линии');
-  //   }
-  // });
 
 
 
 
 
   var tracker = document.getElementById('realFollowCursor');
+  var tracker2 = document.getElementById('realFollowCursor2');
+
   var targetX = 0, targetY = 0; // Целевые координаты, куда должен двигаться элемент
   var currentX = 0, currentY = 0; // Текущие координаты элемента
   window.speed = 0.01; // Скорость перемещения элемента (от 0 до 1)
@@ -117,25 +115,17 @@ onMounted(() => {
     currentX += (targetX - currentX) * window.speed;
     currentY += (targetY - currentY) * window.speed;
 
+
     // Обновляем позицию элемента с новыми координатами
     tracker.style.left = currentX + 'px';
     tracker.style.top = currentY + 'px';
 
-    // // Изменение размера элемента
-    // scale += window.scaleDirection;
-    // tracker.style.transform = `scale(${scale})`;
-    // // Проверяем, нужно ли изменить направление масштабирования
-    // if (scale <= 0.8 || scale >= 1.5) {
-    //   window.scaleDirection = -window.scaleDirection;
-    // }
-
-
-    // Планируем следующее обновление
-    requestAnimationFrame(updatePosition);
+    tracker2.style.left = currentX + 'px';
+    tracker2.style.top = currentY + 'px';
+    requestAnimationFrameListener = requestAnimationFrame(updatePosition);
   }
 
-  // Обработчик события движения мыши, который обновляет целевые координаты
-  document.addEventListener('mousemove', function (e) {
+  mouseListener = function (e: MouseEvent) {
     // Получаем размеры элемента
     var trackerWidth = tracker.offsetWidth * scale;
     var trackerHeight = tracker.offsetHeight * scale;
@@ -145,26 +135,12 @@ onMounted(() => {
     // Обновляем целевые координаты
     targetX = e.clientX - halfWidth;
     targetY = e.clientY - halfHeight;
-  });
+  }
+  // Обработчик события движения мыши, который обновляет целевые координаты
+  document.addEventListener('mousemove', mouseListener);
 
   // Запускаем цикл обновления позиции
-  updatePosition();
-
-
-  // document.addEventListener('mousemove', function (e) {
-  //   var tracker = document.getElementById('realFollowCursor');
-
-  //   if (!tracker) return
-  //   // Получаем размеры элемента
-  //   var trackerWidth = tracker.offsetWidth;
-  //   var trackerHeight = tracker.offsetHeight;
-  //   // Вычисляем половину размеров для центрирования
-  //   var halfWidth = trackerWidth / 2;
-  //   var halfHeight = trackerHeight / 2;
-  //   // Обновляем позицию элемента, используя вычисленные значения
-  //   tracker.style.left = (e.clientX - halfWidth) + 'px';
-  //   tracker.style.top = (e.clientY - halfHeight) + 'px';
-  // });
+  updatePosition()
 
 
 
@@ -183,83 +159,41 @@ onMounted(() => {
 
     <div
       id="realFollowCursor"
-      class="cursor-div-vrapper"
+      class="cursor-div-vrapper cursor-div-vrapper-1"
+    >
+      <CorsorSmallElement class="corsor-elem"></CorsorSmallElement>
+    </div>
+
+    <div
+      id="realFollowCursor2"
+      class="cursor-div-vrapper cursor-div-vrapper-2"
     >
       <CorsorElement class="corsor-elem"></CorsorElement>
-      <!--  <CorsorElement class="corsor-elem"></CorsorElement> -->
-
-      <!-- <svg
-        class="corsor-elem"
-        width="930"
-        height="880"
-        viewBox="0 0 930 880"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g
-          style="mix-blend-mode:saturation"
-          filter="url(#filter0_f_1229_6999)"
-        >
-          <path
-            d="M259.051 625.088C311.258 716.957 357.743 666.229 374.461 629.382C397.012 552.45 458.688 428.056 524.979 545.936C591.27 663.816 660.882 631.306 687.401 600.316C734.437 550.133 778.41 444.363 578.01 422.749C377.61 401.135 347.125 360.253 330.371 309.212C320.952 280.518 331.211 136.036 261.195 241.116C173.676 372.465 193.793 510.253 259.051 625.088Z"
-            fill="#33FF00"
-          />
-        </g>
-        <defs>
-          <filter
-            id="filter0_f_1229_6999"
-            x="-0.00585938"
-            y="0.702393"
-            width="929.84"
-            height="878.913"
-            filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
-          >
-            <feFlood
-              flood-opacity="0"
-              result="BackgroundImageFix"
-            />
-            <feBlend
-              mode="normal"
-              in="SourceGraphic"
-              in2="BackgroundImageFix"
-              result="shape"
-            />
-            <feGaussianBlur
-              stdDeviation="100.32"
-              result="effect1_foregroundBlur_1229_6999"
-            />
-          </filter>
-        </defs>
-      </svg> -->
-      <!--     <canvas></canvas> -->
     </div>
-    <!-- <div class="container shapes-container"> -->
-    <!-- <ShepesElement class="shapes-all"></ShepesElement> -->
-    <!-- <ShepesElementNew class="shapes-all"></ShepesElementNew> -->
-    <ShepesElementXXl
-      v-if="$viewport.match('xxl')"
+
+
+
+    <ShepesElementSm
+      v-if="$viewport.match('sm')"
       class="shapes-all"
-    >
-    </ShepesElementXXl>
+    ></ShepesElementSm>
+    <ShepesElementMd
+      v-else-if="$viewport.match('md')"
+      class="shapes-all"
+    ></ShepesElementMd>
+    <ShepesElementLg
+      v-else-if="$viewport.match('lg')"
+      class="shapes-all"
+    ></ShepesElementLg>
     <ShepesElementXl
-      v-else
+      v-else-if="$viewport.match('xl')"
       class="shapes-all"
     ></ShepesElementXl>
+    <ShepesElementXXl
+      v-else="$viewport.match('xxl')"
+      class="shapes-all"
+    ></ShepesElementXXl>
 
-    <!-- </div> -->
-
-
-
-
-
-    <!-- <ShepesElement class="shapes-all"></ShepesElement> -->
-
-
-
-
-    <!--   <canvas class="shapes-all" id="canvas2"></canvas>
--->
   </div>
 
 </template>
@@ -276,19 +210,57 @@ onMounted(() => {
 .shapes-all {
   width: 100%;
   position: absolute;
-  top: 0px;
   left: 0px;
+  top: 0px;
+
   // height: 100%;
   z-index: 2;
+
+  @media (min-width: $md) {}
+
+  @media (min-width: $lg) {}
+
+  @media (min-width: $xl) {
+    top: 0px;
+
+  }
+
+  @media (min-width: $xxl) {}
+
+  @media (min-width: 2048px) {
+    top: -10px;
+
+  }
 
 }
 
 .cursor-div-vrapper {
+
   position: fixed;
-  width: calc(556.15px * 2.2);
-  height: calc(395.86px * 2.2);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  // transform: translateY(-50%);
+
   pointer-events: none;
   z-index: 1;
+  width: calc(656.15px * 1);
+  height: calc(495.86px * 1);
+
+  @media (min-width: $md) {}
+
+  @media (min-width: $lg) {}
+
+  @media (min-width: $xl) {
+    transform: initial;
+    top: initial;
+    left: initial;
+    width: calc(556.15px * 2.2);
+    height: calc(395.86px * 2.2);
+  }
+
+  @media (min-width: $xxl) {}
+
   /*   transform: translate3d(0, 0, 0);
  */
   /* border: 24px solid white; */
@@ -316,6 +288,17 @@ onMounted(() => {
 
   mix-blend-mode: color-dodge;
   /*   transform: translate3d(0, 0, 0); */
+  // display: none;
+
+  @media (min-width: $md) {}
+
+  @media (min-width: $lg) {
+    display: block;
+  }
+
+  @media (min-width: $xl) {}
+
+  @media (min-width: $xxl) {}
 }
 
 .corsor-elem {
@@ -328,5 +311,14 @@ onMounted(() => {
   left: 0px;
   width: 100%;
   height: 100%;
+}
+
+.cursor-div-vrapper-1 {
+  opacity: .5;
+}
+
+.cursor-div-vrapper-2 {
+  opacity: .2;
+
 }
 </style>

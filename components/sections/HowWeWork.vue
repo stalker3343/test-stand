@@ -1,6 +1,7 @@
 <template>
   <section class="how-we-work">
     <div class="container">
+      <h2 class="visually-hidden">How we work</h2>
 
       <HowWeWorkSm
         v-if="$viewport.match('sm')"
@@ -44,7 +45,7 @@
             class="arrow-step arrow-step_mobile"
             v-if="idx !== steps.length - 1"
             src="/how-we-work/step-arrow.svg"
-            alt=""
+            alt="Next arrow"
           >
           <StepArrowDescUp
             :fontControlled="false"
@@ -331,23 +332,31 @@ onMounted(() => {
   margin-top: 100px;
 
   @media (min-width: $md) {
-    margin-top: 100px;
+    margin-top: 0px;
   }
 
+
+
+  @media (min-width: $lg) {
+    margin-top: 200px;
+
+  }
+
+
+
   @media (min-width: $xl) {
-    margin-top: 0px;
+    margin-top: -20px;
 
   }
 
   @media (min-width: $xxl) {
-    margin-top: 20px;
+    margin-top: 10px;
 
   }
 
 }
 
 .how-work-section-header {
-  // font-family: 'Open Sans', sans-serif;
   // font-weight: 800;
   // font-style: normal;
   // font-variation-settings:
@@ -374,7 +383,9 @@ onMounted(() => {
 
   @media (min-width: $lg) {
     height: 90px;
-    margin-top: 30px;
+    margin-top: 40px;
+    margin-bottom: 50px;
+
 
     font-size: 120px;
     line-height: 144px;
@@ -434,7 +445,7 @@ onMounted(() => {
 }
 
 .we-work-descr {
-  font-family: 'Onest', sans-serif;
+
   font-size: 17px;
   font-weight: 400;
   line-height: 24px;
@@ -537,7 +548,6 @@ onMounted(() => {
 }
 
 .step-title {
-  font-family: 'Onest', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 16px;

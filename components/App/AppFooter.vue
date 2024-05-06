@@ -16,12 +16,14 @@ const formError = ref('')
 const { handleSubmit, isSubmitting } = useForm({
   validationSchema: toTypedSchema(
     object({
+      phone: string().required().label('Phone').default(''),
       email: string().required().email().label('Email').default(''),
       name: string().required().label('Name').default(''),
       description: string().label('Description').default(''),
     }),
   ),
 });
+const runtimeConfig = useRuntimeConfig()
 
 
 
@@ -29,7 +31,8 @@ const onSubmit = handleSubmit((values) => {
   return new Promise(resolve => {
     formError.value = ''
     grecaptcha.ready(() => {
-      grecaptcha.execute(import.meta.env.VITE_CAPTCHA_CLIENT, { action: 'submit' })
+
+      grecaptcha.execute(runtimeConfig.public.VITE_CAPTCHA_CLIENT, { action: 'submit' })
         .then(async (token) => {
           if (window.gtag) {
             window.gtag('event', 'Confirm', { 'event_category': 'Button' });
@@ -41,8 +44,8 @@ const onSubmit = handleSubmit((values) => {
 
           const reqBody: Map = {
             'name': values.name,
-            'email': '',
-            'phone': '',
+            'email': values.email,
+            'phone': values.phone,
             'message': values.description,
             'ajax': '1',
             'recaptcha': token,
@@ -235,13 +238,21 @@ const LetsTalkXXl = defineAsyncComponent(() => import('@/assets/images/headers/f
             Book a free consultation with tech experts.
           </p>
           <div>
+            <BaseInput
+              type="text"
+              class="anim-input-item footer-input"
+              placeholder="Your name"
+              name="name"
+            ></BaseInput>
             <div class="two-input-row">
               <BaseInput
+                type="text"
                 class="anim-input-item footer-input"
-                placeholder="Your name"
-                name="name"
+                placeholder="Contact phone number"
+                name="phone"
               ></BaseInput>
               <BaseInput
+                type="text"
                 class="anim-input-item footer-input"
                 placeholder="Email"
                 name="email"
@@ -266,7 +277,7 @@ const LetsTalkXXl = defineAsyncComponent(() => import('@/assets/images/headers/f
               :disabled="isSubmitting"
               block
             >
-              Book a call
+              Send a request
             </BaseButton>
             <div
               class="error-msg"
@@ -281,7 +292,7 @@ const LetsTalkXXl = defineAsyncComponent(() => import('@/assets/images/headers/f
 
         <div class="contacts-and-social-wrapper">
 
-          <div class="footer-contacts">
+          <address class="footer-contacts">
             <a
               class="contact-link anim-contact-link anim-footer-email"
               href="mailto:works@afterlogic.com"
@@ -294,12 +305,12 @@ const LetsTalkXXl = defineAsyncComponent(() => import('@/assets/images/headers/f
             >
               +1 415 513 0152
             </a>
-          </div>
+          </address>
           <div class="addres-and-social-wrapper">
 
 
 
-            <div class="footer-addres-links">
+            <address class="footer-addres-links">
               <div class="adress-item">
                 <BaseIcon
                   :width="12"
@@ -318,13 +329,14 @@ const LetsTalkXXl = defineAsyncComponent(() => import('@/assets/images/headers/f
                   90 Tsarigradsko Shose blvd, 1784, Sofia, Bulgaria
                 </div>
               </div>
-            </div>
+            </address>
 
-            <div class="social-links">
+            <address class="social-links">
               <!-- <a class="social-link-item" href="http://">
                 <BaseIcon :size="48" name="twitter"></BaseIcon>
               </a> -->
               <a
+                aria-label="Facebook link"
                 target="_blank"
                 class="social-link-item"
                 href="https://www.facebook.com/Afterlogic.Works"
@@ -335,6 +347,7 @@ const LetsTalkXXl = defineAsyncComponent(() => import('@/assets/images/headers/f
                 ></BaseIcon>
               </a>
               <a
+                aria-label="Medium link"
                 target="_blank"
                 class="social-link-item"
                 href="https://afterlogic.medium.com/"
@@ -345,6 +358,7 @@ const LetsTalkXXl = defineAsyncComponent(() => import('@/assets/images/headers/f
                 ></BaseIcon>
               </a>
               <a
+                aria-label="Linkedin link"
                 target="_blank"
                 class="social-link-item"
                 href="https://linkedin.com/company/afterlogic-works"
@@ -359,7 +373,7 @@ const LetsTalkXXl = defineAsyncComponent(() => import('@/assets/images/headers/f
               <!-- <a class="social-link-item" href="http://">
                 <BaseIcon :size="48" name="youtube"></BaseIcon>
               </a> -->
-            </div>
+            </address>
           </div>
         </div>
       </div>
@@ -421,7 +435,6 @@ const LetsTalkXXl = defineAsyncComponent(() => import('@/assets/images/headers/f
 }
 
 .error-msg {
-  font-family: 'Onest';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -455,11 +468,11 @@ const LetsTalkXXl = defineAsyncComponent(() => import('@/assets/images/headers/f
   }
 
   @media (min-width: $lg) {
-    grid-template-columns: 1fr;
+    // grid-template-columns: 1fr;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
+    // justify-content: space-between;
+    // align-items: flex-start;
 
 
   }
@@ -470,13 +483,17 @@ const LetsTalkXXl = defineAsyncComponent(() => import('@/assets/images/headers/f
 }
 
 .social-links {
+  font-style: normal;
   display: flex;
   justify-content: center;
   gap: 16px;
 
   @media (min-width: $md) {}
 
-  @media (min-width: $lg) {}
+  @media (min-width: $lg) {
+    justify-content: initial;
+
+  }
 
   @media (min-width: $xl) {
     justify-content: initial;
@@ -497,6 +514,7 @@ const LetsTalkXXl = defineAsyncComponent(() => import('@/assets/images/headers/f
 }
 
 .footer-addres-links {
+  font-style: normal;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -506,6 +524,8 @@ const LetsTalkXXl = defineAsyncComponent(() => import('@/assets/images/headers/f
 
   @media (min-width: $lg) {
     margin-bottom: 50px;
+    align-items: initial;
+
 
   }
 
@@ -515,7 +535,6 @@ const LetsTalkXXl = defineAsyncComponent(() => import('@/assets/images/headers/f
 }
 
 .addres-text {
-  font-family: "Onest", sans-serif;
   font-size: 14px;
   font-weight: 300;
   line-height: 20px;
@@ -536,7 +555,6 @@ const LetsTalkXXl = defineAsyncComponent(() => import('@/assets/images/headers/f
 .contact-link {
   position: relative;
   display: block;
-  font-family: "Onest", sans-serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 34px;
@@ -550,6 +568,7 @@ const LetsTalkXXl = defineAsyncComponent(() => import('@/assets/images/headers/f
 }
 
 .footer-contacts {
+  font-style: normal;
   margin-bottom: 53px;
   display: flex;
   flex-direction: column;
@@ -562,17 +581,19 @@ const LetsTalkXXl = defineAsyncComponent(() => import('@/assets/images/headers/f
   }
 
   @media (min-width: $lg) {
-    margin-bottom: 0px;
+    margin-bottom: 90px;
 
   }
 
-  @media (min-width: $xl) {}
+  @media (min-width: $xl) {
+    margin-bottom: 65px;
+
+  }
 
   @media (min-width: $xxl) {}
 }
 
 .free-consalt {
-  font-family: "Onest", sans-serif;
   font-size: 24px;
   font-weight: 700;
   line-height: 33.6px;
@@ -607,7 +628,10 @@ const LetsTalkXXl = defineAsyncComponent(() => import('@/assets/images/headers/f
 
   }
 
-  @media (min-width: $xl) {}
+  @media (min-width: $xl) {
+    gap: 30px;
+
+  }
 
   @media (min-width: $xxl) {}
 }

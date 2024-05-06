@@ -15,16 +15,10 @@ defineProps({
 
 <template>
   <BaseCase
-    class="tyler-case"
-    :is-left-img="false"
+    class="witmall-case"
+    :is-left-img="true"
   >
     <template #img>
-      <!-- <img
-        class="base-image"
-        :src="caseItem.img"
-        alt=""
-        loading="lazy"
-      > -->
       <video
         class="base-image"
         autoplay
@@ -40,91 +34,114 @@ defineProps({
           type="video/webm"
         >
       </video>
+
+      <!-- <img
+        class="base-image"
+        :src="caseItem.img"
+        alt=""
+      > -->
     </template>
     <template #description>
       <CaseDescription
-        class="tyler-case-description"
+        class="witmall-case-description"
         :header="caseItem.header"
         :description="caseItem.description"
         :technologies="caseItem.technologies"
       ></CaseDescription>
     </template>
     <template #comment>
-      <CaseFeedback v-bind="caseItem.comment"></CaseFeedback>
+      <CaseFeedback
+        class="witmall-case-feedback"
+        v-bind="caseItem.comment"
+      ></CaseFeedback>
     </template>
   </BaseCase>
 </template>
 
 <style lang="scss" scoped>
-.tyler-case-description {
+.witmall-case-description {
 
 
   @media (min-width: $lg) {
-    margin-bottom: 100px;
+    margin-bottom: 45px;
   }
 
-  @media (min-width: $xl) {
-    margin-bottom: 115px;
+  @media (min-width: $xl) {}
 
-  }
-
-  @media (min-width: $xxl) {
-    margin-bottom: 85px;
-
-  }
+  @media (min-width: $xxl) {}
 }
 
 .base-image {
   z-index: 10;
 
   position: absolute;
-  top: -30px;
+  top: -40px;
   max-width: initial;
-  left: -45px;
-  height: 375px;
+  left: -80px;
+  height: 420px;
 
   @media (min-width: $md) {
-    height: 598px;
-    top: -90px;
-    left: -105px;
+    height: 560px;
+    left: -90px;
+    top: -35px;
 
 
   }
 
   @media (min-width: $lg) {
-    height: 526px;
-    left: 392px;
-    top: -30px;
+    height: 586px;
+    left: -180px;
+    top: -60px;
+
   }
 
   @media (min-width: $xl) {
-    top: -140px;
-    left: 410px;
+    top: -60px;
+    left: -270px;
 
-    height: 762px;
+    height: 740px;
   }
 
   @media (min-width: $xxl) {
-    top: -100px;
-    left: 795px;
-
+    left: -80px;
+    top: -160px;
+    height: 855px;
   }
 
 }
 
-.tyler-case {
-  padding-top: calc(275px + 85px);
+
+.witmall-case-feedback {
+
+  @media (min-width: $lg) {
+    padding-top: 70px;
+
+  }
+
+  @media (min-width: $xl) {
+    padding-top: 105px;
+  }
+
+  @media (min-width: $xxl) {
+    padding-top: 120px;
+  }
+}
+
+.witmall-case {
+  padding-top: calc(359px + 50px);
 
   @media (min-width: $md) {
-    padding-top: calc(388px + 60px);
+    padding-top: calc(501px + 60px);
   }
 
   @media (min-width: $lg) {
     padding: 0px;
-
+    padding-top: 10px;
   }
 
-  @media (min-width: $xl) {}
+  @media (min-width: $xl) {
+    padding-top: 0px;
+  }
 
   @media (min-width: $xxl) {}
 

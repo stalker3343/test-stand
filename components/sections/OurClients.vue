@@ -1,6 +1,4 @@
 <script setup lang="ts">
-// @ts-ignore
-// import SuperMarquee from 'sp-supermarquee'// import { Marquee, loop } from 'dynamic-marquee'
 import { listenToScreenWidthChanges } from '@/helpers'
 
 function getRandomInt(min: number, max: number) {
@@ -18,7 +16,7 @@ const items = ref(
     img: el,
     height: {
       sm: 30,
-      md: 40,
+      md: 30,
       lg: 30,
       xl: 34,
       xxl: 48,
@@ -26,7 +24,9 @@ const items = ref(
   }))
 )
 
-
+const getAlt = (el: string) => {
+  return el.split('/').pop()?.split('.')[0];
+}
 
 const offsetWIdth = ref(0)
 const container = ref<HTMLInputElement | null>(null)
@@ -118,12 +118,12 @@ onMounted(() => {
 <template>
   <section class="clients">
     <div class="container">
-      <div
+      <h2
         ref="container"
         class="clients-header"
       >
         Some of our clients
-      </div>
+      </h2>
 
 
       <!-- <div
@@ -142,7 +142,7 @@ onMounted(() => {
               height: `${item.height[imgSize]}px`
             }"
             class="item-img"
-            alt=""
+            :alt="getAlt(item.img)"
             :src="item.img"
           />
         </div>
@@ -192,21 +192,26 @@ onMounted(() => {
 }
 
 .mouse {
-  position: absolute;
-  transform: translateX(-50%);
+
   display: none;
-  /* top: 33%; */
-  /* left: -60px; */
-  bottom: 17px;
-  border: 2px solid #FFFFFF;
-  width: 16px;
-  height: 32px;
-  border-radius: 15px;
-  animation: scroll-down-pulse 1s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+
+
+  @media (min-width: $xl) {
+    position: absolute;
+    transform: translateX(-50%);
+    /* top: 33%; */
+    /* left: -60px; */
+    bottom: 17px;
+    border: 2px solid #FFFFFF;
+    width: 16px;
+    height: 32px;
+    border-radius: 15px;
+    animation: scroll-down-pulse 1s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+  }
 }
 
 .mouse:before {
-  display: block;
+  display: none;
   content: '';
   box-sizing: border-box;
   width: 0;
@@ -216,11 +221,16 @@ onMounted(() => {
   top: .3rem;
   left: 54%;
   margin-left: -1px;
+
+  @media (min-width: $xl) {
+    display: block;
+  }
+
 }
 
 .mouse:after {
   content: '';
-  display: block;
+  display: none;
   width: .5rem;
   height: .5rem;
   border-right: 2px solid #FFFFFF;
@@ -230,6 +240,15 @@ onMounted(() => {
   left: 60%;
   margin-left: -.325rem;
   transform: rotate(45deg);
+
+
+
+  @media (min-width: $xl) {
+    display: block;
+
+  }
+
+
 }
 
 
@@ -239,7 +258,7 @@ onMounted(() => {
   text-align: center;
 
   @media (min-width: $md) {
-    margin-top: 85px;
+    margin-top: 75px;
 
   }
 
@@ -259,7 +278,6 @@ onMounted(() => {
 }
 
 .clients-header {
-  font-family: "Onest", sans-serif;
   //styleName: H4;
   font-size: 24px;
   font-weight: 700;
@@ -278,7 +296,7 @@ onMounted(() => {
     line-height: 34px;
     letter-spacing: 0px;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 25px;
 
 
   }
@@ -308,13 +326,15 @@ onMounted(() => {
   /* grid-template-columns: repeat(3, 1fr); */
   /* grid-template-rows: masonry; */
 
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  // grid-template-columns: 1fr 1fr;
   // flex-wrap: wrap;
   // justify-content: center;
   /*  justify-content: space-between;*/
-  row-gap: 60px;
-  // column-gap: 30px;
+  row-gap: 25px;
+  column-gap: 30px;
   /* column-gap: 62px; */
   /* padding: 0px 20px; */
 

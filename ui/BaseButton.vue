@@ -65,7 +65,6 @@ defineProps({
   align-items: center;
 
 
-  font-family: "Onest", sans-serif;
 
   font-style: normal;
   font-weight: 700;
@@ -100,8 +99,8 @@ defineProps({
 
   &_disabled {
     background: #FFFFFF;
-    opacity: 20%;
-    color: #000000;
+    opacity: .2 !important;
+    color: #0097EC;
     cursor: default;
     // &.base-button_white {
     //   &:hover {

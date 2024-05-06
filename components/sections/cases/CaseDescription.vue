@@ -1,7 +1,4 @@
-<script
-  lang="ts"
-  setup
->
+<script lang="ts" setup>
 import { onMounted, ref } from 'vue';
 
 import { listenToScreenWidthChanges } from '@/helpers'
@@ -42,6 +39,10 @@ onMounted(() => {
 
 })
 
+const getAlt = (el: string) => {
+  return el.split('/').pop()?.split('.')[0];
+}
+
 const getTechnologiesStyle = (tech: ITech) => {
 
   return imgSize.value === 'sm' ?
@@ -80,6 +81,7 @@ const getTechnologiesStyle = (tech: ITech) => {
     </div>
     <div class="case-tech-list">
       <img
+        :alt="getAlt(img.src)"
         loading="lazy"
         class="case-tech"
         :style="getTechnologiesStyle(img)"
@@ -91,12 +93,8 @@ const getTechnologiesStyle = (tech: ITech) => {
   </div>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss" scoped>
 .case-header {
-  font-family: "Onest", sans-serif;
 
   font-size: 24px;
   font-weight: 600;
@@ -115,7 +113,6 @@ const getTechnologiesStyle = (tech: ITech) => {
 }
 
 .case-description {
-  font-family: "Onest", sans-serif;
 
   font-size: 17px;
   font-weight: 400;

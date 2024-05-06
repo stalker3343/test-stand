@@ -6,37 +6,39 @@
     <div class="container">
       <div class="blog-section-wrapper">
         <div>
-          <div class="blog-parag">
+          <h2 class="blog-parag">
             Recent posts in blog
-          </div>
+          </h2>
         </div>
 
         <div class="blog-list">
-          <a
-            target="_blank"
-            :href="item.link"
+          <article
             v-for="(item, key) in articles"
             :key="key"
-            class="blog-item"
             :style="key === 0 && 'grid-area: top-row;'"
           >
-            <div class="article-title">
-              {{ item.title }}
-            </div>
-            <div class="footer-wrapper">
-              <div class="article-time">
-                {{ item.time }}
+            <a
+              class="blog-item"
+              target="_blank"
+              :href="item.link"
+            >
+              <h3 class="article-title">
+                {{ item.title }}
+              </h3>
+              <div class="footer-wrapper">
+                <div class="article-time">
+                  {{ item.time }}
+                </div>
+                <div class="article-arrow">
+                  <BaseIcon
+                    :size="24"
+                    class="article-icon"
+                    name="arrow-top-right"
+                  ></BaseIcon>
+                </div>
               </div>
-              <div class="article-arrow">
-                <BaseIcon
-                  :size="24"
-                  class="article-icon"
-                  name="arrow-top-right"
-                ></BaseIcon>
-              </div>
-            </div>
-
-          </a>
+            </a>
+          </article>
         </div>
       </div>
 
@@ -48,7 +50,7 @@ import BaseIcon from '@/ui/BaseIcon.vue'
 import { ref } from "vue";
 
 const articles = ref([{
-  title: 'LookLook — the ultimate customer survey platform.Our experience of building a huge platform for a massive multi-users service.',
+  title: 'LookLook — the ultimate customer survey platform. Our experience of building a huge platform for a massive multi-users service.',
   time: '4 min read',
   link: 'https://afterlogic.medium.com/looklook-the-ultimate-customer-survey-platform-b438430b3dba'
 }, {
@@ -71,11 +73,6 @@ onMounted(() => {
       start: 'top 80%',
       end: 'bottom 60%',
       toggleActions: 'play none none reverse',
-      scrub: true,
-      // markers: true,
-      once: true
-
-
     }
   })
     .from(`.blog-parag`, {
@@ -138,23 +135,21 @@ onMounted(() => {
   @media (min-width: $lg) {}
 
   @media (min-width: $xl) {
-    margin-top: 120px;
+    margin-top: -15px;
     // display: grid;
     // grid-template-columns: 1fr 716px;
     // column-gap: 20px;
   }
 
-  // @media (min-width: $xxl) {
-  //   grid-template-columns: 1fr 870px;
-  //   column-gap: 160px;
+  @media (min-width: $xxl) {
+    margin-top: -30px;
 
 
-  // }
+  }
 }
 
 .blog-parag {
 
-  font-family: 'Onest', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 24px;
@@ -208,7 +203,6 @@ onMounted(() => {
 
 
 .article-time {
-  font-family: "Onest", sans-serif;
 
   font-size: 16px;
   font-weight: 400;
@@ -217,8 +211,6 @@ onMounted(() => {
 }
 
 .article-title {
-  font-family: "Onest", sans-serif;
-
   font-size: 20px;
   font-weight: 600;
   line-height: 28px;

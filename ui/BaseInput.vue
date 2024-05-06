@@ -1,6 +1,9 @@
 <script lang="ts" setup>
 import { toRef } from 'vue';
 import { useField } from 'vee-validate';
+defineOptions({
+  inheritAttrs: false
+})
 
 const props = defineProps({
   as: {
@@ -41,7 +44,10 @@ const validationListeners = {
 </script>
 
 <template>
-  <div style="position: relative;">
+  <div
+    :class="$attrs['class']"
+    style="position: relative;"
+  >
     <component
       :name="name"
       :value="inputValue"
@@ -49,7 +55,6 @@ const validationListeners = {
       :class="errorMessage && 'input-inner_invalid'"
       v-bind="$attrs"
       v-on="validationListeners"
-      type="text"
       :is="as"
     >
     </component>
@@ -72,7 +77,6 @@ const validationListeners = {
   gap: 10px;
   border-radius: 12px;
   border: 2px solid rgba(255, 255, 255, 0.3);
-  font-family: "Onest", sans-serif;
 
   font-style: normal;
   font-weight: 400;
@@ -103,7 +107,7 @@ const validationListeners = {
   position: absolute;
   left: 17px;
   bottom: -26px;
-  font-family: Onest;
+  font-family: "Onest", sans-serif;
   font-size: 14px;
   font-weight: 400;
   font-size: 16px;

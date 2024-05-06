@@ -27,16 +27,16 @@ defineProps({
     <div class="feedback-name">
       {{ name }}
     </div>
-    <div class="feedback-position-wrapper">
+    <cite class="feedback-position-wrapper">
       <span class="feedback-position">
         {{ position }}
       </span>
       <span class="feedback-company">
         {{ company }}
       </span>
-    </div>
+    </cite>
 
-    <div class="feedback-description">
+    <blockquote class="feedback-description">
       <span class="feedback-description-tick">
         “
       </span>
@@ -44,17 +44,19 @@ defineProps({
       <span class="feedback-description-tick">
         ”
       </span>
-    </div>
+    </blockquote>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .feedback-position-wrapper {
+  font-style: normal;
+  display: block;
   text-align: center;
   margin-bottom: 16px;
 
   @media (min-width: $md) {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
 }
 
@@ -82,7 +84,6 @@ defineProps({
 
 .feedback-name {
   text-align: center;
-  font-family: "Onest", sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 22px;
@@ -107,7 +108,6 @@ defineProps({
 }
 
 .feedback-position {
-  font-family: "Onest", sans-serif;
   font-size: 14px;
   font-weight: 300;
   line-height: 22px;
@@ -116,7 +116,6 @@ defineProps({
 }
 
 .feedback-company {
-  font-family: "Onest", sans-serif;
   font-size: 14px;
   font-weight: 600;
   line-height: 22px;
@@ -131,47 +130,83 @@ defineProps({
 
 
 
-  margin: 0 auto;
-  font-size: 14px;
-  line-height: 19px;
-  letter-spacing: 0.01em;
-  text-align: center;
+  // margin: 0 auto;
+  // font-size: 15px;
+  // line-height: 19px;
+  // letter-spacing: 0.01em;
+  // text-align: center;
 
+  z-index: 11;
+  position: relative;
 
-  font-family: 'Onest', sans-serif;
-
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 200;
-  line-height: 28px;
+  line-height: 21px;
   letter-spacing: 0.01em;
   text-align: center;
 
+
+
+
+  // font-size: 20px;
+  // font-weight: 200;
+  // line-height: 28px;
+  // letter-spacing: 0.01em;
+  // text-align: center;
 
 
 
 
   @media (min-width: $lg) {
     max-width: 640px;
-    font-size: 18px;
-    line-height: 25px
+
+    font-size: 16px;
+    font-weight: 200;
+    line-height: 22.4px;
+    letter-spacing: 0.01em;
+    text-align: center;
+
+
+
+    margin: 0 auto;
+
   }
 
   @media (min-width: $xl) {
     font-size: 20px;
     line-height: 28px;
-    max-width: 860px;
+    max-width: 890px;
+  }
+
+  @media (min-width: $xxl) {
+    max-width: 840px;
+
   }
 
 }
 
 .feedback-description-tick {
-  font-family: "Onest", sans-serif;
 
-  font-size: 22px;
+  font-size: 16px;
   font-weight: 900;
-  line-height: 30.8px;
+  line-height: 22.4px;
   letter-spacing: 0.01em;
-  text-align: center;
+
+
+  @media (min-width: $md) {}
+
+  @media (min-width: $lg) {}
+
+  @media (min-width: $xl) {
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 30.8px;
+    letter-spacing: 0.01em;
+    text-align: center;
+  }
+
+  @media (min-width: $xxl) {}
+
 
 
 

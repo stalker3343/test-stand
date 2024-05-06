@@ -3,14 +3,15 @@ import { ref } from "vue";
 
 
 import LookCase from "./LookCase.vue";
-import WordCase from "./WordCase.vue";
-import WitmallCase from "./WitmallCase.vue";
+import MavenirCase from "./MavenirCase.vue";
+import SolidCase from "./SolidCase.vue";
 import TylerCase from "./TylerCase.vue";
+
 
 const cases = ref([{
   video: './cases/video/look',
   header: 'LookLook',
-  description: `<p>Corporate survey platform with advanced features of marketing research. Survey answers may include audio and video with automatic transcription and translation – the legacy system had issues with scaling all these heavy tasks.</p> <p>We rebuilt the frontend and backend of the platform on the modern technology stack based on Amazon services. As a result, we developed an automatically scaling system that balances the peak loads.</p> `,
+  description: `<p style="margin-bottom: 16px">Leading corporate survey platform with advanced features of marketing research. They reached out to us for assistance as their legacy system had issues with scaling performance.</p> <p>We rebuilt the frontend and backend of the platform on the modern technology stack based on Amazon services. As a result, we developed an automatically scaling system that balances the peak loads.</p> `,
   technologies: [
     {
       src: './cases/technologies/node.svg',
@@ -30,25 +31,24 @@ const cases = ref([{
       smWidth: 31,
     }
   ],
+
+
   comment: {
     name: 'Malinda Sanna',
     position: 'CEO at ',
     company: 'LookLook, USA',
-    text: 'Thanks to Afterlogic.Works’ efforts, the business has grown by 30% in 2021. The team has successfully delivered and managed the project; they follow budgets and use several project management tools, such as Sigma, GitLab, Asana, and Slack. They stand out for their ability to provide solutions.',
+    text: '  Thanks to Afterlogic.Works’ efforts, the business has grown by 30%. The team has successfully delivered and managed the project; they follow budgets, they stand out for their ability to provide solutions.',
   }
 }, {
 
   header: 'Mavenir',
-  description: `
-    <p>  We helped Mavenir (NYSE: Mavenir Sys) build modern web portals and dashboards servicing millions of subscribers of telco carriers in the USA, Europe and Australia.</p>
-    <p>We developed all the webpages, APIs for the servers, video/audio transcoding, as well as implemented localisation for several languages. Also we performed low-level optimization and customization of server infrastructure.</p>
-  `,
+  description: `Mavenir is an international company globally recognized as an innovator and industry leader in cellular communications. We helped them build modern web portals and dashboards servicing millions of subscribers of telco carriers in the USA, Europe and Australia.`,
   video: './cases/video/mavenir',
 
 
   technologies: [
     {
-      src: './cases/technologies/js.svg',
+      src: './cases/technologies/javascript.svg',
       width: 57,
       smWidth: 45,
     }, {
@@ -73,16 +73,13 @@ const cases = ref([{
     position: 'Senior Project Manager at ',
     company: 'Mavenir',
     text: "Afterlogic.Works's ability to provide on-site and online support and maintenance for up to 24x7 level is also the important factor for us, helping us build and run the platforms which serve hundreds of millions of people worldwide.",
-
-
-
   }
 
 }, {
   header: 'TYLR',
   video: './cases/video/tyler',
 
-  description: `The service helps increase users' engagement and makes content more accessible for people of all abilities using an AI-powered system. This includes the website widget which enables text conversion to speech on the fly with translation to several languages, and dashboard with the advanced analytics. We also developed a plugin to simplify integration of Tyler with WordPress-powered sites. `,
+  description: `The service helps increase users' engagement and makes content more accessible for people of all abilities using an AI-powered system. This includes the website widget which enables text conversion to speech on the fly with translation to several languages, and dashboard with the advanced analytics. We also developed a plugin to simplify integration of TYLR with WordPress-powered sites.`,
   technologies: [
     {
       src: './cases/technologies/next.svg',
@@ -103,18 +100,19 @@ const cases = ref([{
       smWidth: 35,
     }
   ], comment: {
+    // Chris Mak
     name: 'Chris Mak',
     position: 'CEO at ',
-    company: 'Text-to-speech service, USA',
-    text: "The product was delivered on time and as expected. Afterlogic.Works has successfully launched the client's product within the expected budget and timeframe. The team has good management and communication skills. Afterlogic.Works is responsive through email and virtual meetings.",
+    company: 'TYLR, USA',
+    text: "The product was delivered on time and as expected. Afterlogic.Works has successfully launched the product within the expected budget and timeframe. The team has good management and communication skills. Afterlogic.Works is responsive through email and virtual meetings.",
   }
 
 
 
 
 }, {
-  header: 'SolidNumber',
-  description: `SolidNumber - a multifunctional money system made in honor to ease transferring payments for businesses. Besides money-related functions the app provides you with key business information, SMS/Email reminders, automated sales funnels. It is also one of the most cost-effective money transaction tools in the United States. Since it is an online payment and banking system, safety and reliability were the core values during the development of this project. This platform is PCI compliant.`,
+  header: 'Solid#',
+  description: `Solid# is a multi-functional system made to simplify transferring payments for businesses. Besides payment-related functions the app provides key business information, SMS/Email reminders, automated sales funnels. We're asked to take on the development of the existing system and extend its functionality in many ways. Since it is an online payment and banking system, safety and reliability were the core values during the development of this project. This platform is PCI compliant.`,
 
   video: './cases/video/solid',
 
@@ -124,12 +122,14 @@ const cases = ref([{
       src: './cases/technologies/node.svg',
       width: 57,
       smWidth: 45,
-    }, {
-      src: './cases/technologies/vue.svg',
+    },
+    {
+      src: './cases/technologies/php.svg',
       width: 57,
       smWidth: 45,
-    }, {
-      src: './cases/technologies/php.svg',
+    },
+    {
+      src: './cases/technologies/vue.svg',
       width: 57,
       smWidth: 45,
     },
@@ -142,8 +142,8 @@ const cases = ref([{
   comment: {
     name: 'Adam Campbell',
     position: 'CEO at ',
-    company: 'Solid#, USA',
-    text: "Afterlogic.Works has proved to be a reliable partner. They've effectively reported errors, changed code, and maintained the client's flagship platform. The team provides valuable insights and suggestions for product improvement. They're a patient team that's comprised of great listeners",
+    company: 'Solid Number, USA',
+    text: "Afterlogic.Works has proved to be a reliable partner. The team provides valuable insights and suggestions for product improvement. They're a patient team that's comprised of great listeners.",
   }
 
 }])
@@ -256,14 +256,15 @@ onMounted(() => {
 
 <template>
   <section class="section-cases">
+    <h2 class="visually-hidden">Cases</h2>
 
 
     <div class="container">
       <div class="section-wrapper">
         <LookCase :case-item="cases[0]"></LookCase>
-        <WordCase :case-item="cases[1]"></WordCase>
-        <WitmallCase :case-item="cases[2]"></WitmallCase>
-        <TylerCase :case-item="cases[3]"></TylerCase>
+        <MavenirCase :case-item="cases[1]"></MavenirCase>
+        <TylerCase :case-item="cases[2]"></TylerCase>
+        <SolidCase :case-item="cases[3]"></SolidCase>
       </div>
 
 
@@ -284,16 +285,16 @@ onMounted(() => {
   }
 
   @media (min-width: $lg) {
-    margin-top: 120px;
+    margin-top: 160px;
 
   }
 
   @media (min-width: $xl) {
-    margin-top: 140px;
+    margin-top: 190px;
   }
 
   @media (min-width: $xxl) {
-    margin-top: 112px;
+    margin-top: 185px;
   }
 }
 

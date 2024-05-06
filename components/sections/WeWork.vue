@@ -1,8 +1,22 @@
 <template>
-  <div
+  <section
     :id="id"
     class="container"
   >
+    <h2
+      class="visually-hidden"
+      v-if="id === 'industries'"
+    >
+      How we work
+    </h2>
+    <h2
+      class="visually-hidden"
+      v-if="id === 'quality'"
+    >
+      What we do is high-quality
+    </h2>
+
+
     <WeWorkWithSm
       v-if="id === 'industries' && $viewport.match('sm')"
       :fontControlled="false"
@@ -51,13 +65,13 @@
 
         </div>
         <span
-          v-if="key !== 3"
+          v-if="(key !== 4 && id === 'quality') || (key !== 3 && id === 'industries')"
           class="row-line"
           :class="`row-line-${key}`"
         ></span>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 <script setup lang="ts">
 
@@ -108,51 +122,49 @@ onMounted(() => {
       });
     }, '<')
 
+  const distances = ['top 70%', 'top 55%', 'top 30%', 'top 15%']
+  distances.map((distanceItem, idx) => {
+    const tm1 = $gsap.timeline({
+      scrollTrigger: {
+        trigger: `#${props.id} .list-wrapper`,
+        start: distanceItem,
+        end: 'bottom 60%',
+        toggleActions: 'play none none none',
+      }
+    })
+      .from(`#${props.id} .row-title-${idx}`,
+        {
+          opacity: 0,
+          duration: 0.2,
+          // stagger: 0.4,
+        }, '<0.3')
 
-  $gsap.timeline({
-    scrollTrigger: {
-      trigger: `#${props.id}`,
-      start: 'top 80%',
-      end: 'bottom 60%',
-      toggleActions: 'play none none none',
-      scrub: 2,
-      once: true
-
-    }
-  })
-    .from(`#${props.id} .row-title`,
-      {
+      .from(`#${props.id} .row-text-${idx}`, {
         opacity: 0,
         duration: 0.2,
-        stagger: 0.4,
-      }, '<0.3')
+        // stagger: 0.4,
+      }, "<0.1")
 
-    .from(`#${props.id} .row-text`, {
-      opacity: 0,
-      duration: 0.2,
-      stagger: 0.4,
-    }, "<0.1")
+    if (idx !== 3) {
+      tm1.from(`#${props.id} .row-line-${idx}`, {
+        width: '0%',
+        duration: 2,
+        // stagger: 0.3,
+      }, "<-0.5")
+    }
 
-    .from(`#${props.id} .row-line-0`, {
-      width: '0%',
-      duration: 2,
-      // stagger: 0.3,
-    }, "<-0.5")
-    .from(`#${props.id} .row-line-1`, {
-      width: '0%',
-      duration: 1.7,
-      // stagger: 0.3,
-    }, "<0.3")
-    .from(`#${props.id} .row-line-2`, {
-      width: '0%',
-      duration: 1.3,
-      // stagger: 0.3,
-    }, "<0.6")
-    .from(`#${props.id} .row-line-3`, {
-      width: '0%',
-      duration: 1,
-      // stagger: 0.3,
-    }, "<0.3")
+    // .from(`#${props.id} .row-line-1`, {
+    //   width: '0%',
+    //   duration: 1.7,
+    //   // stagger: 0.3,
+    // }, "<0.3")
+    // .from(`#${props.id} .row-line-2`, {
+    //   width: '0%',
+    //   duration: 1.3,
+    //   // stagger: 0.3,
+    // }, "<0.6")
+  })
+
 
 
 
@@ -215,7 +227,6 @@ onMounted(() => {
   // margin-top: 120px;
   // margin-bottom: 45px;
   // -webkit-text-stroke: 1.5px #fff;
-  // font-family: "Open Sans", sans-serif;
   // font-size: 70px;
   // font-weight: 800;
   // font-style: normal;
@@ -266,7 +277,7 @@ onMounted(() => {
   @media (min-width: $lg) {
     height: 94px;
     margin-top: 130px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
   }
 
 
@@ -280,7 +291,7 @@ onMounted(() => {
 
   @media (min-width: $xxl) {
     margin-top: 150px;
-    margin-bottom: 55px;
+    margin-bottom: 70px;
 
   }
 }
@@ -317,7 +328,6 @@ onMounted(() => {
 
 .row-title {
   //styleName: H2_mobile;
-  font-family: "Onest", sans-serif;
 
   font-size: 24px;
   font-weight: 600;
@@ -339,7 +349,6 @@ onMounted(() => {
 }
 
 .row-text {
-  font-family: "Onest", sans-serif;
 
   font-size: 17px;
   font-weight: 400;
@@ -379,6 +388,7 @@ onMounted(() => {
   }
 
   @media (min-width: $lg) {
+
     display: grid;
     grid-template-columns: 400px 490px;
     column-gap: 30px;
@@ -409,9 +419,14 @@ onMounted(() => {
       } */
     }
 
-    @media (min-width: $lg) {}
+    @media (min-width: $lg) {
+      padding-bottom: 36px;
+    }
 
-    @media (min-width: $xl) {}
+    @media (min-width: $xl) {
+      padding-bottom: 24px;
+
+    }
 
     @media (min-width: $xxl) {}
   }

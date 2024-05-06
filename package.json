@@ -16,9 +16,7 @@
     "animejs": "^3.2.2",
     "gsap": "^3.12.5",
     "nuxt": "^3.11.1",
-    "sp-supermarquee": "^2.0.0",
     "vue": "^3.4.21",
-    "vue-router": "^4.3.0",
     "vue-scrollto": "^2.20.0",
     "yup": "^1.4.0"
   },

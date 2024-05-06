@@ -20,50 +20,37 @@ const services = ref([{
 
 onMounted(() => {
   const { $gsap } = useNuxtApp()
-  const animHeaderConfig = {
-    opacity: 0,
-    duration: 0.2
-  }
-
-  // const animTextConfig = {
-  //   opacity: 0,
-  //   duration: 0.8
-  // }
-
-  const headerTextConfig = '+=0.2'
-  // const blockConfig = '+=0.4'
 
 
-  // const animtextConfix = animHeaderConfig
-  $gsap.timeline({
-    scrollTrigger: {
-      trigger: "#services",
-      start: 'top 100%',
-      end: 'bottom 60%',
-      toggleActions: 'play none none none',
-      scrub: true,
-      // markers: true,
-      once: true
+  const distances = ['top 85%', 'top 70%', 'top 45%', 'top 30%']
 
-    }
+  distances.map((distanceItem, idx) => {
+    $gsap.timeline({
+      scrollTrigger: {
+        trigger: "#services",
+        start: distanceItem,
+        end: 'bottom 60%',
+        toggleActions: 'play none none none',
+
+      }
+    })
+      .from(`.service-header-${idx}`, {
+        opacity: 0,
+        duration: 0.4,
+        // stagger: 0.3,
+      }, '<0.3')
+      .from(`.service-text-${idx}`, {
+        opacity: 0,
+        duration: 0.4,
+        // stagger: 0.3,
+      }, '<0.1')
   })
 
-    .from('.service-header', {
-      opacity: 0,
-      duration: 0.4,
-      stagger: 0.3,
-    }, '<0.3')
-    .from('.sevice-text', {
-      opacity: 0,
-      duration: 0.4,
-      stagger: 0.3,
-    }, '<0.1')
-
 
   $gsap.timeline({
     scrollTrigger: {
       trigger: "#services",
-      start: 'top 80%',
+      start: 'top 85%',
       end: 'bottom 60%',
       toggleActions: 'play none none none',
     }
@@ -79,19 +66,10 @@ onMounted(() => {
         easing: 'easeInOutSine',
         duration: 1000,
         delay: function (el, i) { return i * 30 },
-        // direction: 'alternate',
-        // loop: true
       });
     }, '<')
 
 
-
-  // .from('.service-header-1', animHeaderConfig)
-  // .from('.service-text-1', animHeaderConfig, headerTextConfig)
-  // .from('.service-header-2', animHeaderConfig)
-  // .from('.service-text-2', animHeaderConfig, headerTextConfig)
-  // .from('.service-header-3', animHeaderConfig)
-  // .from('.service-text-3', animHeaderConfig, headerTextConfig)
 
 
 
@@ -101,17 +79,20 @@ onMounted(() => {
 </script>
 
 <template>
-  <div
+  <section
     id="services"
     class="container"
   >
-    <section class="section-wrapper">
-      <div class="section-header-wrapper">
+    <div class="section-wrapper">
+      <div class="section-header-wrapper section-header-services">
         <!-- <h2 class="section-header">SERVICES</h2> -->
         <ServicesHeader
           :fontControlled="false"
           class="section-header"
         ></ServicesHeader>
+        <h2 class="visually-hidden">Services</h2>
+
+
 
 
       </div>
@@ -136,12 +117,12 @@ onMounted(() => {
         </div>
 
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 </template>
 <style scoped lang="scss">
 .section-wrapper {
-  margin-top: 150px;
+  margin-top: 130px;
   display: grid;
   grid-template-columns: 67px 1fr;
   column-gap: 36px;
@@ -156,7 +137,7 @@ onMounted(() => {
   }
 
   @media (min-width: $lg) {
-    margin-top: 125px;
+    margin-top: 100px;
     grid-template-columns: 167px 1fr;
   }
 
@@ -200,13 +181,18 @@ onMounted(() => {
 }
 
 .section-header-wrapper {
-  position: relative;
+  position: sticky;
+  top: 0px;
   width: 65px;
+  height: 365px;
 
   @media (min-width: $md) {}
 
   @media (min-width: $lg) {
     width: 105px;
+    height: auto;
+    position: relative;
+
 
   }
 
@@ -219,7 +205,6 @@ onMounted(() => {
 }
 
 .service-header {
-  font-family: "Onest", sans-serif;
 
   font-size: 24px;
   font-weight: 600;
@@ -229,7 +214,6 @@ onMounted(() => {
   margin-bottom: 10px;
 
   @media (min-width: $md) {
-    font-family: "Onest", sans-serif;
 
     font-size: 32px;
     font-weight: 600;
@@ -284,7 +268,6 @@ onMounted(() => {
   left: 2px;
   color: transparent;
   // -webkit-text-stroke: 1.5px #fff;
-  // font-family: "Open Sans", sans-serif;
 
   // font-size: 80px;
   // font-weight: 800;

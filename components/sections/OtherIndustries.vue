@@ -1,7 +1,4 @@
-<script
-  setup
-  lang="ts"
->
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const tags = ref(['RETAIL', 'FOODTECH', 'EVENTS', 'E-COMMERCE', 'FINTECH', 'TRAVEL', 'HEALTHCARE', 'EDTECH', 'LOGISTICS'])
@@ -40,7 +37,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div
+  <section
     id="other-industies"
     class="container"
   >
@@ -54,14 +51,11 @@ onMounted(() => {
         {{ item }}
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 
-<style
-  scoped
-  lang="scss"
->
+<style scoped lang="scss">
 .tags-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -81,7 +75,6 @@ onMounted(() => {
 }
 
 .tag-item {
-  font-family: "Onest", sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 22px;
@@ -95,7 +88,6 @@ onMounted(() => {
   border: 2px solid rgba(255, 255, 255, 0.3);
 
   @media (min-width: $md) {
-    font-family: "Onest", sans-serif;
     font-size: 20px;
     font-weight: 500;
     line-height: 28px;
@@ -132,7 +124,7 @@ onMounted(() => {
 
 
   @media (min-width: $lg) {
-    margin-top: 55px;
+    margin-top: 45px;
 
   }
 

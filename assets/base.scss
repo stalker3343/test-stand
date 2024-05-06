@@ -1,13 +1,13 @@
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
-  --al-accent: #0097ec;
-  --al-white: #ffffff;
-  --al-white-90: rgba(221, 241, 255, 0.9);
-  --ai-black: #000000;
+  // --al-accent: #0097ec;
+  // --al-white: #ffffff;
+  // --al-white-90: rgba(221, 241, 255, 0.9);
+  // --ai-black: #000000;
 }
 
 body {
-  color: var(--al-white);
+  color: #ffffff;
   background: #005fee;
   // background: var(--ai-black);
 
@@ -20,6 +20,19 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 .app-wrapper-hidden {
@@ -85,13 +98,4 @@ body {
 }
 .fix-scroll {
   overflow: hidden;
-}
-
-:root {
-  /* fonts */
-  --body-desktop: "Onest", sans-serif;
-  --h1-desktop: "Open Sans", sans-serif;
-
-  /* Colors */
-  --color-white: #fff;
 }

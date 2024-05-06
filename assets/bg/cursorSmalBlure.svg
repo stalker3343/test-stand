@@ -5,12 +5,11 @@
       fill="#33FF00" />
   </g>
   <defs>
-    <filter id="filter0_f_1229_6999" x="-0.00585938" y="0.702393" width="929.84"
-      height="878.913"
+    <filter id="filter0_f_1229_6999" x="-0.00585938" y="0.702393" width="929.84" height="878.913"
       filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
       <feFlood flood-opacity="0" result="BackgroundImageFix" />
       <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-      <feGaussianBlur stdDeviation="100.32" result="effect1_foregroundBlur_1229_6999" />
+      <feGaussianBlur stdDeviation="50.32" result="effect1_foregroundBlur_1229_6999" />
     </filter>
   </defs>
 </svg>

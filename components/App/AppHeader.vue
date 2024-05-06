@@ -10,24 +10,36 @@ const onToggleMenu = () => {
   // isModalOpen.value = !isModalOpen.value
   isRightModalOpen.value = !isRightModalOpen.value
 }
+
+const { $viewport } = useNuxtApp()
+
+watch($viewport.breakpoint, (newBreakpoint, oldBreakpoint) => {
+  console.log('Breakpoint updated:', oldBreakpoint, '->', newBreakpoint)
+  if ($viewport.isGreaterThan('lg')) {
+    isRightModalOpen.value = false
+  }
+})
+
+
 </script>
 <template>
-  <div class="header-wrapper">
+  <header class="header-wrapper">
 
 
     <div class="container">
-      <header class="header">
+      <div class="header">
         <a
           class="anim-logo"
           href="/"
         >
           <img
             src="/logo.svg"
-            alt="Company Logo"
+            alt="Afterlogic"
             class="company-logo"
           />
         </a>
         <button
+          aria-label="Open mobile menu"
           class="burger"
           @click="onToggleMenu"
           :class="{ 'active': isModalOpen || isRightModalOpen }"
@@ -37,7 +49,9 @@ const onToggleMenu = () => {
             <li
               v-scroll-to="'#services'"
               class="menu-item"
-            >Services</li>
+            >
+              Services
+            </li>
             <li
               v-scroll-to="'#industries'"
               class="menu-item"
@@ -53,14 +67,10 @@ const onToggleMenu = () => {
           >
             Book a call</button>
         </nav>
-      </header>
-      <AppMobileMenu
-        @close="isModalOpen = false"
-        :value="isModalOpen"
-      ></AppMobileMenu>
+      </div>
       <AppMobileMenuRight v-model="isRightModalOpen"></AppMobileMenuRight>
     </div>
-  </div>
+  </header>
 </template>
 
 <style scoped lang="scss">
@@ -175,7 +185,6 @@ const onToggleMenu = () => {
 }
 
 .menu-item {
-  font-family: "Onest", sans-serif;
   color: #ffffff;
   font-weight: 400;
   font-size: 16px;
@@ -219,7 +228,6 @@ const onToggleMenu = () => {
   font-size: 16px;
   line-height: 100%;
   letter-spacing: 0.02em;
-  font-family: "Onest", sans-serif;
   color: white;
   padding: 12px 24px;
   cursor: pointer;

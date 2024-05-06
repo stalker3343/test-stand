@@ -15,11 +15,16 @@ defineProps({
 
 <template>
   <BaseCase
-    class="looker-case"
-    :is-left-img="true"
+    class="tyler-case"
+    :is-left-img="false"
   >
     <template #img>
-
+      <!-- <img
+        class="base-image"
+        :src="caseItem.img"
+        alt=""
+        loading="lazy"
+      > -->
       <video
         class="base-image"
         autoplay
@@ -35,18 +40,10 @@ defineProps({
           type="video/webm"
         >
       </video>
-
-
-
-      <!-- <img
-        class="base-image"
-        :src="caseItem.img"
-        alt=""
-      > -->
     </template>
     <template #description>
       <CaseDescription
-        class="looker-case-description"
+        class="tyler-case-description"
         :header="caseItem.header"
         :description="caseItem.description"
         :technologies="caseItem.technologies"
@@ -59,75 +56,78 @@ defineProps({
 </template>
 
 <style lang="scss" scoped>
-.looker-case-description {
+.tyler-case-description {
 
 
   @media (min-width: $lg) {
-    margin-bottom: 160px;
+    margin-bottom: 40px;
   }
 
   @media (min-width: $xl) {
-    margin-bottom: 80px;
-
-  }
-
-  @media (min-width: $xxl) {}
-}
-
-.base-image {
-  z-index: 10;
-  position: absolute;
-  top: -30px;
-  max-width: initial;
-  left: -75px;
-  height: 393px;
-  object-fit: cover;
-
-  @media (min-width: $md) {
-    top: -40px;
-
-    height: 608px;
-    left: -120px;
-  }
-
-  @media (min-width: $lg) {
-    height: 685px;
-    left: -380px;
-    top: -122px;
-
-
-  }
-
-  @media (min-width: $xl) {
-    left: -305px;
-    top: -110px;
-    height: 695px;
-
+    margin-bottom: 45px;
 
   }
 
   @media (min-width: $xxl) {
-    left: -180px;
-    top: -150px;
-    height: 805px;
-
+    margin-bottom: 55px;
 
   }
 }
 
-.looker-case {
-  padding-top: 360px;
+.base-image {
+  z-index: 10;
+
+  position: absolute;
+  top: -90px;
+  max-width: initial;
+  left: -85px;
+  height: 475px;
 
   @media (min-width: $md) {
-    padding-top: calc(448px + 60px);
+    height: 598px;
+    top: -90px;
+    left: -105px;
+
+
+  }
+
+  @media (min-width: $lg) {
+    height: 626px;
+    left: 342px;
+    top: -120px;
+  }
+
+  @media (min-width: $xl) {
+    top: -140px;
+    left: 410px;
+
+    height: 762px;
+  }
+
+  @media (min-width: $xxl) {
+    top: -240px;
+    left: 595px;
+    height: 902px;
+
+  }
+
+}
+
+.tyler-case {
+  padding-top: calc(275px + 85px);
+
+  @media (min-width: $md) {
+    padding-top: calc(388px + 60px);
   }
 
   @media (min-width: $lg) {
     padding: 0px;
+
   }
 
   @media (min-width: $xl) {}
 
   @media (min-width: $xxl) {}
+
 }
 </style>

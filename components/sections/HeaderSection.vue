@@ -1,12 +1,13 @@
 <template>
-  <div class="container">
-    <section class="company-intro">
+  <section class="container">
+    <div class="company-intro">
 
 
       <!-- <img
         class="text-logo-two-row"
         src="@/assets/images/text-logo-two-row.svg"
       > -->
+      <h1 class="visually-hidden">Afterlogic.Works</h1>
 
       <svg
         class="text-logo-two-row"
@@ -121,8 +122,8 @@
       <ul class="company-description">
         <li>Web and mobile development company</li>
         <li>Reliable tech partner for more than 100 companies since 2011</li>
-        <li>Full cycle web and mobile developmente</li>
-        <li>US jurisdiction</li>
+        <li>Full cycle web and mobile development</li>
+        <li>US Jurisdiction</li>
       </ul>
       <div class="talk-badges-wrapper">
         <div class="badges-list">
@@ -134,10 +135,10 @@
           >
 
             <img
+              :alt="item.alt"
               class="badge-item"
               :src="item.src"
             >
-
 
           </a>
         </div>
@@ -153,8 +154,8 @@
 
 
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 </template>
 
 <script lang="ts" setup>
@@ -164,23 +165,28 @@ import MainTitleOneRow from "@/assets/images/headers/main-title-one-row.svg?skip
 
 const badges = ref([{
   src: './badges/clutch.svg',
-  link: 'https://clutch.co/profile/afterlogicworks#highlights'
+  link: 'https://clutch.co/profile/afterlogicworks#highlights',
+  alt: 'clutch'
 
 }, {
   src: './badges/topcompany.svg',
-  link: 'https://clutch.co/profile/afterlogicworks#highlights'
+  link: 'https://clutch.co/profile/afterlogicworks#highlights',
+  alt: 'clutch'
 
 }, {
   src: './badges/goodfirms.svg',
-  link: 'https://www.goodfirms.co/company/afterlogic-works'
+  link: 'https://www.goodfirms.co/company/afterlogic-works',
+  alt: 'goodfirms'
 
 }, {
   src: './badges/topdevs.svg',
-  link: 'https://upcity.com/profiles/afterlogic-works'
+  link: 'https://upcity.com/profiles/afterlogic-works',
+  alt: 'topdevs'
 
 }, {
   src: './badges/appFutura.svg',
-  link: 'https://www.appfutura.com/companies/afterlogicworks'
+  link: 'https://www.appfutura.com/companies/afterlogicworks',
+  alt: 'appFutura'
 
 },
 
@@ -261,7 +267,7 @@ const badges = ref([{
   margin-top: 25px;
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 25px;
   justify-content: center;
 
   @media (min-width: $md) {
@@ -292,7 +298,7 @@ const badges = ref([{
 }
 
 .badge-item {
-  height: 64px;
+  height: 58px;
 
   @media (min-width: $xl) {
     height: 80px;
@@ -401,7 +407,6 @@ const badges = ref([{
 
 
 .company-description {
-  font-family: "Onest", sans-serif;
 
   font-size: 20px;
   font-weight: 400;
@@ -476,7 +481,6 @@ const badges = ref([{
 
 .contact-btn {
   cursor: pointer;
-  font-family: "Onest", sans-serif;
 
   font-size: 36px;
   font-weight: 700;

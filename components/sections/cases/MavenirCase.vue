@@ -15,11 +15,10 @@ defineProps({
 
 <template>
   <BaseCase
-    class="looker-case"
-    :is-left-img="true"
+    class="word-case"
+    :is-left-img="false"
   >
     <template #img>
-
       <video
         class="base-image"
         autoplay
@@ -36,9 +35,8 @@ defineProps({
         >
       </video>
 
-
-
       <!-- <img
+        loading="lazy"
         class="base-image"
         :src="caseItem.img"
         alt=""
@@ -46,7 +44,7 @@ defineProps({
     </template>
     <template #description>
       <CaseDescription
-        class="looker-case-description"
+        class="word-case-description"
         :header="caseItem.header"
         :description="caseItem.description"
         :technologies="caseItem.technologies"
@@ -59,15 +57,15 @@ defineProps({
 </template>
 
 <style lang="scss" scoped>
-.looker-case-description {
+.word-case-description {
 
 
   @media (min-width: $lg) {
-    margin-bottom: 160px;
+    margin-bottom: 135px;
   }
 
   @media (min-width: $xl) {
-    margin-bottom: 80px;
+    margin-bottom: 120px;
 
   }
 
@@ -76,58 +74,64 @@ defineProps({
 
 .base-image {
   z-index: 10;
+
   position: absolute;
-  top: -30px;
+  top: -50px;
+  left: -60px;
   max-width: initial;
-  left: -75px;
-  height: 393px;
-  object-fit: cover;
+  /* left: -20px; */
+  height: 515px;
 
   @media (min-width: $md) {
+    height: 680px;
     top: -40px;
-
-    height: 608px;
-    left: -120px;
+    left: -30px;
   }
 
   @media (min-width: $lg) {
-    height: 685px;
-    left: -380px;
-    top: -122px;
-
+    height: 650px;
+    left: 332px;
+    top: -145px;
 
   }
 
   @media (min-width: $xl) {
-    left: -305px;
-    top: -110px;
-    height: 695px;
+    top: -160px;
+    height: 756px;
 
+    left: 480px;
 
   }
 
   @media (min-width: $xxl) {
-    left: -180px;
-    top: -150px;
-    height: 805px;
+    top: -220px;
+    left: 700px;
+    height: 956px;
 
 
   }
+
 }
 
-.looker-case {
-  padding-top: 360px;
+.word-case {
+  padding-top: calc(359px + 75px);
 
   @media (min-width: $md) {
-    padding-top: calc(448px + 60px);
+    padding-top: calc(501px + 70px);
   }
 
   @media (min-width: $lg) {
     padding: 0px;
+    padding-top: 50px;
   }
 
-  @media (min-width: $xl) {}
+  @media (min-width: $xl) {
+    padding-top: 70px;
+  }
 
-  @media (min-width: $xxl) {}
+  @media (min-width: $xxl) {
+    padding-top: 50px;
+
+  }
 }
 </style>

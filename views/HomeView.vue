@@ -51,11 +51,9 @@ import ValuesSection from "../components/sections/ValuesSection.vue";
 import AppFooter from "../components/App/AppFooter.vue";
 import TestDinamBg from "../components/TestDinamBg.vue";
 import ShapesBg from "../components/ShapesBg.vue";
-// import anime from "animejs";
+import anime from "animejs";
 
-const anime = () => {
 
-}
 
 import HowWeWork from "../components/sections/HowWeWork.vue";
 
@@ -99,30 +97,30 @@ onMounted(() => {
   wrapper?.classList.remove("app-wrapper-hidden");
   document.body.classList.remove('loading');
 
-  // $gsap.timeline()
-  //   .from(['.anim-logo', '.menu-list', '.call-to-action'], {
-  //     stagger: 0.1,
-  //     y: -200,
-  //     duration: 0.5,
-  //     ease: "back.out(1.25)",
-  //   })
-  //   .from('.text-logo-one-row', {
-  //     opacity: 0,
-  //     y: 30,
-  //   }, '<0.2')
+  $gsap.timeline()
+    // .from(['.anim-logo', '.menu-list', '.call-to-action'], {
+    //   stagger: 0.1,
+    //   y: -200,
+    //   duration: 0.5,
+    //   ease: "back.out(1.25)",
+    // })
+    // .from('.text-logo-one-row', {
+    //   opacity: 0,
+    //   y: 30,
+    // }, '<0.2')
 
-  //   .add(function () {
-  //     anime({
-  //       targets: '.text-logo-one-row path',
-  //       strokeDashoffset: [anime.setDashoffset, 0],
-  //       easing: 'easeInOutSine',
-  //       duration: 1000,
-  //       delay: function (el, i) { return i * 30 },
-  //       // direction: 'alternate',
-  //       // loop: true
-  //     });
+    .add(function () {
+      anime({
+        targets: '.text-logo-one-row path',
+        strokeDashoffset: [anime.setDashoffset, 0],
+        easing: 'easeInOutSine',
+        duration: 1000,
+        delay: function (el, i) { return i * 30 },
+        // direction: 'alternate',
+        // loop: true
+      });
 
-  //   }, '<')
+    }, '<')
 
   //   .to('.company-description li', {
   //     clipPath: 'polygon(-20px 0%, 100% 0, 100% 100%, -20px 100%)',

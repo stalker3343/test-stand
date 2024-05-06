@@ -95,68 +95,68 @@ onMounted(() => {
   wrapper?.classList.remove("app-wrapper-hidden");
   document.body.classList.remove('loading');
 
-  $gsap.timeline()
-    .from(['.anim-logo', '.menu-list', '.call-to-action'], {
-      stagger: 0.1,
-      y: -200,
-      duration: 0.5,
-      ease: "back.out(1.25)",
-    })
-    .from('.text-logo-one-row', {
-      opacity: 0,
-      y: 30,
-    }, '<0.2')
+  // $gsap.timeline()
+  //   .from(['.anim-logo', '.menu-list', '.call-to-action'], {
+  //     stagger: 0.1,
+  //     y: -200,
+  //     duration: 0.5,
+  //     ease: "back.out(1.25)",
+  //   })
+  //   .from('.text-logo-one-row', {
+  //     opacity: 0,
+  //     y: 30,
+  //   }, '<0.2')
 
-    .add(function () {
-      anime({
-        targets: '.text-logo-one-row path',
-        strokeDashoffset: [anime.setDashoffset, 0],
-        easing: 'easeInOutSine',
-        duration: 1000,
-        delay: function (el, i) { return i * 30 },
-        // direction: 'alternate',
-        // loop: true
-      });
+  //   .add(function () {
+  //     anime({
+  //       targets: '.text-logo-one-row path',
+  //       strokeDashoffset: [anime.setDashoffset, 0],
+  //       easing: 'easeInOutSine',
+  //       duration: 1000,
+  //       delay: function (el, i) { return i * 30 },
+  //       // direction: 'alternate',
+  //       // loop: true
+  //     });
 
-    }, '<')
+  //   }, '<')
 
-    .to('.company-description li', {
-      clipPath: 'polygon(-20px 0%, 100% 0, 100% 100%, -20px 100%)',
-      stagger: 0.2,
-      duration: 0.8
-    }, '<0.3')
-    .from('.company-description', {
-      opacity: 0,
-      y: 30,
-    }, '<0.1')
-    .from('.badges-list a', {
-      duration: 0.6,
-      opacity: 0,
-      stagger: {
-        from: "end",
-        amount: 0.15,
-        // y: 11
-      }
-    }, '<0.3')
-    .from('.contact-btn', {
-      opacity: 0,
-      y: 30,
-    }, '<0.5')
-    .from('.clients-header', {
-      duration: 0.3,
-      opacity: 0,
-      y: 5
-    }, '<0.2')
-    .from('.item', {
-      duration: 0.3,
-      opacity: 0,
-      stagger: {
-        from: "start",
-        amount: 0.3,
-        // y: 5
-      }
-    }, '<0.2')
-    .set(".mouse", { display: 'flex' }, '<1')
+  //   .to('.company-description li', {
+  //     clipPath: 'polygon(-20px 0%, 100% 0, 100% 100%, -20px 100%)',
+  //     stagger: 0.2,
+  //     duration: 0.8
+  //   }, '<0.3')
+  //   .from('.company-description', {
+  //     opacity: 0,
+  //     y: 30,
+  //   }, '<0.1')
+  //   .from('.badges-list a', {
+  //     duration: 0.6,
+  //     opacity: 0,
+  //     stagger: {
+  //       from: "end",
+  //       amount: 0.15,
+  //       // y: 11
+  //     }
+  //   }, '<0.3')
+  //   .from('.contact-btn', {
+  //     opacity: 0,
+  //     y: 30,
+  //   }, '<0.5')
+  //   .from('.clients-header', {
+  //     duration: 0.3,
+  //     opacity: 0,
+  //     y: 5
+  //   }, '<0.2')
+  //   .from('.item', {
+  //     duration: 0.3,
+  //     opacity: 0,
+  //     stagger: {
+  //       from: "start",
+  //       amount: 0.3,
+  //       // y: 5
+  //     }
+  //   }, '<0.2')
+  //   .set(".mouse", { display: 'flex' }, '<1')
 
 
 

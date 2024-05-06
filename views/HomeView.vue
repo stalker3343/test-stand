@@ -24,7 +24,7 @@
       :rows="rowsWeDo"
     ></WeWork>
     <!-- <OurOtherClients></OurOtherClients> -->
-    <!-- <ShapesBg></ShapesBg> -->
+    <ShapesBg></ShapesBg>
 
 
   </main>

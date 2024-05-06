@@ -5,8 +5,8 @@ import SuccessBlock from '@/components/sections/Footer/SuccessBlock.vue'
 
 import BaseIcon from '@/ui/BaseIcon.vue'
 import { useForm } from 'vee-validate';
-import { object, string } from 'yup';
-import { toTypedSchema } from '@vee-validate/yup';
+// import { object, string } from 'yup';
+// import { toTypedSchema } from '@vee-validate/yup';
 import { ref } from 'vue';
 // import anime from "animejs";
 
@@ -18,14 +18,14 @@ const formSendSucess = ref(false)
 const formError = ref('')
 
 const { handleSubmit, isSubmitting } = useForm({
-  validationSchema: toTypedSchema(
-    object({
-      phone: string().required().label('Phone').default(''),
-      email: string().required().email().label('Email').default(''),
-      name: string().required().label('Name').default(''),
-      description: string().label('Description').default(''),
-    }),
-  ),
+  // validationSchema: toTypedSchema(
+  //   object({
+  //     phone: string().required().label('Phone').default(''),
+  //     email: string().required().email().label('Email').default(''),
+  //     name: string().required().label('Name').default(''),
+  //     description: string().label('Description').default(''),
+  //   }),
+  // ),
 });
 const runtimeConfig = useRuntimeConfig()
 

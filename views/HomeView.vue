@@ -28,7 +28,7 @@
 
 
   </main>
-  <AppFooter v-if="isShowFooter"></AppFooter>
+  <AppFooter></AppFooter>
 
 </template>
 <script lang="ts" setup>
@@ -38,7 +38,7 @@ const OurClients = defineAsyncComponent(() =>
   import('../components/sections/OurClients.vue')
 )
 
-const AppFooter = defineAsyncComponent(() => import('../components/App/AppFooter.vue'))
+// const AppFooter = defineAsyncComponent(() => import('../components/App/AppFooter.vue'))
 
 
 import HeaderSection from "../components/sections/HeaderSection.vue";
@@ -49,7 +49,7 @@ import CasesSection from "../components/sections/cases/CasesSection.vue";
 import BlogSection from "../components/sections/BlogSection.vue";
 import ValuesSection from "../components/sections/ValuesSection.vue";
 // import OurOtherClients from "../components/sections/OurOtherClients.vue";
-// import AppFooter from "../components/App/AppFooter.vue";
+import AppFooter from "../components/App/AppFooter.vue";
 import TestDinamBg from "../components/TestDinamBg.vue";
 import ShapesBg from "../components/ShapesBg.vue";
 import anime from "animejs";

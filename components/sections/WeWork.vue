@@ -98,62 +98,72 @@ const { $viewport } = useNuxtApp()
 
 onMounted(() => {
   const { $gsap } = useNuxtApp()
-  // $gsap.timeline({
-  //   scrollTrigger: {
-  //     trigger: `#${props.id}`,
-  //     start: 'top 75%',
-  //     end: 'bottom 60%',
-  //     toggleActions: 'play none none none',
-  //   }
-  // })
-  //   .from(`#${props.id} .anim-we-work-header`, {
-  //     duration: 1,
-  //     opacity: 0,
-  //   })
-  //   .add(function () {
-  //     anime({
-  //       targets: `#${props.id} .anim-we-work-header path`,
-  //       strokeDashoffset: [anime.setDashoffset, 0],
-  //       easing: 'easeInOutSine',
-  //       duration: 1001,
-  //       delay: function (el, i) { return i * 30 },
-  //       // direction: 'alternate',
-  //       // loop: true
-  //     });
-  //   }, '<')
+  $gsap.timeline({
+    scrollTrigger: {
+      trigger: `#${props.id}`,
+      start: 'top 75%',
+      end: 'bottom 60%',
+      toggleActions: 'play none none none',
+    }
+  })
+    .from(`#${props.id} .anim-we-work-header`, {
+      duration: 1,
+      opacity: 0,
+    })
+    .add(function () {
+      anime({
+        targets: `#${props.id} .anim-we-work-header path`,
+        strokeDashoffset: [anime.setDashoffset, 0],
+        easing: 'easeInOutSine',
+        duration: 1001,
+        delay: function (el, i) { return i * 30 },
+        // direction: 'alternate',
+        // loop: true
+      });
+    }, '<')
 
-  // const distances = ['top 70%', 'top 55%', 'top 30%', 'top 15%']
-  // distances.map((distanceItem, idx) => {
-  //   const tm1 = $gsap.timeline({
-  //     scrollTrigger: {
-  //       trigger: `#${props.id} .list-wrapper`,
-  //       start: distanceItem,
-  //       end: 'bottom 60%',
-  //       toggleActions: 'play none none none',
-  //     }
-  //   })
-  //     .from(`#${props.id} .row-title-${idx}`,
-  //       {
-  //         opacity: 0,
-  //         duration: 0.2,
-  //         // stagger: 0.4,
-  //       }, '<0.3')
+  const distances = ['top 70%', 'top 55%', 'top 30%', 'top 15%']
+  distances.map((distanceItem, idx) => {
+    const tm1 = $gsap.timeline({
+      scrollTrigger: {
+        trigger: `#${props.id} .list-wrapper`,
+        start: distanceItem,
+        end: 'bottom 60%',
+        toggleActions: 'play none none none',
+      }
+    })
+      .from(`#${props.id} .row-title-${idx}`,
+        {
+          opacity: 0,
+          duration: 0.2,
+          // stagger: 0.4,
+        }, '<0.3')
 
-  //     .from(`#${props.id} .row-text-${idx}`, {
-  //       opacity: 0,
-  //       duration: 0.2,
-  //       // stagger: 0.4,
-  //     }, "<0.1")
+      .from(`#${props.id} .row-text-${idx}`, {
+        opacity: 0,
+        duration: 0.2,
+        // stagger: 0.4,
+      }, "<0.1")
 
-  //   if (idx !== 3) {
-  //     tm1.from(`#${props.id} .row-line-${idx}`, {
-  //       width: '0%',
-  //       duration: 2,
-  //       // stagger: 0.3,
-  //     }, "<-0.5")
-  //   }
+    if (idx !== 3) {
+      tm1.from(`#${props.id} .row-line-${idx}`, {
+        width: '0%',
+        duration: 2,
+        // stagger: 0.3,
+      }, "<-0.5")
+    }
 
-  // })
+    // .from(`#${props.id} .row-line-1`, {
+    //   width: '0%',
+    //   duration: 1.7,
+    //   // stagger: 0.3,
+    // }, "<0.3")
+    // .from(`#${props.id} .row-line-2`, {
+    //   width: '0%',
+    //   duration: 1.3,
+    //   // stagger: 0.3,
+    // }, "<0.6")
+  })
 
 
 

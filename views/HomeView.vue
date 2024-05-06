@@ -28,7 +28,7 @@
 
 
   </main>
-  <AppFooter></AppFooter>
+  <!--   <AppFooter></AppFooter> -->
 
 </template>
 <script lang="ts" setup>
@@ -49,7 +49,7 @@ import CasesSection from "../components/sections/cases/CasesSection.vue";
 import BlogSection from "../components/sections/BlogSection.vue";
 import ValuesSection from "../components/sections/ValuesSection.vue";
 // import OurOtherClients from "../components/sections/OurOtherClients.vue";
-import AppFooter from "../components/App/AppFooter.vue";
+// import AppFooter from "../components/App/AppFooter.vue";
 import TestDinamBg from "../components/TestDinamBg.vue";
 import ShapesBg from "../components/ShapesBg.vue";
 import anime from "animejs";

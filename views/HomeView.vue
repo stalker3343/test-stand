@@ -28,7 +28,7 @@
 
 
   </main>
-  <AppFooter></AppFooter>
+  <AppFooter v-if="isShowFooter"></AppFooter>
 
 </template>
 <script lang="ts" setup>
@@ -89,8 +89,13 @@ const rowsWeDo = ref([{
   text: 'We integrate automated tests into the development process, detecting and addressing potential issues at early stages. We also employ CI/CD to streamline the delivery of your web or mobile app.'
 }])
 
+const isShowFooter = ref(false)
 const appWrapper = ref<HTMLInputElement | null>(null)
 onMounted(() => {
+  setTimeout(() => {
+    isShowFooter.value = true;
+  }, 2000)
+
   const { $gsap } = useNuxtApp()
   const wrapper = document.querySelector('.app-wrapper')
   wrapper?.classList.remove("app-wrapper-hidden");

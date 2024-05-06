@@ -1,10 +1,6 @@
 import VueScrollTo from "vue-scrollto";
 import type { ObjectDirective } from "vue";
-// import anime from "animejs";
-
-const anime = () => {
-
-}
+import anime from "animejs";
 
 interface ScrollAnimateBindingOptions {
   root?: Element | null;

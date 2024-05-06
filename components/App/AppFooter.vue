@@ -8,11 +8,7 @@ import { useForm } from 'vee-validate';
 import { object, string } from 'yup';
 import { toTypedSchema } from '@vee-validate/yup';
 import { ref } from 'vue';
-// import anime from "animejs";
-
-const anime = () => {
-
-}
+import anime from "animejs";
 
 const formSendSucess = ref(false)
 const formError = ref('')

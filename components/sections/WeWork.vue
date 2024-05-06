@@ -91,11 +91,7 @@ interface Props {
   header: string
   id: string
 }
-// import anime from "animejs";
-
-const anime = () => {
-
-}
+import anime from "animejs";
 
 const props = defineProps<Props>()
 const { $viewport } = useNuxtApp()

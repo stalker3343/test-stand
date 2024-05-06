@@ -67,11 +67,7 @@ const OurValues = defineAsyncComponent(() => import('@/assets/images/headers/our
 const OurValuesSm = defineAsyncComponent(() => import('@/assets/images/headers/our-values-sm.svg?skipsvgo'))
 
 
-// import anime from "animejs";
-
-const anime = () => {
-
-}
+import anime from "animejs";
 const { $viewport } = useNuxtApp()
 const numbersSvgList = [NumberOne, NumberTwo, NumberThree]
 const values = ref([{

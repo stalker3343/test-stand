@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-// import anime from "animejs";
-
-const anime = () => {
-
-}
+import anime from "animejs";
 import ServicesHeader from "@/assets/images/headers/services.svg"
 
 
@@ -28,50 +24,50 @@ onMounted(() => {
 
   const distances = ['top 85%', 'top 70%', 'top 45%', 'top 30%']
 
-  // distances.map((distanceItem, idx) => {
-  //   $gsap.timeline({
-  //     scrollTrigger: {
-  //       trigger: "#services",
-  //       start: distanceItem,
-  //       end: 'bottom 60%',
-  //       toggleActions: 'play none none none',
+  distances.map((distanceItem, idx) => {
+    $gsap.timeline({
+      scrollTrigger: {
+        trigger: "#services",
+        start: distanceItem,
+        end: 'bottom 60%',
+        toggleActions: 'play none none none',
 
-  //     }
-  //   })
-  //     .from(`.service-header-${idx}`, {
-  //       opacity: 0,
-  //       duration: 0.4,
-  //       // stagger: 0.3,
-  //     }, '<0.3')
-  //     .from(`.service-text-${idx}`, {
-  //       opacity: 0,
-  //       duration: 0.4,
-  //       // stagger: 0.3,
-  //     }, '<0.1')
-  // })
+      }
+    })
+      .from(`.service-header-${idx}`, {
+        opacity: 0,
+        duration: 0.4,
+        // stagger: 0.3,
+      }, '<0.3')
+      .from(`.service-text-${idx}`, {
+        opacity: 0,
+        duration: 0.4,
+        // stagger: 0.3,
+      }, '<0.1')
+  })
 
 
-  // $gsap.timeline({
-  //   scrollTrigger: {
-  //     trigger: "#services",
-  //     start: 'top 85%',
-  //     end: 'bottom 60%',
-  //     toggleActions: 'play none none none',
-  //   }
-  // })
-  //   .from('.section-header-wrapper', {
-  //     duration: 1,
-  //     opacity: 0,
-  //   })
-  //   .add(function () {
-  //     anime({
-  //       targets: '.section-header-wrapper path',
-  //       strokeDashoffset: [anime.setDashoffset, 0],
-  //       easing: 'easeInOutSine',
-  //       duration: 1000,
-  //       delay: function (el, i) { return i * 30 },
-  //     });
-  //   }, '<')
+  $gsap.timeline({
+    scrollTrigger: {
+      trigger: "#services",
+      start: 'top 85%',
+      end: 'bottom 60%',
+      toggleActions: 'play none none none',
+    }
+  })
+    .from('.section-header-wrapper', {
+      duration: 1,
+      opacity: 0,
+    })
+    .add(function () {
+      anime({
+        targets: '.section-header-wrapper path',
+        strokeDashoffset: [anime.setDashoffset, 0],
+        easing: 'easeInOutSine',
+        duration: 1000,
+        delay: function (el, i) { return i * 30 },
+      });
+    }, '<')
 
 
 

@@ -89,11 +89,7 @@ import Six from '@/assets/images/how-we-work/6.svg?skipsvgo';
 import Seven from '@/assets/images/how-we-work/7.svg?skipsvgo';
 
 
-// import anime from "animejs";
-
-const anime = () => {
-
-}
+import anime from "animejs";
 
 import { ref } from 'vue';
 const { $viewport } = useNuxtApp()

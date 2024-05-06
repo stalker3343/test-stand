@@ -58,9 +58,9 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: "en",
       },
-      bodyAttrs: {
-        class: "loading",
-      },
+      // bodyAttrs: {
+      //   class: "loading",
+      // },
       title: siteMetaInfo.name,
       meta: [
         { name: "viewport", content: "width=device-width, initial-scale=1" },

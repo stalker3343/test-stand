@@ -93,7 +93,7 @@ interface Props {
 }
 // import anime from "animejs";
 
-const anime = ()=>{
+const anime = () => {
 
 }
 

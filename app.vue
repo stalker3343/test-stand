@@ -20,8 +20,8 @@ onMounted(() => {
 
 
 <template>
-  <div class="app-wrapper app-wrapper-hidden">
-
+  <div class="app-wrapper">
+    <!-- app-wrapper-hidden -->
     <!-- <video
       poster="/video-poster.png"
       disablePictureInPicture

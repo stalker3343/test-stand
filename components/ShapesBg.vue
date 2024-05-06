@@ -64,28 +64,28 @@ onMounted(() => {
   const rotateanim = $gsap.to(`#realFollowCursor`, { duration: 30, rotation: 360, ease: "power1.inOut", repeat: -1, yoyo: true })
   const rotateanim2 = $gsap.to(`#realFollowCursor2`, { duration: 30, rotation: -360, ease: "power1.inOut", repeat: -1, yoyo: true })
 
-  ScrollTrigger.create({
-    trigger: `.footer-section`,
-    start: 'top 140%',
-    end: 'bottom 60%',
-    onEnter: (self) => {
-      pulsarAnim.pause()
-      rotateanim.pause()
-      $gsap.to(`#realFollowCursor`, { duration: 2, ease: "power4.in", scale: 0, opacity: 0 })
-    },
-    onLeaveBack: (self) => {
-      $gsap.to(`#realFollowCursor`, { duration: 2, scale: 0.8, opacity: 1 })
-      setTimeout(() => {
-        $gsap.set(`#realFollowCursor`, { scale: 0.8 })
-        $gsap.set(`#realFollowCursor`, { rotation: 0 })
+  // ScrollTrigger.create({
+  //   trigger: `.footer-section`,
+  //   start: 'top 140%',
+  //   end: 'bottom 60%',
+  //   onEnter: (self) => {
+  //     pulsarAnim.pause()
+  //     rotateanim.pause()
+  //     $gsap.to(`#realFollowCursor`, { duration: 2, ease: "power4.in", scale: 0, opacity: 0 })
+  //   },
+  //   onLeaveBack: (self) => {
+  //     $gsap.to(`#realFollowCursor`, { duration: 2, scale: 0.8, opacity: 1 })
+  //     setTimeout(() => {
+  //       $gsap.set(`#realFollowCursor`, { scale: 0.8 })
+  //       $gsap.set(`#realFollowCursor`, { rotation: 0 })
 
-        pulsarAnim.play(0)
-        rotateanim.play(0)
+  //       pulsarAnim.play(0)
+  //       rotateanim.play(0)
 
-      }, 2000)
+  //     }, 2000)
 
-    },
-  });
+  //   },
+  // });
   console.log($viewport.isGreaterThan('lg'), 'in mounted', window.innerWidth);
 
   if (!$viewport.isGreaterThan('lg')) {

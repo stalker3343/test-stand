@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import anime from "animejs";
+// import anime from "animejs";
+
+const anime = () => {
+
+}
 import ServicesHeader from "@/assets/images/headers/services.svg"
 
 

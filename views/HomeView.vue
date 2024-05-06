@@ -51,7 +51,11 @@ import ValuesSection from "../components/sections/ValuesSection.vue";
 import AppFooter from "../components/App/AppFooter.vue";
 import TestDinamBg from "../components/TestDinamBg.vue";
 import ShapesBg from "../components/ShapesBg.vue";
-import anime from "animejs";
+// import anime from "animejs";
+
+const anime = () => {
+
+}
 
 import HowWeWork from "../components/sections/HowWeWork.vue";
 
